@@ -1,0 +1,64 @@
+.container {
+  --transition-speed: 0.3s;
+}
+
+.drawer {
+  color: white;
+  background: rgb(0,0,0,1);
+  width: 80%;
+  height: 100%;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform var(--transition-speed);
+  z-index: 1000;
+  transform: translateX(-100%);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.backdrop {
+  visibility: hidden;
+  opacity: 0;
+  /* background: rgba(255, 255, 255, 0.8); */
+  transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.backdropOpen {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 999;
+}
+
+@media (min-width: 768px) {
+  .drawer {
+    display: none;
+  }
+
+  .open {
+    display: none;
+  }
+
+  .backdrop {
+    display: none;
+  }
+
+  .backdropOpen {
+    display: none;
+  }
+
+  .container {
+    display: none;
+  }
+}

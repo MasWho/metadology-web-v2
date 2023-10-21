@@ -1,0 +1,26 @@
+.burgerContainer {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+}
+
+.burgerContainer:hover {
+  cursor: pointer;
+}
+
+.burger {
+  width: 1.5rem;
+  height: 0.12rem;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}
+
+@media (min-width: 768px) {
+  .burgerContainer {
+    display: none;
+  }
+}
