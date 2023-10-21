@@ -7,6 +7,21 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      'sm-phone': '360px',  // by 640px
+      'md-phone': '385px',
+      'lg-phone': '425px',  // by 768px
+      'tablet': '768px',
+      'laptop': '1024px',  // by 768px
+      'desktop': '1280px', // by 1080
+    },
+    colors: {
+      'c-primary': '#000000',
+      'c-heading': '#FFFFFF',
+      'c-subtext': '#A8A8A8',
+      'c-accent-red': '#FF6666',
+      'c-accent-green': '#9AFF9E'
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
