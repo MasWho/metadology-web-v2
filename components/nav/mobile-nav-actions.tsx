@@ -1,10 +1,9 @@
-import { generateClasses } from "@/utils/styling";
-import Link from "next/link";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import GetStartedButton from "./ContactButton";
-import styles from "./MobileNavActions.module.css";
-import { AllPages } from "@/pages";
+import { generateClasses } from '@/utils/styling';
+import Link from 'next/link';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import styles from './mobile-nav-actions.module.css';
+import { AllPages } from '@/pages';
 
 type Props = {
   isOpen: boolean;
@@ -19,7 +18,7 @@ const generateDrawerClasses = (isOpen: boolean) => {
     classes.push(styles.open);
   }
 
-  return classes.join(" ");
+  return classes.join(' ');
 };
 
 const generateBackdropClasses = (isOpen: boolean) => {
@@ -29,7 +28,7 @@ const generateBackdropClasses = (isOpen: boolean) => {
     classes.push(styles.backdropOpen);
   }
 
-  return classes.join(" ");
+  return classes.join(' ');
 };
 
 const MobileNavActions = (props: Props) => {
@@ -39,15 +38,15 @@ const MobileNavActions = (props: Props) => {
 
   const updatePageScroll = useCallback(() => {
     if (isOpen) {
-      portalRootRef.current!.style.overflow = "hidden";
+      portalRootRef.current!.style.overflow = 'hidden';
       return;
     }
 
-    portalRootRef.current!.style.overflow = "";
+    portalRootRef.current!.style.overflow = '';
   }, [isOpen]);
 
   useEffect(() => {
-    portalRootRef.current = document.getElementById("portal");
+    portalRootRef.current = document.getElementById('portal');
     setMounted(true);
   }, []);
 
@@ -57,22 +56,15 @@ const MobileNavActions = (props: Props) => {
 
   if (mounted && portalRootRef.current) {
     return createPortal(
-      <div aria-hidden={isOpen ? "false" : "true"} className={styles.container}>
+      <div aria-hidden={isOpen ? 'false' : 'true'} className={styles.container}>
         <div
           role="dialog"
           className={
             generateDrawerClasses(isOpen) +
-            " " +
+            ' ' +
             generateClasses({
               generic: [],
-              mobile: [
-                "flex",
-                "flex-col",
-                "justify-between",
-                "items-center",
-                "py-28",
-                "h-full",
-              ],
+              mobile: ['flex', 'flex-col', 'justify-center', 'items-center', 'gap-10', 'h-full'],
               web: [],
             })
           }
@@ -80,32 +72,31 @@ const MobileNavActions = (props: Props) => {
           <Link
             href="/#home"
             onClick={onClose}
-            className={currentPageId === "home" ? "text-c-accent-green" : ""}
+            className={currentPageId === 'home' ? 'text-c-accent-green' : ''}
           >
             Home
           </Link>
           <Link
-            href="/#services"
+            href="/#about"
             onClick={onClose}
-            className={currentPageId === "product" ? "text-c-accent-green" : ""}
+            className={currentPageId === 'about' ? 'text-c-accent-green' : ''}
+          >
+            Who we are
+          </Link>
+          <Link
+            href="/#product"
+            onClick={onClose}
+            className={currentPageId === 'product' ? 'text-c-accent-green' : ''}
           >
             Product
           </Link>
           <Link
-            href="/about/#about"
+            href="/#features"
             onClick={onClose}
-            className={currentPageId === "about" ? "text-c-accent-green" : ""}
+            className={currentPageId === 'features' ? 'text-c-accent-green' : ''}
           >
-            About
+            Features
           </Link>
-          {/* <Link
-            href="/pricing/#pricing"
-            onClick={onClose}
-            className={currentPageId === "pricing" ? "text-c-accent-green" : ""}
-          >
-            Pricing
-          </Link> */}
-          <GetStartedButton onClick={onClose} pageId={currentPageId} />
         </div>
         <div className={generateBackdropClasses(isOpen)} onClick={onClose} />
       </div>,

@@ -2,7 +2,6 @@ import { AllPages } from "@/pages";
 import { generateClasses } from "@/utils/styling";
 import Link from "next/link";
 import React from "react";
-import GetStartedButton from "./ContactButton";
 
 type Props = {
   currentPageId: AllPages;
@@ -13,14 +12,13 @@ const NavActions = (props: Props) => {
   return (
     <div
       className={generateClasses({
-        generic: ["text-c-heading"],
+        generic: ["text-c-heading", "w-[100%]"],
         mobile: ["hidden"],
         web: [
-          "tablet:w-[50%]",
-          "laptop:w-[40%]",
-          "desktop:w-[35%]",
           "tablet:flex",
-          "tablet:justify-between",
+          "tablet:justify-center",
+          "tablet:items-center",
+          "tablet:gap-8",
           "tablet:text-[14px]",
           "laptop:text-[16px]",
           "desktop:text-[18px]",
@@ -34,24 +32,23 @@ const NavActions = (props: Props) => {
         Home
       </Link>
       <Link
-        href="/#services"
+        href="/#about"
+        className={currentPageId === "about" ? "text-c-accent-green" : ""}
+      >
+        Who are we
+      </Link>
+      <Link
+        href="/#product"
         className={currentPageId === "product" ? "text-c-accent-green" : ""}
       >
         Product
       </Link>
       <Link
-        href="/about/#about"
-        className={currentPageId === "about" ? "text-c-accent-green" : ""}
+        href="/#features"
+        className={currentPageId === "features" ? "text-c-accent-green" : ""}
       >
-        About
+        Features
       </Link>
-      {/* <Link
-        href="/pricing/#pricing"
-        className={currentPageId === "pricing" ? "text-c-accent-green" : ""}
-      >
-        Pricing
-      </Link> */}
-      <GetStartedButton pageId={currentPageId} />
     </div>
   );
 };

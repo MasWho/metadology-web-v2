@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Burger.module.css";
+import styles from "./burger.module.css";
 
 type Props = {
   onClick: () => void;

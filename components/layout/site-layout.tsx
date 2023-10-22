@@ -1,7 +1,7 @@
 import { generateClasses } from "@/utils/styling";
 import Head from "next/head";
 import React from "react";
-import Nav from "../nav/Nav";
+import Nav from "../nav/nav-bar";
 import { AllPages } from "@/pages";
 
 type Props = {
