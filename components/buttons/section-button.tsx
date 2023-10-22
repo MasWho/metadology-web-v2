@@ -24,25 +24,28 @@ const SectionButton = (props: Props) => {
   const isInView = useInView(scope);
   const { sectionName } = props;
 
-  const animateButtonOnMount = async () => {
-    animate(`#${sectionName}-section-button`, {width: 'auto'}, {duration: 0.5});
-    animate(`#${sectionName}-section-button`, {opacity: 1}, {duration: 0.5});
+  const enterAnimation = async () => {
+    await animate(scope.current, {opacity: 1}, {duration: 1.5});
+    animate(`#${sectionName}-section-icon`, {width: 'auto'}, {duration: 0.5});
+    animate(`#${sectionName}-section-text`, {width: 'auto'}, {duration: 0.5});
+    animate(`#${sectionName}-section-text`, {opacity: 1}, {duration: 1.5});
+    animate(`#${sectionName}-section-icon`, {left: 0}, {duration: 0.5});
   }
 
   useEffect(() => {
     if(isInView) {
-      animateButtonOnMount();
+      enterAnimation();
     }
   }, [isInView]);
 
   return (
     <div
       ref={scope}
-      className='sticky w-full flex justify-center bottom-10 mt-5'
+      className='sticky w-full flex justify-center bottom-10 mt-5 opacity-0'
     >
-      <button id={`${sectionName}-section-button`} className="whitespace-nowrap w-0 opacity-0 relative before:bg-c-accent-green before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:opacity-30 before:z-10 flex items-center justify-between gap-6 rounded-full pl-6 pr-2 py-2">
-        <span id={`${sectionName}-section-text`} className="font-normal z-20 text-c-heading">More on {sectionName}</span>
-        <span id={`${sectionName}-section-icon`} className="z-20">
+      <button id={`${sectionName}-section-button`} className="whitespace-nowrap relative before:bg-c-accent-green before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:opacity-30 before:z-10 flex items-center justify-between gap-6 rounded-full pl-6 pr-2 py-2">
+        <span id={`${sectionName}-section-text`} className="w-0 opacity-0 font-normal z-20 text-c-heading">More on {sectionName}</span>
+        <span id={`${sectionName}-section-icon`} className="w-0 relative left-[-155%] z-20">
           <SectionButtonIcon />
         </span>
       </button>
