@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { motion, useAnimate, useInView } from 'framer-motion';
+import { useAnimate } from 'framer-motion';
 
 type Props = {
   sectionName: string;
+  show: boolean;
 };
 
 const SectionButtonIcon = () => {
@@ -21,30 +22,46 @@ const SectionButtonIcon = () => {
 
 const SectionButton = (props: Props) => {
   const [scope, animate] = useAnimate();
-  const isInView = useInView(scope);
-  const { sectionName } = props;
+  const { sectionName, show } = props;
 
   const enterAnimation = async () => {
-    await animate(scope.current, {opacity: 1}, {duration: 1.5});
-    animate(`#${sectionName}-section-icon`, {width: 'auto'}, {duration: 0.5});
-    animate(`#${sectionName}-section-text`, {width: 'auto'}, {duration: 0.5});
-    animate(`#${sectionName}-section-text`, {opacity: 1}, {duration: 1.5});
-    animate(`#${sectionName}-section-icon`, {left: 0}, {duration: 0.5});
+    animate(scope.current, { opacity: 1 }, { duration: 0.5 });
+    await animate(scope.current, {scale: 1.2}, {duration: 0.5});
+    await animate(scope.current, {scale: 1}, {duration: 0.5});
+    animate(`#${sectionName}-section-icon`, { width: 'auto' }, { duration: 0.5 });
+    animate(`#${sectionName}-section-text`, { width: 'auto' }, { duration: 0.5 });
+    animate(`#${sectionName}-section-icon`, { left: 0 }, { duration: 0.3 });
+    animate(`#${sectionName}-section-text`, { opacity: 1 }, { duration: 2 });
+  };
+
+  const exitAnimation = async () => {
+    animate(`#${sectionName}-section-icon`, { left: '-155%' }, { duration: 0.7 });
+    animate(`#${sectionName}-section-text`, { opacity: 0 }, { duration: 0.1 });
+    animate(`#${sectionName}-section-icon`, { width: 0 }, { duration: 0.5 });
+    animate(`#${sectionName}-section-text`, { width: 0 }, { duration: 0.5 });
+    await animate(scope.current, { opacity: 0 }, { duration: 1.5 });
   }
 
   useEffect(() => {
-    if(isInView) {
+    if (show) {
       enterAnimation();
+    } else {
+      exitAnimation();
     }
-  }, [isInView]);
+  }, [show]);
 
   return (
-    <div
-      ref={scope}
-      className='sticky w-full flex justify-center bottom-10 mt-5 opacity-0'
-    >
-      <button id={`${sectionName}-section-button`} className="whitespace-nowrap relative before:bg-c-accent-green before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:opacity-30 before:z-10 flex items-center justify-between gap-6 rounded-full pl-6 pr-2 py-2">
-        <span id={`${sectionName}-section-text`} className="w-0 opacity-0 font-normal z-20 text-c-heading">More on {sectionName}</span>
+    <div ref={scope} className="sticky w-full flex justify-center bottom-10 mt-5 opacity-0">
+      <button
+        id={`${sectionName}-section-button`}
+        className="whitespace-nowrap relative before:bg-c-accent-green before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:opacity-30 before:z-10 flex items-center justify-between gap-6 rounded-full pl-6 pr-2 py-2"
+      >
+        <span
+          id={`${sectionName}-section-text`}
+          className="w-0 opacity-0 font-normal z-20 text-c-heading overflow-hidden"
+        >
+          More on {sectionName}
+        </span>
         <span id={`${sectionName}-section-icon`} className="w-0 relative left-[-155%] z-20">
           <SectionButtonIcon />
         </span>

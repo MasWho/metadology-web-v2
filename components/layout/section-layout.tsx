@@ -1,6 +1,7 @@
 import { generateClasses } from '@/utils/styling';
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useRef } from 'react';
 import SectionButton from '../buttons/section-button';
+import { useInView } from 'framer-motion';
 
 type Props = PropsWithChildren & {
   sectionName: string;
@@ -8,8 +9,12 @@ type Props = PropsWithChildren & {
 
 const SectionLayout = (props: Props) => {
   const { children, sectionName } = props;
+  const sectionRef = useRef(null);
+  const isSectionInView = useInView(sectionRef, {amount: 0.5});
+
   return (
     <section
+      ref={sectionRef}
       className={generateClasses({
         generic: ['relative', 'w-[100%]'],
         mobile: ['px-10', 'py-10'],
@@ -17,7 +22,7 @@ const SectionLayout = (props: Props) => {
       })}
     >
       {children}
-      <SectionButton sectionName={sectionName} />
+      <SectionButton sectionName={sectionName} show={isSectionInView} />
     </section>
   );
 };
