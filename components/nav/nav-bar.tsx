@@ -1,12 +1,14 @@
+// TODO: align nav bar with apple website
+
 import React, { useState } from "react";
 import { generateClasses } from "@/utils/styling";
 import NavActions from "./nav-actions";
 import Hamburger from "./hamberger";
 import MobileNavActions from "./mobile-nav-actions";
-import { AllPages } from "@/pages";
+import { AllSections } from "@/pages";
 
 type Props = {
-  currentPageId: AllPages
+  currentPageId: AllSections
 };
 
 const Nav = (props: Props) => {

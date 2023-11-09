@@ -2,11 +2,11 @@ import { generateClasses } from "@/utils/styling";
 import Head from "next/head";
 import React from "react";
 import Nav from "../nav/nav-bar";
-import { AllPages } from "@/pages";
+import { AllSections } from "@/pages";
 
 type Props = {
   children: React.ReactNode;
-  pageId: AllPages;
+  pageId: AllSections;
 };
 
 const SiteMainLayout = (props: Props) => {

@@ -5,10 +5,11 @@ import { useInView } from 'framer-motion';
 
 type Props = PropsWithChildren & {
   sectionName: string;
+  hasReadMore?: boolean;
 };
 
 const SectionLayout = (props: Props) => {
-  const { children, sectionName } = props;
+  const { children, sectionName, hasReadMore } = props;
   const sectionRef = useRef(null);
   const isSectionInView = useInView(sectionRef, {amount: 0.5});
 
@@ -22,7 +23,7 @@ const SectionLayout = (props: Props) => {
       })}
     >
       {children}
-      <SectionButton sectionName={sectionName} show={isSectionInView} />
+      {hasReadMore ? <SectionButton sectionName={sectionName} show={isSectionInView} /> : null}
     </section>
   );
 };
