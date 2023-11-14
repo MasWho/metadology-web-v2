@@ -28,7 +28,7 @@ const SectionLayout = (props: Props) => {
       ref={sectionRef}
       className={generateClasses({
         generic: ['relative', 'w-[100%]'],
-        mobile: ['px-10', 'py-10'],
+        mobile: ['px-10'],
         web: ['tablet:px-30', 'laptop:px-40', 'desktop:px-60'],
       })}
     >

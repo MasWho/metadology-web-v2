@@ -16,12 +16,12 @@ const IndexPage = () => {
     <NavContextProvider>
       <SiteMainLayout initialPageId="home" >
         <Home />
-        <Highlights />
+        {/* <Highlights />
         <CloserLook />
         <Explore />
         <Benefits />
         <Forefront />
-        <Portfolio />
+        <Portfolio /> */}
       </SiteMainLayout>
     </NavContextProvider>
   )
