@@ -3,16 +3,11 @@
 import React from 'react'
 import SectionLayout from '../layout/section-layout'
 
-type Props = {
-  sectionName: string;
-}
-
-const Forefront = (props: Props) => {
-  const {sectionName} = props;
+const Forefront = () => {
   return (
-    <SectionLayout sectionName={sectionName} >
+    <SectionLayout sectionName={'forefront'} >
         <div className='rounded-md w-full h-[80vh] bg-c-subtext flex justify-center items-center'>
-            {sectionName}
+            {'forefront'}
         </div>
     </SectionLayout>
   )

@@ -1,17 +1,16 @@
 // TODO: refine main section
-// TODO: implement sub sections
 
 import React from 'react'
-import SectionLayout from '../../layout/section-layout'
+import SectionLayout from '../layout/section-layout'
 
-const Explore = () => {
+const Home = () => {
   return (
-    <SectionLayout sectionName={'explore'} >
+    <SectionLayout sectionName={'home'}>
         <div className='rounded-md w-full h-[80vh] bg-c-subtext flex justify-center items-center'>
-            {'explore'}
+            {'home'}
         </div>
     </SectionLayout>
   )
 }
 
-export default Explore;
+export default Home;

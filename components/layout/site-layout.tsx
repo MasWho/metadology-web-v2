@@ -6,11 +6,11 @@ import { AllSections } from "@/pages";
 
 type Props = {
   children: React.ReactNode;
-  pageId: AllSections;
+  initialPageId: AllSections;
 };
 
 const SiteMainLayout = (props: Props) => {
-  const { children, pageId } = props;
+  const { children, initialPageId } = props;
 
   return (
     <>
@@ -32,7 +32,7 @@ const SiteMainLayout = (props: Props) => {
           web: [],
         })}
       >
-        <Nav currentPageId={pageId} />
+        <Nav currentPageId={initialPageId} />
         {children}
       </main>
     </>

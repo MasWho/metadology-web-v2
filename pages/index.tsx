@@ -6,18 +6,25 @@ import Explore from "@/components/sections/explore/explore";
 import Forefront from "@/components/sections/forefront";
 import Benefits from "@/components/sections/benefits";
 import Portfolio from "@/components/sections/portfolio";
+import Home from "@/components/sections/home";
+import NavContextProvider from "@/contexts/NavContext";
 
-export type AllSections = "home" | "highlights" | "closer-look" | "explore" | "benefits" | "forefront" | "portfolio" | null;
+export type AllSections = "home" | "highlights" | "closer-look" | "explore" | "benefits" | "forefront" | "portfolio" | "contact" | null;
 
 const IndexPage = () => {
-  return <SiteMainLayout pageId="home" >
-    <Highlights sectionName="highlights" />
-    <CloserLook sectionName="closer-look" />
-    <Explore sectionName="explore" />
-    <Benefits sectionName="benefits" />
-    <Forefront sectionName="forefront" />
-    <Portfolio sectionName="portfolio" />
-  </SiteMainLayout>
+  return (
+    <NavContextProvider>
+      <SiteMainLayout initialPageId="home" >
+        <Home />
+        <Highlights />
+        <CloserLook />
+        <Explore />
+        <Benefits />
+        <Forefront />
+        <Portfolio />
+      </SiteMainLayout>
+    </NavContextProvider>
+  )
 };
 
 export default IndexPage;

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useAnimate } from 'framer-motion';
+import { AllSections } from '@/pages';
 
 type Props = {
-  sectionName: string;
+  sectionName: AllSections;
   show: boolean;
 };
 

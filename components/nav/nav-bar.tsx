@@ -1,5 +1,3 @@
-// TODO: align nav bar with apple website
-
 import React, { useState } from "react";
 import { generateClasses } from "@/utils/styling";
 import NavActions from "./nav-actions";
@@ -20,7 +18,7 @@ const Nav = (props: Props) => {
   };
 
   return (
-    <header
+    <nav
       id="nav"
       className={generateClasses({
         generic: [
@@ -44,12 +42,11 @@ const Nav = (props: Props) => {
     >
       <Hamburger onClick={toggleHamburgerHandler} />
       <MobileNavActions
-        currentPageId={currentPageId}
         isOpen={hamburgerOpen}
         onClose={() => setHamburgerOpen(false)}
       />
-      <NavActions currentPageId={currentPageId} />
-    </header>
+      <NavActions />
+    </nav>
   );
 };
 

@@ -3,16 +3,11 @@
 import React from 'react'
 import SectionLayout from '../layout/section-layout'
 
-type Props = {
-  sectionName: string;
-}
-
-const Portfolio = (props: Props) => {
-  const {sectionName} = props;
+const Portfolio = () => {
   return (
-    <SectionLayout sectionName={sectionName} hasReadMore>
+    <SectionLayout sectionName={'portfolio'} hasReadMore>
         <div className='rounded-md w-full h-[80vh] bg-c-subtext flex justify-center items-center'>
-            {sectionName}
+            {'portfolio'}
         </div>
     </SectionLayout>
   )

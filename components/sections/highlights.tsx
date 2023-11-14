@@ -3,19 +3,14 @@
 import React from 'react'
 import SectionLayout from '../layout/section-layout'
 
-type Props = {
-  sectionName: string;
-}
-
-const Benefits = (props: Props) => {
-  const {sectionName} = props;
+const Highlights = () => {
   return (
-    <SectionLayout sectionName={sectionName}>
+    <SectionLayout sectionName={'highlights'}>
         <div className='rounded-md w-full h-[80vh] bg-c-subtext flex justify-center items-center'>
-            {sectionName}
+            {'highlights'}
         </div>
     </SectionLayout>
   )
 }
 
-export default Benefits;
+export default Highlights;

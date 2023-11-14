@@ -3,12 +3,12 @@ import Link from 'next/link';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './mobile-nav-actions.module.css';
-import { AllPages } from '@/pages';
+import { AllSections } from '@/pages';
+import { useNavContext } from '@/contexts/NavContext';
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  currentPageId: AllPages;
 };
 
 const generateDrawerClasses = (isOpen: boolean) => {
@@ -32,9 +32,10 @@ const generateBackdropClasses = (isOpen: boolean) => {
 };
 
 const MobileNavActions = (props: Props) => {
-  const { isOpen, onClose, currentPageId } = props;
+  const { isOpen, onClose } = props;
   const portalRootRef = useRef<any>(null);
   const [mounted, setMounted] = useState(false);
+  const {currentPageId} = useNavContext();
 
   const updatePageScroll = useCallback(() => {
     if (isOpen) {
@@ -44,6 +45,17 @@ const MobileNavActions = (props: Props) => {
 
     portalRootRef.current!.style.overflow = '';
   }, [isOpen]);
+
+  const changePageScrollHandler = (pageId: AllSections) => {
+    const element = document.getElementById(pageId!);
+    setTimeout(() => {
+      element?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }, 10);
+    onClose();
+  };
 
   useEffect(() => {
     portalRootRef.current = document.getElementById('portal');
@@ -70,32 +82,60 @@ const MobileNavActions = (props: Props) => {
           }
         >
           <Link
-            href="/#home"
-            onClick={onClose}
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'home')}
             className={currentPageId === 'home' ? 'text-c-accent-green' : ''}
           >
             Home
           </Link>
           <Link
-            href="/#about"
-            onClick={onClose}
-            className={currentPageId === 'about' ? 'text-c-accent-green' : ''}
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'highlights')}
+            className={currentPageId === 'highlights' ? 'text-c-accent-green' : ''}
           >
-            Who we are
+            Highlights
           </Link>
           <Link
-            href="/#product"
-            onClick={onClose}
-            className={currentPageId === 'product' ? 'text-c-accent-green' : ''}
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'closer-look')}
+            className={currentPageId === 'closer-look' ? 'text-c-accent-green' : ''}
           >
-            Product
+            Closer look
           </Link>
           <Link
-            href="/#features"
-            onClick={onClose}
-            className={currentPageId === 'features' ? 'text-c-accent-green' : ''}
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'explore')}
+            className={currentPageId === 'explore' ? 'text-c-accent-green' : ''}
           >
-            Features
+            Explore
+          </Link>
+          <Link
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'benefits')}
+            className={currentPageId === 'benefits' ? 'text-c-accent-green' : ''}
+          >
+            Benefits
+          </Link>
+          <Link
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'forefront')}
+            className={currentPageId === 'forefront' ? 'text-c-accent-green' : ''}
+          >
+            Forefront
+          </Link>
+          <Link
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'portfolio')}
+            className={currentPageId === 'portfolio' ? 'text-c-accent-green' : ''}
+          >
+            Portfolio
+          </Link>
+          <Link
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'contact')}
+            className={currentPageId === 'contact' ? 'text-c-accent-green' : ''}
+          >
+            Contact
           </Link>
         </div>
         <div className={generateBackdropClasses(isOpen)} onClick={onClose} />

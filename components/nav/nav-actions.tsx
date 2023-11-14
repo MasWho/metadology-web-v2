@@ -1,14 +1,22 @@
-import { AllPages } from "@/pages";
+import { useNavContext } from "@/contexts/NavContext";
+import { AllSections } from "@/pages";
 import { generateClasses } from "@/utils/styling";
 import Link from "next/link";
 import React from "react";
 
-type Props = {
-  currentPageId: AllPages;
-};
+const NavActions = () => {
+  const {currentPageId} = useNavContext();
 
-const NavActions = (props: Props) => {
-  const { currentPageId } = props;
+  const changePageScrollHandler = (pageId: AllSections) => {
+    const element = document.getElementById(pageId!);
+    setTimeout(() => {
+      element?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }, 10);
+  };
+
   return (
     <div
       className={generateClasses({
@@ -26,28 +34,60 @@ const NavActions = (props: Props) => {
       })}
     >
       <Link
-        href="/#home"
+        href=""
         className={currentPageId === "home" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'home')}
       >
         Home
       </Link>
       <Link
-        href="/#about"
-        className={currentPageId === "about" ? "text-c-accent-green" : ""}
+        href=""
+        className={currentPageId === "highlights" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'highlights')}
       >
-        Who are we
+        Highlights
       </Link>
       <Link
-        href="/#product"
-        className={currentPageId === "product" ? "text-c-accent-green" : ""}
+        href=""
+        className={currentPageId === "closer-look" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'closer-look')}
       >
-        Product
+        Closer look
       </Link>
       <Link
-        href="/#features"
-        className={currentPageId === "features" ? "text-c-accent-green" : ""}
+        href=""
+        className={currentPageId === "explore" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'explore')}
       >
-        Features
+        Explore
+      </Link>
+      <Link
+        href=""
+        className={currentPageId === "benefits" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'benefits')}
+      >
+        Benefits
+      </Link>
+      <Link
+        href=""
+        className={currentPageId === "forefront" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'forefront')}
+      >
+        Forefront
+      </Link>
+      <Link
+        href=""
+        className={currentPageId === "portfolio" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'portfolio')}
+      >
+        Portfolio
+      </Link>
+      <Link
+        href=""
+        className={currentPageId === "contact" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'contact')}
+      >
+        Contact
       </Link>
     </div>
   );

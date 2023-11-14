@@ -1,20 +1,30 @@
 import { generateClasses } from '@/utils/styling';
-import React, { PropsWithChildren, useRef } from 'react';
+import React, { PropsWithChildren, useEffect, useLayoutEffect, useRef } from 'react';
 import SectionButton from '../buttons/section-button';
 import { useInView } from 'framer-motion';
+import { useNavContext } from '@/contexts/NavContext';
+import { AllSections } from '@/pages';
 
 type Props = PropsWithChildren & {
-  sectionName: string;
+  sectionName: AllSections;
   hasReadMore?: boolean;
 };
 
 const SectionLayout = (props: Props) => {
   const { children, sectionName, hasReadMore } = props;
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, {amount: 0.5});
+  const {setCurrentPageId} = useNavContext();
+
+  useEffect(() => {
+    if(isSectionInView) {
+      setCurrentPageId(sectionName);
+    }
+  }, [isSectionInView, sectionName]);
 
   return (
     <section
+      id={sectionName!}
       ref={sectionRef}
       className={generateClasses({
         generic: ['relative', 'w-[100%]'],
