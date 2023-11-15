@@ -1,5 +1,6 @@
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
-import React, { PropsWithChildren, useEffect } from 'react';
+import React, { PropsWithChildren } from 'react';
+import { motion } from 'framer-motion';
 
 type Props = PropsWithChildren & {
   index: number;
@@ -14,10 +15,19 @@ const CarouselElement = (props: Props) => {
   const {videoRatio, carouselElementMargin} = screenToVideoSizeRatio(width!);
   return (
     <>
-      <li id={`highlight-video-${index}`} className={`relative`} style={{width: `${videoRatio * 100}vw`, margin: `0 ${carouselElementMargin}`}}>
+      <li
+        id={`highlight-video-${index}`}
+        className={`relative`}
+        style={{ width: `${videoRatio * 100}vw`, margin: `0 ${carouselElementMargin}` }}
+      >
         {children}
-      {/* Overlay */}
-      {castOverlay ? <div className='absolute w-[100%] h-[100%] top-0 opacity-75 bg-c-secondary'></div> : null}
+        {/* Overlay */}
+        {castOverlay ? <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: castOverlay ? 0.75 : 0 }}
+          transition={{duration: 1}}
+          className="absolute w-[100%] h-[100%] top-0 bg-c-secondary"
+        />: null}
       </li>
     </>
   );
