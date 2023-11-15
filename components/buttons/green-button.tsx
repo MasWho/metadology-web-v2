@@ -14,7 +14,7 @@ const GreenButton = (props: Props) => {
             scale: 1.1,
             transition: {duration: 0.2}
         }}
-        className="text-c-heading bg-c-accent-green rounded-full py-3 px-5" onClick={onClick}>
+        className="text-c-heading bg-c-accent-green rounded-full py-2 px-7" onClick={onClick}>
       {text}
     </motion.button>
   );

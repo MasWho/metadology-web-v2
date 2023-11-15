@@ -1,13 +1,8 @@
-// TODO: refine main section
-
 import React, { useState } from 'react';
 import SectionLayout from '../layout/section-layout';
-import ReactPlayer from 'react-player';
 import GreenButton from '../buttons/green-button';
 import ProgressBar from '../progress/SimpleProgress';
-import dynamic from 'next/dynamic';
-
-const DynamicReactPlayer = dynamic(() => import('react-player'), {ssr: false});
+import DynamicReactPlayer from '../video/DynamicReactPlayer';
 
 const Highlights = () => {
   const [play, setPlay] = useState<boolean>(false);
