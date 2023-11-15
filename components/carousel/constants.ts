@@ -1,0 +1,1 @@
+export const SlideMargin = '20px';

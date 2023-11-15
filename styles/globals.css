@@ -26,3 +26,7 @@ body {
   font-weight: 800;
   font-style: bold;
 }
+
+video {
+  border-radius: 15px;
+}

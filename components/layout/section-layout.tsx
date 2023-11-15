@@ -9,10 +9,11 @@ type Props = PropsWithChildren & {
   sectionName: AllSections;
   hasReadMore?: boolean;
   bgColor?: string;
+  noPadding?: boolean;
 };
 
 const SectionLayout = (props: Props) => {
-  const { children, sectionName, hasReadMore, bgColor = 'bg-c-primary' } = props;
+  const { children, sectionName, hasReadMore, bgColor = 'bg-c-primary', noPadding } = props;
   const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, {amount: 0.5});
   const {setCurrentPageId} = useNavContext();
@@ -32,6 +33,9 @@ const SectionLayout = (props: Props) => {
         mobile: ['px-10'],
         web: ['tablet:px-30', 'laptop:px-40', 'desktop:px-60'],
       })}
+      style={{
+        padding: noPadding ? 0 : undefined
+      }}
     >
       {children}
       {hasReadMore ? <SectionButton sectionName={sectionName} show={isSectionInView} /> : null}

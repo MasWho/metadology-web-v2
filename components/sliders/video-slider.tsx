@@ -95,7 +95,7 @@ const VideoSlider = (props: Props) => {
   }
 
   return (
-    <aside className="bg-[#E8E8ED] opacity-70 rounded-full flex items-center px-6 py-2 mb-10 justify-between max-w-[280px] mx-auto">
+    <aside className="bg-[#E8E8ED] opacity-70 rounded-full flex items-center px-6 py-2 justify-between max-w-[280px] mx-auto mt-8">
       <PlayPauseButton isPlaying={isPlaying} onPlayOrPause={onPlayOrPause} />
       {allProgressCircles}
     </aside>

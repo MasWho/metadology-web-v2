@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import SectionLayout from '../layout/section-layout';
-import GreenButton from '../buttons/green-button';
-import ProgressBar from '../progress/SimpleProgress';
-import DynamicReactPlayer from '../video/DynamicReactPlayer';
 import SectionHeading from '../headings/section-heading';
 import VideoSlider from '../sliders/video-slider';
+import HighlightCarousel from '../carousel/highlight-carousel';
+import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
 
 const videos = [
   { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
@@ -15,16 +14,17 @@ const videos = [
 
 const initialiseVideoProgressLookup = () => {
   const progressLookup: any = {};
-  videos.forEach((video, idx) => {
-    progressLookup[idx] = 0
+  videos.forEach((_, idx) => {
+    progressLookup[idx] = 0;
   });
   return progressLookup;
 };
 
 const Highlights = () => {
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [videoProgress, setVideoProgress] = useState(initialiseVideoProgressLookup);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const {width} = useWindowDimensions();
 
   const playVideoHandler = () => {
     setIsPlaying((prev) => {
@@ -39,42 +39,40 @@ const Highlights = () => {
 
   const videoProgressHandler = (index: number, progress: { played: number; loaded: number }) => {
     const { played } = progress;
-    const completedNormalised = Math.floor(played * 100) + 1
+    const completedNormalised = Math.floor(played * 100) + 1;
     setVideoProgress((prev: any) => {
       return {
         ...prev,
         [index]: completedNormalised,
-      }
+      };
     });
   };
 
-  const videoPlayers = videos.map((video, idx) => {
-    let playing = false;
-    if(idx === currentVideoIndex) {
-      playing = isPlaying;
-    }
-    return <DynamicReactPlayer 
-      url={video.url}
-      playing={playing}
-      onProgress={videoProgressHandler.bind(null, idx)}
-      key={`highlight-video-${idx}-${video.url}`}
-      volume={1}
-      muted={true}
-    />
-  });
+  const {carouselOffset, carouselElementMargin} = screenToVideoSizeRatio(width!);
 
   return (
-    <SectionLayout sectionName={'highlights'} bgColor="bg-c-secondary">
-      <SectionHeading text="Get the highlights" />
-      {videoPlayers}
-      <VideoSlider
-        numVideos={videos.length}
-        currentVideoIndex={currentVideoIndex}
-        currentVideoProgress={videoProgress[currentVideoIndex]}
-        isPlaying={isPlaying}
-        onPlayOrPause={playVideoHandler}
-        onChangeVideo={changeVideoHandler}
-      />
+    <SectionLayout sectionName={'highlights'} bgColor="bg-c-secondary" noPadding>
+      <div className="py-14">
+        <div className="flex flex-col gap-6 relative " style={{left: carouselOffset}}>
+          <div style={{margin: `0 ${carouselElementMargin}`}}>
+            <SectionHeading text="Get the highlights" />
+          </div>
+          <HighlightCarousel
+            videos={videos}
+            currentVideoIndex={currentVideoIndex}
+            isPlaying={isPlaying}
+            onVideoProgress={videoProgressHandler}
+          />
+        </div>
+        <VideoSlider
+          numVideos={videos.length}
+          currentVideoIndex={currentVideoIndex}
+          currentVideoProgress={videoProgress[currentVideoIndex]}
+          isPlaying={isPlaying}
+          onPlayOrPause={playVideoHandler}
+          onChangeVideo={changeVideoHandler}
+        />
+      </div>
     </SectionLayout>
   );
 };
