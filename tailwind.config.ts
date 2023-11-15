@@ -20,7 +20,9 @@ const config: Config = {
       'c-heading': '#FFFFFF',
       'c-subtext': '#A8A8A8',
       'c-accent-red': '#FF6666',
-      'c-accent-green': '#77DA7B'
+      'c-accent-green': '#77DA7B',
+      'c-secondary': '#1D1D1F',
+      'c-section-heading': '#86868B'
     },
     extend: {
       backgroundImage: {

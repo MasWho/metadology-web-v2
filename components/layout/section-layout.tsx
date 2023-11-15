@@ -8,10 +8,11 @@ import { AllSections } from '@/pages';
 type Props = PropsWithChildren & {
   sectionName: AllSections;
   hasReadMore?: boolean;
+  bgColor?: string;
 };
 
 const SectionLayout = (props: Props) => {
-  const { children, sectionName, hasReadMore } = props;
+  const { children, sectionName, hasReadMore, bgColor = 'bg-c-primary' } = props;
   const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, {amount: 0.5});
   const {setCurrentPageId} = useNavContext();
@@ -27,7 +28,7 @@ const SectionLayout = (props: Props) => {
       id={sectionName!}
       ref={sectionRef}
       className={generateClasses({
-        generic: ['relative', 'w-[100%]'],
+        generic: ['relative', 'w-[100%]', `${bgColor}`],
         mobile: ['px-10'],
         web: ['tablet:px-30', 'laptop:px-40', 'desktop:px-60'],
       })}

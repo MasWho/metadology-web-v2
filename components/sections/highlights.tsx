@@ -3,29 +3,78 @@ import SectionLayout from '../layout/section-layout';
 import GreenButton from '../buttons/green-button';
 import ProgressBar from '../progress/SimpleProgress';
 import DynamicReactPlayer from '../video/DynamicReactPlayer';
+import SectionHeading from '../headings/section-heading';
+import VideoSlider from '../sliders/video-slider';
+
+const videos = [
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
+];
+
+const initialiseVideoProgressLookup = () => {
+  const progressLookup: any = {};
+  videos.forEach((video, idx) => {
+    progressLookup[idx] = 0
+  });
+  return progressLookup;
+};
 
 const Highlights = () => {
-  const [play, setPlay] = useState<boolean>(false);
-  const [progress, setProgress] = useState(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [videoProgress, setVideoProgress] = useState(initialiseVideoProgressLookup);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const playVideoHandler = () => {
-    setPlay((prev) => {
+    setIsPlaying((prev) => {
       return !prev;
-    })
+    });
   };
 
-  const videoProgressHandler = (progress: {played: number, loaded: number}) => {
-    const {played} = progress;
-    setProgress(played);
+  const changeVideoHandler = (index: number) => {
+    setIsPlaying(true);
+    setCurrentVideoIndex(index);
   };
+
+  const videoProgressHandler = (index: number, progress: { played: number; loaded: number }) => {
+    const { played } = progress;
+    const completedNormalised = Math.floor(played * 100) + 1
+    setVideoProgress((prev: any) => {
+      return {
+        ...prev,
+        [index]: completedNormalised,
+      }
+    });
+  };
+
+  const videoPlayers = videos.map((video, idx) => {
+    let playing = false;
+    if(idx === currentVideoIndex) {
+      playing = isPlaying;
+    }
+    return <DynamicReactPlayer 
+      url={video.url}
+      playing={playing}
+      onProgress={videoProgressHandler.bind(null, idx)}
+      key={`highlight-video-${idx}-${video.url}`}
+      volume={1}
+      muted={true}
+    />
+  });
 
   return (
-    <SectionLayout sectionName={'highlights'}>
-      <div className="flex-col rounded-md w-full h-[80vh] bg-c-subtext flex justify-center items-center" suppressHydrationWarning>
-        <DynamicReactPlayer url="https://d1r0ovlr0podg3.cloudfront.net/videos/test" controls playing={play} onProgress={videoProgressHandler} />
-        <GreenButton text={play ? 'Pause' : 'Play'} onClick={playVideoHandler}/>
-        <ProgressBar  bgcolor={"#6a1b9a"} completed={progress}/>
-      </div>
+    <SectionLayout sectionName={'highlights'} bgColor="bg-c-secondary">
+      <SectionHeading text="Get the highlights" />
+      {videoPlayers}
+      <VideoSlider
+        numVideos={videos.length}
+        currentVideoIndex={currentVideoIndex}
+        currentVideoProgress={videoProgress[currentVideoIndex]}
+        isPlaying={isPlaying}
+        onPlayOrPause={playVideoHandler}
+        onChangeVideo={changeVideoHandler}
+      />
     </SectionLayout>
   );
 };
