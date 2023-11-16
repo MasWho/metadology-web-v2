@@ -6,7 +6,7 @@ import SectionLayout from '../../layout/section-layout'
 
 const Explore = () => {
   return (
-    <SectionLayout sectionName={'explore'} >
+    <SectionLayout sectionName={'explore'} hasReadMore >
         <div className='rounded-md w-full h-[80vh] bg-c-subtext flex justify-center items-center'>
             {'explore'}
         </div>

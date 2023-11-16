@@ -5,7 +5,7 @@ import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-
 import { useAnimate } from 'framer-motion';
 
 type Props = {
-  videos: { url: string }[];
+  videos: { url: string, headingText: string }[];
   currentVideoIndex: number;
   isPlaying: boolean;
   onVideoProgress: (index: number, progress: { played: number; loaded: number }) => void;
@@ -54,7 +54,7 @@ const HighlightCarousel = (props: Props) => {
 
     const {videoRatio} = screenToVideoSizeRatio(width!);
     return (
-      <CarouselElement index={idx} focusedIndex={currentVideoIndex}>
+      <CarouselElement index={idx} focusedIndex={currentVideoIndex} videoHeadingText={video.headingText}>
         <DynamicReactPlayer
           controls
           url={video.url}
@@ -65,9 +65,6 @@ const HighlightCarousel = (props: Props) => {
           muted={true}
           width={`${width! * videoRatio}px`}
           height={`${(width! * videoRatio) / VIDEO_RATIO}px`}
-          style={{
-            borderRadius: '15px',
-          }}
         />
       </CarouselElement>
     );

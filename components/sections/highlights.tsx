@@ -7,10 +7,10 @@ import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-
 import { useInView } from 'framer-motion';
 
 const videos = [
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test', headingText: 'Explore the development online' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test', headingText: 'Highlight key areas and amenities' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test', headingText: "Sell the surrounding area's attractions" },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test', headingText: 'Sales made easy' },
 ];
 
 const initialiseVideoProgressLookup = () => {
@@ -69,10 +69,14 @@ const Highlights = () => {
 
   const {carouselOffset, carouselElementMargin} = screenToVideoSizeRatio(width!);
 
+  const carouselStyle = {
+    left: carouselOffset
+  }
+
   return (
     <SectionLayout sectionName={'highlights'} bgColor="bg-c-secondary" noPadding>
       <div className="py-14" ref={carouselRef}>
-        <div className="flex flex-col gap-6 relative " style={{left: carouselOffset}}>
+        <div className="flex flex-col gap-6 relative" style={carouselStyle}>
           <div style={{margin: `0 ${carouselElementMargin}`}}>
             <SectionHeading text="Get the highlights" />
           </div>
