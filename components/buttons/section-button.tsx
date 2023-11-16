@@ -52,10 +52,10 @@ const SectionButton = (props: Props) => {
   }, [show]);
 
   return (
-    <div ref={scope} className="sticky w-full flex justify-center bottom-10 mt-5 opacity-0">
+    <div ref={scope} className="z-[100] sticky w-full flex justify-center bottom-10 mt-5 opacity-0">
       <button
         id={`${sectionName}-section-button`}
-        className="whitespace-nowrap relative before:bg-c-accent-green before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:opacity-30 before:z-10 flex items-center justify-between gap-6 rounded-full pl-6 pr-2 py-2"
+        className="whitespace-nowrap relative before:bg-[#e8e8ed] before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:opacity-30 before:z-10 flex items-center justify-between gap-6 rounded-full pl-6 pr-2 py-2"
       >
         <span
           id={`${sectionName}-section-text`}

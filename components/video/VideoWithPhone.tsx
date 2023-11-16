@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import iphone_border from '../../public/imgs/iphone_border.svg';
 import DynamicReactPlayer from './DynamicReactPlayer';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import { VIDEO_RATIO } from '../carousel/constants';
+import { useInView } from 'framer-motion';
 
 type Props = {
   videoUrl: string;
@@ -13,6 +14,17 @@ const VideoWithPhone = (props: Props) => {
   const {videoUrl} = props;
   const {width} = useWindowDimensions();
   const {videoRatio} = screenToVideoSizeRatio(width!);
+  const [play, setPlay] = useState(false);
+  const iphoneRef = useRef(null);
+  const isInView = useInView(iphoneRef);
+
+  useEffect(() => {
+    if(isInView) {
+      setPlay(true);
+    } else {
+      setPlay(false);
+    }
+  }, [isInView])
 
   let videoWith = width! * videoRatio;
   if(videoWith > 800) {
@@ -20,7 +32,7 @@ const VideoWithPhone = (props: Props) => {
   }
 
   return (
-    <div className='relative z-10 max-w-[800px] mx-auto mt-[30px] tablet:mt-[40px]' id="iphone">
+    <div ref={iphoneRef} className='relative z-10 max-w-[800px] mx-auto mt-[30px] tablet:mt-[40px]' id="iphone">
       <Image src={iphone_border} alt="SVG for iphone to display videos" />
       <div className='absolute top-[2%] left-0 z-[-5] h-[95%] w-[99.5%] overflow-clip rounded-[30px] 
         lg-phone:w-[97%] lg-phone:left-[1%]
@@ -30,7 +42,7 @@ const VideoWithPhone = (props: Props) => {
         <DynamicReactPlayer
           // controls
           url={videoUrl}
-          playing={false}
+          playing={play}
           volume={1}
           muted={true}
           width={`${videoWith}px`}
