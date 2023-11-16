@@ -27,11 +27,13 @@ const Highlights = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const {width} = useWindowDimensions();
   const carouselRef = useRef(null);
-  const isCarouselInView = useInView(carouselRef, {amount: 0.7, once: true});
+  const isCarouselInView = useInView(carouselRef, {amount: 0.7});
 
   useEffect(() => {
     if(isCarouselInView) {
       setIsPlaying(true)
+    } else {
+      setIsPlaying(false)
     }
   }, [isCarouselInView])
 

@@ -30,3 +30,7 @@ body {
 video {
   border-radius: 15px;
 }
+
+#iphone video {
+  border-radius: 40px;
+}

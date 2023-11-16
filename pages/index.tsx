@@ -19,7 +19,7 @@ const IndexPage = () => {
         <Home />
         <Highlights />
         <CloserLook />
-        {/* <Explore /> */}
+        <Explore />
         {/* <Benefits /> */}
         {/* <Forefront /> */}
         {/* <Portfolio /> */}
