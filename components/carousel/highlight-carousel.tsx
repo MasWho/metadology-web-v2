@@ -3,6 +3,7 @@ import DynamicReactPlayer from '../video/DynamicReactPlayer';
 import CarouselElement from './carousel-element';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import { useAnimate } from 'framer-motion';
+import { VIDEO_RATIO } from './constants';
 
 type Props = {
   videos: { url: string, headingText: string }[];
@@ -10,8 +11,6 @@ type Props = {
   isPlaying: boolean;
   onVideoProgress: (index: number, progress: { played: number; loaded: number }) => void;
 };
-
-const VIDEO_RATIO = 16 / 9; // width / height
 
 const HighlightCarousel = (props: Props) => {
   const { videos, currentVideoIndex, isPlaying, onVideoProgress } = props;

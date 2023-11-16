@@ -18,11 +18,11 @@ const IndexPage = () => {
       <SiteMainLayout initialPageId="home" >
         <Home />
         <Highlights />
-        {/* <CloserLook />
-        <Explore />
-        <Benefits />
-        <Forefront />
-        <Portfolio /> */}
+        <CloserLook />
+        {/* <Explore /> */}
+        {/* <Benefits /> */}
+        {/* <Forefront /> */}
+        {/* <Portfolio /> */}
       </SiteMainLayout>
     </NavContextProvider>
   )

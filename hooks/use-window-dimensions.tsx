@@ -1,3 +1,4 @@
+import { TABLET_SCREEN_SIZE } from '@/components/carousel/constants';
 import { useState, useEffect } from 'react';
 
 function getWindowDimensions() {
@@ -31,21 +32,12 @@ export default function useWindowDimensions() {
 }
 
 export const screenToVideoSizeRatio = (screenWidth: number) => {
-  if(screenWidth <= 360) {
+  if(screenWidth < TABLET_SCREEN_SIZE) {
     return {
-      videoRatio: 0.8,
-      carouselOffset: '5vw',
-      carouselElementMargin: '5vw',
-      sliderOffset: 90
-    };
-  }
-
-  if(screenWidth <= 768) {
-    return {
-      videoRatio: 0.6,
-      carouselOffset: '15vw',
-      carouselElementMargin: '5vw',
-      sliderOffset: 70
+      videoRatio: 0.9,
+      carouselOffset: '2.5vw',
+      carouselElementMargin: '2.5vw',
+      sliderOffset: 95
     };
   }
 
