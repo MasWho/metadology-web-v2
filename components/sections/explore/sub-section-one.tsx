@@ -1,12 +1,11 @@
 import SectionLayout from '../../layout/section-layout';
 import SectionHeading from '../../headings/section-heading';
 import DynamicReactPlayer from '@/components/video/DynamicReactPlayer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import { VIDEO_RATIO } from '@/components/carousel/constants';
 import CollapsibleMenu from '@/components/menus/collapsible-menu';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const menuItems = [
   {
@@ -33,19 +32,49 @@ const ExploreSubsectionOne = () => {
   const { width } = useWindowDimensions();
   const { videoRatio } = screenToVideoSizeRatio(width!);
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState(0);
-  const [currentVideoUrl, setCurrentVideoUrl] = useState(menuItems[0].url);
+  const sectionRef = useRef(null);
+  const isInview = useInView(sectionRef);
   const videoWith = width! * videoRatio * 0.55;
 
   const collapseOrOpenMenuItemHandler = (index: number) => {
     setCurrentMenuItemIndex(index);
-    setCurrentVideoUrl(menuItems[index].url);
   };
+
+  const videoPlayers = menuItems.map((item, idx) => {
+    const showVideo = currentMenuItemIndex === idx;
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showVideo ? 1 : 0 }}
+        transition={{ duration: 1 }}
+        className="absolute top-0 left-0"
+        key={`significant-others-video-${idx}`}
+        style={{
+            zIndex: showVideo ? 1000 : 0
+        }}
+      >
+        <DynamicReactPlayer
+          controls
+          url={item.url}
+          playing={currentMenuItemIndex === idx && isInview}
+          volume={1}
+          muted={true}
+          width={`${videoWith}px`}
+          height={`${videoWith / VIDEO_RATIO}px`}
+          style={{
+            border: '1px solid grey',
+            borderRadius: '15px',
+          }}
+        />
+      </motion.div>
+    );
+  });
 
   return (
     <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>
-      <div className="pt-[30px] pb-[50px] px-[5vw] tablet:px-[20vw] tablet:pb-[100px]">
+      <div ref={sectionRef} className="pt-[30px] pb-[50px] px-[5vw] laptop:px-[15vw] desktop:px-[20vw] tablet:pb-[100px]">
         <SectionHeading text="Significant others" />
-        <div className="flex justify-between w-[100%] mx-auto rounded-[15px] mt-[50px] px-[5%] py-[20px] bg-c-primary">
+        <div className="flex justify-between items-center w-[100%] mx-auto rounded-[15px] mt-[50px] px-[5%] py-[20px] bg-c-primary min-h-[550px]">
           {/* Menu */}
           <CollapsibleMenu
             items={menuItems}
@@ -53,20 +82,11 @@ const ExploreSubsectionOne = () => {
             openItemIndex={currentMenuItemIndex}
           />
           {/* Video */}
-          <div className="flex flex-col justify-center rounded-[15px]">
-            <DynamicReactPlayer
-              controls
-              url={currentVideoUrl}
-              playing={false}
-              volume={1}
-              muted={true}
-              width={`${videoWith}px`}
-              height={`${videoWith / VIDEO_RATIO}px`}
-              style={{
-                border: '1px solid grey',
-                borderRadius: '15px',
-              }}
-            />
+          <div
+            className="rounded-[15px] relative w-[50vw] h-[28vw] tablet:w-[33vw] tablet:h-[19vw]"
+            style={{ width: `${videoWith}px`, height: `${videoWith / VIDEO_RATIO}px` }}
+          >
+            {videoPlayers}
           </div>
         </div>
       </div>
