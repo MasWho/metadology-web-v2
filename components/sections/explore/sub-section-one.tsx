@@ -2,7 +2,7 @@ import SectionLayout from '../../layout/section-layout';
 import SectionHeading from '../../headings/section-heading';
 import DynamicReactPlayer from '@/components/video/DynamicReactPlayer';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
-import { VIDEO_RATIO } from '@/components/carousel/constants';
+import { TABLET_SCREEN_SIZE, VIDEO_RATIO } from '@/components/carousel/constants';
 import CollapsibleMenu from '@/components/menus/collapsible-menu';
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
@@ -34,7 +34,12 @@ const ExploreSubsectionOne = () => {
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState(0);
   const sectionRef = useRef(null);
   const isInview = useInView(sectionRef);
-  const videoWith = width! * videoRatio * 0.55;
+
+  let scalingRatio = 0.55;
+  if(width! < TABLET_SCREEN_SIZE) {
+    scalingRatio = 0.8;
+  }
+  const videoWith = width! * videoRatio * scalingRatio;
 
   const collapseOrOpenMenuItemHandler = (index: number) => {
     setCurrentMenuItemIndex(index);
@@ -74,7 +79,7 @@ const ExploreSubsectionOne = () => {
     <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>
       <div ref={sectionRef} className="pt-[30px] pb-[50px] px-[5vw] laptop:px-[15vw] desktop:px-[20vw] tablet:pb-[100px]">
         <SectionHeading text="Significant others" />
-        <div className="flex justify-between items-center w-[100%] mx-auto rounded-[15px] mt-[50px] px-[5%] py-[20px] bg-c-primary min-h-[550px]">
+        <div className="flex flex-col-reverse justify-evenly tablet:flex-row tablet:justify-evenly items-center w-[100%] mx-auto rounded-[15px] mt-[30px] tablet:mt-[50px] tablet:px-[2.5%] py-[20px] bg-c-primary min-h-[500px] tablet:min-h-[550px]">
           {/* Menu */}
           <CollapsibleMenu
             items={menuItems}
@@ -83,8 +88,7 @@ const ExploreSubsectionOne = () => {
           />
           {/* Video */}
           <div
-            className="rounded-[15px] relative w-[50vw] h-[28vw] tablet:w-[33vw] tablet:h-[19vw]"
-            style={{ width: `${videoWith}px`, height: `${videoWith / VIDEO_RATIO}px` }}
+            className="rounded-[15px] relative w-[72vw] h-[41vw] tablet:w-[33vw] tablet:h-[19vw]"
           >
             {videoPlayers}
           </div>

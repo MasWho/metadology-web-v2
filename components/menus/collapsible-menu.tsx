@@ -34,15 +34,14 @@ const CollapsibleMenu = (props: Props) => {
   };
 
   const changeMenuItemHandler = async (index: number) => {
-    await removeArrow(index);
-    await openMenuItem(index);
     for (let i = 0; i < items.length; i++) {
       if (index !== i) {
-        showArrow(i);
-        closeMenuItem(i);
+        await showArrow(i);
+        await closeMenuItem(i);
       }
     }
-
+    removeArrow(index);
+    openMenuItem(index);
   };
 
   useEffect(() => {
@@ -50,7 +49,7 @@ const CollapsibleMenu = (props: Props) => {
   }, [openItemIndex]);
 
   const menuItems = items.map((item, idx) => {
-    let containerClassName = 'py-[20px] border-b-[1px] border-b-c-section-heading';
+    let containerClassName = 'py-[15px] tablet:py-[20px] border-b-[1px] border-b-c-section-heading';
     if (idx === items.length - 1) {
       containerClassName = containerClassName.replace(
         'border-b-[1px] border-b-c-section-heading',
@@ -66,8 +65,7 @@ const CollapsibleMenu = (props: Props) => {
     return (
       <li className={containerClassName} key={`collapsible-menu-item-${idx}`}>
         <div className="flex items-center justify-between gap-14">
-          <h2 className="text-[20px]">{item.heading}</h2>
-
+          <h2 className="text-[16px] tablet:text-[20px]">{item.heading}</h2>
           <div id={`collapsible-menu-icon-${idx}`}>
             <FontAwesomeIcon
               icon={faChevronDown}
@@ -79,7 +77,7 @@ const CollapsibleMenu = (props: Props) => {
         </div>
         <p
           id={`collapsible-menu-content-${idx}`}
-          className="relative h-0 opacity-0 text-c-section-heading pt-[10px]"
+          className="relative h-0 opacity-0 text-c-section-heading pt-[5px] tablet:pt-[10px] text-[12px] tablet:text-[16px]"
         >
           {item.content}
         </p>
@@ -88,7 +86,7 @@ const CollapsibleMenu = (props: Props) => {
   });
 
   return (
-    <ul ref={scope} className="flex flex-col justify-center text-c-heading w-[35%]">
+    <ul ref={scope} className="flex flex-col justify-center text-c-heading w-[80%] tablet:w-[35%]">
       {menuItems}
     </ul>
   );
