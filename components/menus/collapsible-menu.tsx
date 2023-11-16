@@ -1,7 +1,7 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAnimate } from 'framer-motion';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 type Props = {
   items: { heading: string; content: string }[];
@@ -12,36 +12,40 @@ type Props = {
 const CollapsibleMenu = (props: Props) => {
   const { items, openItemIndex, onOpenOrCollapse } = props;
   const [scope, animate] = useAnimate();
+  const prevIndexRef = useRef(openItemIndex);
 
   const openMenuItem = async (index: number) => {
-    await animate(`#collapsible-menu-content-${index}`, { height: '100%' }, { duration: 0.3 });
-    await animate(`#collapsible-menu-content-${index}`, { opacity: 1 }, { duration: 0.3 });
+    await animate(`#collapsible-menu-content-${index}`, { height: '100%' }, { duration: 0.2 });
+    await animate(`#collapsible-menu-content-${index}`, { opacity: 1 }, { duration: 0.2 });
   };
 
   const closeMenuItem = async (index: number) => {
-    await animate(`#collapsible-menu-content-${index}`, { opacity: 0 }, { duration: 0.3 });
-    await animate(`#collapsible-menu-content-${index}`, { height: '0px' }, { duration: 0.3 });
+    await animate(`#collapsible-menu-content-${index}`, { opacity: 0 }, { duration: 0.2 });
+    await animate(`#collapsible-menu-content-${index}`, { height: '0px' }, { duration: 0.2 });
   };
 
   const removeArrow = async (index: number) => {
-    await animate(`#collapsible-menu-icon-${index}`, { rotate: '180deg' }, { duration: 0.3 });
-    await animate(`#collapsible-menu-icon-${index}`, { opacity: 0 }, { duration: 0.3 });
+    await animate(`#collapsible-menu-icon-${index}`, { rotate: '180deg' }, { duration: 0.2 });
+    await animate(`#collapsible-menu-icon-${index}`, { opacity: 0 }, { duration: 0.2 });
   };
 
   const showArrow = async (index: number) => {
-    await animate(`#collapsible-menu-icon-${index}`, { opacity: 1 }, { duration: 0.3 });
-    await animate(`#collapsible-menu-icon-${index}`, { rotate: '0deg' }, { duration: 0.3 });
+    await animate(`#collapsible-menu-icon-${index}`, { opacity: 1 }, { duration: 0.2 });
+    await animate(`#collapsible-menu-icon-${index}`, { rotate: '0deg' }, { duration: 0.2 });
   };
 
   const changeMenuItemHandler = async (index: number) => {
-    for (let i = 0; i < items.length; i++) {
-      if (index !== i) {
-        await showArrow(i);
-        await closeMenuItem(i);
-      }
-    }
+    // for (let i = 0; i < items.length; i++) {
+    //   if (index !== i) {
+    //     await showArrow(i);
+    //     await closeMenuItem(i);
+    //   }
+    // }
+    showArrow(prevIndexRef.current);
+    await closeMenuItem(prevIndexRef.current);
     removeArrow(index);
-    openMenuItem(index);
+    await openMenuItem(index);
+    prevIndexRef.current = openItemIndex;
   };
 
   useEffect(() => {
