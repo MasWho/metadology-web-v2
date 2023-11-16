@@ -9,6 +9,7 @@ import Portfolio from "@/components/sections/portfolio";
 import Home from "@/components/sections/home";
 import NavContextProvider from "@/contexts/NavContext";
 import dynamic from "next/dynamic";
+import ExploreSubsectionOne from "@/components/sections/explore/sub-section-one";
 
 export type AllSections = "home" | "highlights" | "closer-look" | "explore" | "benefits" | "forefront" | "portfolio" | "contact" | null;
 
@@ -20,6 +21,7 @@ const IndexPage = () => {
         <Highlights />
         <CloserLook />
         <Explore />
+          <ExploreSubsectionOne />
         {/* <Benefits /> */}
         {/* <Forefront /> */}
         {/* <Portfolio /> */}
