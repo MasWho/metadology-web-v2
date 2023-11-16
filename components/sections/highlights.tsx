@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import SectionLayout from '../layout/section-layout';
 import SectionHeading from '../headings/section-heading';
 import VideoSlider from '../sliders/video-slider';
 import HighlightCarousel from '../carousel/highlight-carousel';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
+import { useInView } from 'framer-motion';
 
 const videos = [
   { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/test' },
@@ -21,10 +22,18 @@ const initialiseVideoProgressLookup = () => {
 };
 
 const Highlights = () => {
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [videoProgress, setVideoProgress] = useState(initialiseVideoProgressLookup);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const {width} = useWindowDimensions();
+  const carouselRef = useRef(null);
+  const isCarouselInView = useInView(carouselRef, {amount: 0.7, once: true});
+
+  useEffect(() => {
+    if(isCarouselInView) {
+      setIsPlaying(true)
+    }
+  }, [isCarouselInView])
 
   const playVideoHandler = () => {
     setIsPlaying((prev) => {
@@ -40,6 +49,16 @@ const Highlights = () => {
   const videoProgressHandler = (index: number, progress: { played: number; loaded: number }) => {
     const { played } = progress;
     const completedNormalised = Math.floor(played * 100) + 1;
+    if(played >= 1) {
+      setCurrentVideoIndex(prev => {
+        if(prev !== videos.length - 1) {
+          return prev + 1;
+        }
+        return prev;
+      });
+      setIsPlaying(true);
+    }
+
     setVideoProgress((prev: any) => {
       return {
         ...prev,
@@ -52,7 +71,7 @@ const Highlights = () => {
 
   return (
     <SectionLayout sectionName={'highlights'} bgColor="bg-c-secondary" noPadding>
-      <div className="py-14">
+      <div className="py-14" ref={carouselRef}>
         <div className="flex flex-col gap-6 relative " style={{left: carouselOffset}}>
           <div style={{margin: `0 ${carouselElementMargin}`}}>
             <SectionHeading text="Get the highlights" />
