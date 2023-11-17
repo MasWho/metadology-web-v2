@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import DynamicReactPlayer from '../video/DynamicReactPlayer';
 import CarouselElement from './carousel-element';
-import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
+import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import { useAnimate } from 'framer-motion';
 import { VIDEO_RATIO } from './constants';
 
 type Props = {
-  videos: { url: string, headingText: string }[];
+  videos: { url: string, headingText?: string }[];
   currentVideoIndex: number;
   isPlaying: boolean;
   onVideoProgress: (index: number, progress: { played: number; loaded: number }) => void;
@@ -29,7 +29,7 @@ const HighlightCarousel = (props: Props) => {
       return;
     }
 
-    const {sliderOffset} = screenToVideoSizeRatio(width!);
+    const {sliderOffset} = carouselVideoSizeRatio(width!);
 
     if (currentVideoIndex > prevVideoIndexRef.current) {
       const interval = currentVideoIndex - prevVideoIndexRef.current;
@@ -51,9 +51,9 @@ const HighlightCarousel = (props: Props) => {
       playing = isPlaying;
     }
 
-    const {videoRatio} = screenToVideoSizeRatio(width!);
+    const {videoRatio} = carouselVideoSizeRatio(width!);
     return (
-      <CarouselElement index={idx} focusedIndex={currentVideoIndex} videoHeadingText={video.headingText} key={`highlight-video-${idx}-${video.url}`}>
+      <CarouselElement index={idx} focusedIndex={currentVideoIndex} videoHeadingText={video.headingText!} key={`highlight-video-${idx}-${video.url}`}>
         <DynamicReactPlayer
           controls
           url={video.url}

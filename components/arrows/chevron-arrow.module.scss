@@ -1,0 +1,63 @@
+/* // Button settings */
+$btn-size: 30px;
+$btn-arrowsize:           $btn-size / 4;
+
+// Button colors
+$btn-color:               white;
+$btn-bg:                  #333336;
+
+// Button hover colors
+$btn-hover-color:         #111;
+$btn-bg-hover:            white;
+$btn-hover-border-color:  white;
+
+.arrowbtn {
+  width: $btn-size;
+  height: $btn-size;
+  background: $btn-bg;
+  border-radius: $btn-size;
+  color: $btn-color;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  line-height: $btn-size;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    &:not(.inactive) {
+      transform: scale(1.2);
+    }
+  }
+  &:after {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    width: $btn-arrowsize;
+    height: $btn-arrowsize;
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.inactive {
+  opacity: 0.3;
+}
+
+.arrowbtnRight {
+  &:after {
+    margin-left: -($btn-arrowsize * 0.7);
+    margin-top: -($btn-arrowsize * .5);
+    border-top: 1px solid;
+    border-left: 1px solid;
+    transform: rotateZ(135deg);
+  }
+}
+
+.arrowbtnLeft {
+  &:after {
+    margin-left: -($btn-arrowsize * .3);
+    margin-top: -($btn-arrowsize * .5);
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    transform: rotateZ(135deg);
+  }
+}

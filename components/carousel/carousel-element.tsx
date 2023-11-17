@@ -1,4 +1,4 @@
-import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
+import useWindowDimensions, { carouselVideoSizeRatio, screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import React, { PropsWithChildren } from 'react';
 import { motion } from 'framer-motion';
 
@@ -13,7 +13,7 @@ const CarouselElement = (props: Props) => {
   const { width } = useWindowDimensions();
 
   const castOverlay = index !== focusedIndex;
-  const { videoRatio, carouselElementMargin } = screenToVideoSizeRatio(width!);
+  const { videoRatio, carouselElementMargin } = carouselVideoSizeRatio(width!);
   return (
     <>
       <li
@@ -31,7 +31,11 @@ const CarouselElement = (props: Props) => {
             className="absolute w-[100%] h-[100%] top-0 bg-c-secondary"
           />
         ) : null}
-        <h1 className="text-c-heading absolute top-[3%] left-[3%] text-[14px] tablet:text-[16px] laptop:text-[20px]">{`${index+1}. ${videoHeadingText}`}</h1>
+        {!!videoHeadingText ? (
+          <h1 className="text-c-heading absolute top-[3%] left-[3%] text-[14px] tablet:text-[16px] laptop:text-[20px]">{`${
+            index + 1
+          }. ${videoHeadingText}`}</h1>
+        ) : null}
       </li>
     </>
   );

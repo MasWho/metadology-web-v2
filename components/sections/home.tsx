@@ -23,6 +23,9 @@ const Home = () => {
           alt='meta-dology logo'
           className='w-[80%] tablet:w-[60%] desktop:w-[50%]'
           priority
+          style={{
+            width: 'auto'
+          }}
         />
         <div className='text-c-heading text-[16px] text-center tablet:w-[80%] tablet:text-[20px] desktop:text-[24px]'>
           <GreenButton text="Contact Us" />

@@ -23,6 +23,7 @@ const ImageDisplay = (props: Props) => {
           style={{
             objectFit: 'cover',
           }}
+          sizes='700px, 270px'
         />
       </div>
       <div className="flex w-[100%] h-[49%] justify-between mt-[5px]">
@@ -34,6 +35,7 @@ const ImageDisplay = (props: Props) => {
             style={{
               objectFit: 'cover',
             }}
+            sizes='300px, 300pxpx'
           />
         </div>
         <div className="relative w-[49%] h-[100%]">
@@ -44,6 +46,7 @@ const ImageDisplay = (props: Props) => {
             style={{
               objectFit: 'cover',
             }}
+            sizes='300px, 300px'
           />
         </div>
       </div>

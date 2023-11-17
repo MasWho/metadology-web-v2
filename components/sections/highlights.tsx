@@ -3,7 +3,7 @@ import SectionLayout from '../layout/section-layout';
 import SectionHeading from '../headings/section-heading';
 import VideoSlider from '../sliders/video-slider';
 import HighlightCarousel from '../carousel/highlight-carousel';
-import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
+import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import { useInView } from 'framer-motion';
 
 const videos = [
@@ -69,7 +69,7 @@ const Highlights = () => {
     });
   };
 
-  const {carouselOffset, carouselElementMargin} = screenToVideoSizeRatio(width!);
+  const {carouselOffset, carouselElementMargin} = carouselVideoSizeRatio(width!);
 
   const carouselStyle = {
     left: carouselOffset
