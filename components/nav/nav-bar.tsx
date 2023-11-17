@@ -10,7 +10,6 @@ type Props = {
 };
 
 const Nav = (props: Props) => {
-  const { currentPageId } = props;
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
   const toggleHamburgerHandler = () => {
