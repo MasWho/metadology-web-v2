@@ -61,7 +61,7 @@ const SectionButton = (props: Props) => {
           id={`${sectionName}-section-text`}
           className="w-0 opacity-0 font-normal z-20 text-c-heading overflow-hidden"
         >
-          More on {sectionName}
+          More on this section
         </span>
         <span id={`${sectionName}-section-icon`} className="w-0 relative left-[-155%] z-20">
           <SectionButtonIcon />

@@ -34,3 +34,7 @@ video {
 #iphone video {
   border-radius: 40px;
 }
+
+.react-player__preview {
+  border-radius: 15px;
+}

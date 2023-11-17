@@ -6,6 +6,7 @@ import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-
 import { VIDEO_RATIO } from '../carousel/constants';
 
 const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/test';
+const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/test';
 
 const CloserLook = () => {
   const {width} = useWindowDimensions();
@@ -21,11 +22,12 @@ const CloserLook = () => {
           <DynamicReactPlayer
             controls
             url={VIDEO_URL}
-            playing={false}
+            playing={true}
             volume={1}
-            muted={true}
+            muted={false}
             width={`${width! * videoRatio}px`}
             height={`${width! * videoRatio / VIDEO_RATIO}px`}
+            light={THUMBNAIL_URL}
           />
         </div>
       </div>
