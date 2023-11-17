@@ -11,6 +11,7 @@ import NavContextProvider from "@/contexts/NavContext";
 import dynamic from "next/dynamic";
 import ExploreSubsectionOne from "@/components/sections/explore/sub-section-one";
 import ExploreSubsectionTwo from "@/components/sections/explore/sub-section-two";
+import ExploreSubsectionFour from "@/components/sections/explore/sub-section-four";
 const ExploreSubsectionThree = dynamic(() => import("@/components/sections/explore/sub-section-three"), {ssr: false});
 
 export type AllSections = "home" | "highlights" | "closer-look" | "explore" | "benefits" | "forefront" | "portfolio" | "contact" | null;
@@ -26,6 +27,7 @@ const IndexPage = () => {
           <ExploreSubsectionOne />
           <ExploreSubsectionTwo />
           <ExploreSubsectionThree />
+          <ExploreSubsectionFour />
         {/* <Benefits /> */}
         {/* <Forefront /> */}
         {/* <Portfolio /> */}

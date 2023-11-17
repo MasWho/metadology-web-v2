@@ -1,7 +1,7 @@
 import SectionLayout from '../../layout/section-layout';
 import SectionHeading from '../../headings/section-heading';
 import ContentHeading from '@/components/headings/content-heading';
-import { motion, useInView } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import UltraRealismCarousel from '@/components/carousel/ultra-realism-carousel';
