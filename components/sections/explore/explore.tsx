@@ -4,7 +4,7 @@ import ContentHeading from '@/components/headings/content-heading';
 import VideoWithPhone from '@/components/video/VideoWithPhone';
 import { motion } from 'framer-motion';
 
-const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/test';
+const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-video-1';
 
 const Explore = () => {
   return (

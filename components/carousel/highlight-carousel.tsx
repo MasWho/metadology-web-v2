@@ -53,13 +53,12 @@ const HighlightCarousel = (props: Props) => {
 
     const {videoRatio} = screenToVideoSizeRatio(width!);
     return (
-      <CarouselElement index={idx} focusedIndex={currentVideoIndex} videoHeadingText={video.headingText}>
+      <CarouselElement index={idx} focusedIndex={currentVideoIndex} videoHeadingText={video.headingText} key={`highlight-video-${idx}-${video.url}`}>
         <DynamicReactPlayer
           controls
           url={video.url}
           playing={playing}
           onProgress={onVideoProgress.bind(null, idx)}
-          key={`highlight-video-${idx}-${video.url}`}
           volume={1}
           muted={true}
           width={`${width! * videoRatio}px`}

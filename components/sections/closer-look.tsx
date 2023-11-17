@@ -5,8 +5,8 @@ import DynamicReactPlayer from '../video/DynamicReactPlayer';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import { VIDEO_RATIO } from '../carousel/constants';
 
-const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/test';
-const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/test';
+const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/closer-look-video';
+const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail';
 
 const CloserLook = () => {
   const {width} = useWindowDimensions();
