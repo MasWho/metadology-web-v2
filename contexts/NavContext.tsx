@@ -1,22 +1,32 @@
 import { AllSections } from "@/pages";
-import { PropsWithChildren, createContext, useContext, useState } from "react";
+import { Dispatch, PropsWithChildren, SetStateAction, createContext, useContext, useState } from "react";
+import { motion } from "framer-motion";
 
 const navContext = createContext<{
     currentPageId: AllSections,
-    setCurrentPageId: (id: AllSections) => void
+    setCurrentPageId: (id: AllSections) => void,
+    setIsNavigating: Dispatch<SetStateAction<boolean>>,
 }>({
     currentPageId: 'home',
-    setCurrentPageId: () => {}
+    setCurrentPageId: () => {},
+    setIsNavigating: () => {},
 });
 
 const NavContextProvider = (props: PropsWithChildren) => {
     const {children} = props;
     const [currentPageId, setCurrentPageId] = useState<AllSections>('home');
+    const [isNavigating, setIsNavigating] = useState(false);
+
     return <navContext.Provider value={{
         currentPageId,
-        setCurrentPageId
+        setCurrentPageId,
+        setIsNavigating
     }} >
-        {children}
+        <div className="h-[100vh] bg-c-primary">
+            <motion.div initial={{opacity: 1}} animate={{opacity: isNavigating ? 0 : 1}} transition={{duration: 0.3}}>
+                {children}
+            </motion.div>
+        </div>
     </navContext.Provider>
 };
 

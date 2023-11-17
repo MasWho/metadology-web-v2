@@ -35,7 +35,7 @@ const MobileNavActions = (props: Props) => {
   const { isOpen, onClose } = props;
   const portalRootRef = useRef<any>(null);
   const [mounted, setMounted] = useState(false);
-  const {currentPageId} = useNavContext();
+  const {currentPageId, setIsNavigating} = useNavContext();
 
   const updatePageScroll = useCallback(() => {
     if (isOpen) {
@@ -48,12 +48,14 @@ const MobileNavActions = (props: Props) => {
 
   const changePageScrollHandler = (pageId: AllSections) => {
     const element = document.getElementById(pageId!);
+    setIsNavigating(true);
     setTimeout(() => {
       element?.scrollIntoView({
-        behavior: 'smooth',
+        behavior: 'instant',
         block: 'center',
       });
-    }, 10);
+      setIsNavigating(false);
+    }, 800);
     onClose();
   };
 

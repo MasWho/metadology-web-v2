@@ -5,16 +5,18 @@ import Link from "next/link";
 import React from "react";
 
 const NavActions = () => {
-  const {currentPageId} = useNavContext();
+  const {currentPageId, setIsNavigating} = useNavContext();
 
   const changePageScrollHandler = (pageId: AllSections) => {
     const element = document.getElementById(pageId!);
+    setIsNavigating(true);
     setTimeout(() => {
       element?.scrollIntoView({
-        behavior: 'smooth',
+        behavior: 'instant',
         block: 'center',
       });
-    }, 10);
+      setIsNavigating(false);
+    }, 800);
   };
 
   return (
