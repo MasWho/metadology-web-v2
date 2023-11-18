@@ -36,28 +36,15 @@ const CarouselItem = (props: { item: { url: string; text: string }; itemIndex: n
     container: carouselRef,
     target: itemRef,
     axis: 'x',
-    offset: [`start ${offset}px`, `end ${offset}px`]
-  });
-  const {scrollXProgress: x} = useScroll({
-    container: carouselRef,
-    target: itemRef,
-    axis: 'x',
-    offset: [`start ${negOffset}px`, `end ${negOffset}px`]
+    offset: [`start ${offset}px`, `end ${offset}px`],
+    layoutEffect: false
   });
   const opacity = useTransform(scrollXProgress, [0, 1], [0.3, 1]);
-  const negOpacity = useTransform(x, [0, 1], [0.99, 1]);
-
-  useMotionValueEvent(scrollXProgress, "animationStart", () => {
-    setIsFadeIn(true);
-  });
-
-  useMotionValueEvent(x, "animationStart", () => {
-    setIsFadeIn(false);
-  });
+  const scale = useTransform(scrollXProgress, [0, 1], [0.8, 1]);
 
   return (
-    <motion.li style={{opacity: isFadeIn ? opacity : negOpacity}} className="snap-center" ref={itemRef} >
-      <div className="relative tablet:w-[500px] tablet:h-[380px] desktop:w-[700px] desktop:h-[540px]">
+    <li className="snap-center tablet:w-[500px] tablet:h-[380px] desktop:w-[700px] desktop:h-[540px]" ref={itemRef} >
+      <motion.div style={{opacity: opacity, scale: scale }} className="relative origin-left w-[100%] h-[100%]">
         <Image
           src={item.url}
           alt={`carousel image with caption: ${item.text}`}
@@ -67,8 +54,8 @@ const CarouselItem = (props: { item: { url: string; text: string }; itemIndex: n
             objectFit: 'cover',
           }}
         />
-      </div>
-    </motion.li>
+      </motion.div>
+    </li>
   );
 };
 
@@ -92,7 +79,7 @@ const CarouselItems = (props: CarouselItemsProps) => {
   return (
     // Scroll container
     <div id="large-image-carousel" className="overflow-scroll no-scrollbar snap-mandatory snap-x" ref={carouselRef}>
-      <ul className="relative flex gap-3 w-fit tablet:pl-[calc(50%-250px)] tablet:pr-[calc(50%-250px)] desktop:pl-[calc(50%-350px)] desktop:pr-[calc(50%-350px)]">
+      <ul className="relative flex gap-1 w-fit tablet:pl-[calc(50%-250px)] tablet:pr-[calc(50%-250px)] desktop:pl-[calc(50%-350px)] desktop:pr-[calc(50%-350px)]">
         {itemList}
       </ul>
     </div>
