@@ -10,7 +10,7 @@ const pictureSize = (width: number) => {
   }
 
   if(width < TABLET_SCREEN_SIZE) {
-    return 300;
+    return 250;
   }
 
   return 600;
@@ -42,8 +42,8 @@ const CarouselItem = (props: { item: { url: string; text: string }; itemIndex: n
   const height = useTransform(scrollXProgress, [0, 0.35, 0.75, 1], [0.8 * pictureHeight, pictureHeight, pictureHeight, pictureHeight]);
 
   return (
-    <li className="flex items-center snap-center tablet:w-[400px] tablet:h-[308px] desktop:w-[600px] desktop:h-[460px]" ref={itemRef} >
-      <motion.div style={{opacity, height }} className="relative origin-left w-[100%] h-[100%]">
+    <li className="flex items-center snap-center w-[250px] h-[300px] tablet:w-[400px] tablet:h-[308px] desktop:w-[600px] desktop:h-[460px]" ref={itemRef} >
+      <motion.div style={{opacity, height: width! >= TABLET_SCREEN_SIZE ? height : undefined }} className="relative origin-left w-[100%] h-[100%]">
         <Image
           src={item.url}
           alt={`carousel image with caption: ${item.text}`}
@@ -78,7 +78,7 @@ const CarouselItems = (props: CarouselItemsProps) => {
   return (
     // Scroll container
     <div id="large-image-carousel" className="overflow-scroll no-scrollbar snap-mandatory snap-x" ref={carouselRef}>
-      <ul className="relative flex w-fit gap-[20px] tablet:pl-[calc(50%-200px)] tablet:pr-[calc(50%-200px)] desktop:pl-[calc(50%-300px)] desktop:pr-[calc(50%-300px)]">
+      <ul className="relative flex w-fit gap-[10px] pl-[calc(50%-125px)] pr-[calc(50%-125px)] tablet:gap-[20px] tablet:pl-[calc(50%-200px)] tablet:pr-[calc(50%-200px)] desktop:pl-[calc(50%-300px)] desktop:pr-[calc(50%-300px)]">
         {itemList}
       </ul>
     </div>

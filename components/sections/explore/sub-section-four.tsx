@@ -63,14 +63,14 @@ const ExploreSubsectionFour = () => {
     <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>
       <div ref={scope} className="relative py-14 flex flex-col left-[2.5vw] mx-[2.5vw] tablet:left-[20vw] tablet:mx-[5vw]">
         {/* Very custom Heading */}
-        <h1 className="text-[24px] text-c-section-heading">
+        <h1 className="text-[20px] tablet:text-[24px] text-c-section-heading">
           <p>
             <span id="from-the" className='opacity-0'>From the </span>
-            <b id="big-picture" className="opacity-0 text-c-heading text-[48px]">big picture, </b>
+            <b id="big-picture" className="opacity-0 text-c-heading text-[38px] tablet:text-[48px]">big picture, </b>
           </p>
           <p>
             <span id="to-the" className='opacity-0'>to the </span>
-            <b id="small-details" className="opacity-0 text-c-heading text-[16px]">smallest details</b>
+            <b id="small-details" className="opacity-0 text-c-heading text-[12px] tablet:text-[16px]">smallest details</b>
           </p>
         </h1>
       </div>
