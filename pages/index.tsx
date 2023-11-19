@@ -28,7 +28,7 @@ const IndexPage = () => {
           <ExploreSubsectionTwo />
           <ExploreSubsectionThree />
           <ExploreSubsectionFour />
-        {/* <Benefits /> */}
+        <Benefits />
         {/* <Forefront /> */}
         {/* <Portfolio /> */}
       </SiteMainLayout>
