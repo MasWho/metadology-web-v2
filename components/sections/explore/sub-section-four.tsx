@@ -6,31 +6,38 @@ import { useEffect } from 'react';
 const images = [
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-four-img1',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.' 
+    text: 'Lorem ipsum, dolor sit amet consectetur desc1 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    caption: 'Caption 1'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-four-img2',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.' 
+    text: 'Lorem ipsum, dolor sit amet consectetur desc2 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    caption: 'Caption 2'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-four-img3',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.' 
+    text: 'Lorem ipsum, dolor sit amet consectetur desc3 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    caption: 'Caption 3'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-four-img4',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.' 
+    text: 'Lorem ipsum, dolor sit amet consectetur desc4 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    caption: 'Caption 4'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-four-img5',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.' 
+    text: 'Lorem ipsum, dolor sit amet consectetur desc5 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    caption: 'Caption 5'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-four-img6',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.' 
+    text: 'Lorem ipsum, dolor sit amet consectetur desc6 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    caption: 'Caption 6'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-four-img7',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.' 
+    text: 'Lorem ipsum, dolor sit amet consectetur desc7 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    caption: 'Caption 7'
   },
 ];
 
@@ -61,7 +68,7 @@ const ExploreSubsectionFour = () => {
 
   return (
     <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>
-      <div ref={scope} className="relative py-14 flex flex-col left-[2.5vw] mx-[2.5vw] tablet:left-[20vw] tablet:mx-[5vw]">
+      <div ref={scope} className="relative pt-14 pb-10 tablet:pb-14 flex flex-col left-[2.5vw] mx-[2.5vw] tablet:left-[20vw] tablet:mx-[5vw]">
         {/* Very custom Heading */}
         <h1 className="text-[20px] tablet:text-[24px] text-c-section-heading">
           <p>
@@ -75,7 +82,10 @@ const ExploreSubsectionFour = () => {
         </h1>
       </div>
       <LargeImageCarousel>
+        <LargeImageCarousel.CarouselItemText items={images} />
         <LargeImageCarousel.CarouselItems images={images} />
+        <LargeImageCarousel.CarouselItemCaption items={images} />
+        <LargeImageCarousel.CarouselNav items={images} />
       </LargeImageCarousel>
     </SectionLayout>
   )
