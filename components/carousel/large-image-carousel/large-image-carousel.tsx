@@ -1,21 +1,19 @@
 import Image from 'next/image';
 import React, { DOMElement, Dispatch, MutableRefObject, PropsWithChildren, SetStateAction, createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion, useInView, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import { useScrollPosition } from '@/hooks/use-scroll-position';
 import useWindowDimensions from '@/hooks/use-window-dimensions';
+import { DESKTOP_SCREEN_SIZE, TABLET_SCREEN_SIZE } from '../constants';
 
-const isBrowser = typeof window !== `undefined`
+const pictureSize = (width: number) => {
+  if(width < DESKTOP_SCREEN_SIZE) {
+    return 400;
+  }
 
-function getScrollPosition(props: { element?: any, useWindow?: boolean }) {
-  const {element, useWindow} = props;
-    if (!isBrowser) return { x: 0, y: 0 }
+  if(width < TABLET_SCREEN_SIZE) {
+    return 300;
+  }
 
-  const target = element ? element.current : document.body
-  const position = target.getBoundingClientRect()
-
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top }
+  return 600;
 }
 
 const CarouselItemText = (props: { text: string }) => {};
@@ -25,31 +23,32 @@ const CarouselItemCaption = (props: { text: string }) => {};
 const CarouselNav = () => {};
 
 const CarouselItem = (props: { item: { url: string; text: string }; itemIndex: number; getCarouselRef?: () => MutableRefObject<any> }) => {
-  const { item, itemIndex, getCarouselRef } = props;
+  const { item, itemIndex } = props;
   const itemRef = useRef<any>(null);
   const {width} = useWindowDimensions();
-  const offset = width! * 0.5 + 250 // Halft of image width
-  const negOffset = width! * 0.5 - 250;
+  const offset = width! * 0.5 + pictureSize(width!) / 2 // Halft of image width
+  const negOffset = width! * 0.5 - pictureSize(width!) / 2;
   const {carouselRef} = useCarouselContext();
-  const [isFadeIn, setIsFadeIn] = useState(true);
   const {scrollXProgress} = useScroll({
     container: carouselRef,
     target: itemRef,
     axis: 'x',
-    offset: [`start ${offset}px`, `end ${offset}px`],
+    offset: [`start ${offset}px`, `end ${offset}px`, `start ${negOffset}px`, `end ${negOffset}px`],
     layoutEffect: false
   });
-  const opacity = useTransform(scrollXProgress, [0, 1], [0.3, 1]);
-  const scale = useTransform(scrollXProgress, [0, 1], [0.8, 1]);
+  const opacity = useTransform(scrollXProgress, [0, 0.35, 0.75, 1], [0.3, 1, 1, 0.3]);
+  const pictureWidth = pictureSize(width!);
+  const pictureHeight = pictureWidth / 1.3;
+  const height = useTransform(scrollXProgress, [0, 0.35, 0.75, 1], [0.8 * pictureHeight, pictureHeight, pictureHeight, pictureHeight]);
 
   return (
-    <li className="snap-center tablet:w-[500px] tablet:h-[380px] desktop:w-[700px] desktop:h-[540px]" ref={itemRef} >
-      <motion.div style={{opacity: opacity, scale: scale }} className="relative origin-left w-[100%] h-[100%]">
+    <li className="flex items-center snap-center tablet:w-[400px] tablet:h-[308px] desktop:w-[600px] desktop:h-[460px]" ref={itemRef} >
+      <motion.div style={{opacity, height }} className="relative origin-left w-[100%] h-[100%]">
         <Image
           src={item.url}
           alt={`carousel image with caption: ${item.text}`}
           fill
-          sizes="700px, 540px"
+          sizes="600, 460px"
           style={{
             objectFit: 'cover',
           }}
@@ -79,7 +78,7 @@ const CarouselItems = (props: CarouselItemsProps) => {
   return (
     // Scroll container
     <div id="large-image-carousel" className="overflow-scroll no-scrollbar snap-mandatory snap-x" ref={carouselRef}>
-      <ul className="relative flex gap-1 w-fit tablet:pl-[calc(50%-250px)] tablet:pr-[calc(50%-250px)] desktop:pl-[calc(50%-350px)] desktop:pr-[calc(50%-350px)]">
+      <ul className="relative flex w-fit gap-[20px] tablet:pl-[calc(50%-200px)] tablet:pr-[calc(50%-200px)] desktop:pl-[calc(50%-300px)] desktop:pr-[calc(50%-300px)]">
         {itemList}
       </ul>
     </div>
