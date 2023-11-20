@@ -145,7 +145,7 @@ const CarouselItem = (props: {
 
   useEffect(() => {
     if (currentFocusedItemIndex !== prevIndexRef.current && currentFocusedItemIndex === itemIndex) {
-      itemRef.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+      itemRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
     prevIndexRef.current = currentFocusedItemIndex;
   }, [currentFocusedItemIndex]);
