@@ -19,7 +19,7 @@ const pictureSize = (width: number) => {
   if (width < TABLET_SCREEN_SIZE) {
     return 250;
   }
-  
+
   if (width < DESKTOP_SCREEN_SIZE) {
     return 400;
   }
@@ -69,7 +69,12 @@ const CarouselItemCaption = (props: { items: { caption: string }[] }) => {
     );
   });
   return (
-    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1, delay: 1.7}} className='absolute w-[100vw] mt-[20px]'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 1.7 }}
+      className="absolute w-[100vw] mt-[20px]"
+    >
       <article className="relative text-c-section-heading h-[24px] mx-auto flex justify-center">
         {itemCaptions}
       </article>
@@ -97,7 +102,12 @@ const CarouselNav = (props: { items: { caption: string }[] }) => {
   };
 
   return (
-    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1, delay: 1.7}} className="relative w-[100vw] mt-[55px] desktop:left-[72vw] tablet:left-[75vw] tablet:mt-[15px] flex justify-center gap-10 tablet:gap-3 tablet:w-[10%]">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 1.7 }}
+      className="relative w-[100vw] mt-[55px] desktop:left-[72vw] tablet:left-[75vw] tablet:mt-[15px] flex justify-center gap-10 tablet:gap-3 tablet:w-[10%]"
+    >
       <ChevronArrow
         direction="left"
         size="30px"
@@ -162,7 +172,7 @@ const CarouselItem = (props: {
       className="flex items-center snap-center w-[250px] h-[300px] tablet:w-[400px] tablet:h-[308px] desktop:w-[600px] desktop:h-[460px]"
       ref={itemRef}
       style={{
-        zIndex: 100 - itemIndex
+        zIndex: 100 - itemIndex,
       }}
     >
       <motion.div
@@ -180,11 +190,11 @@ const CarouselItem = (props: {
         }}
         viewport={{
           once: true,
-          amount: 0.8
+          amount: 0.8,
         }}
         transition={{
           duration: 0.7,
-          delay: itemIndex === 0 ? 0 : 1
+          delay: itemIndex === 0 ? 0 : 1,
         }}
         style={{ opacity, height: width! >= TABLET_SCREEN_SIZE ? height : undefined }}
         className="relative origin-center w-[100%] h-[100%]"
@@ -250,7 +260,7 @@ const LargeImageCarousel = (props: LargeImageCarouselProps) => {
   };
   return (
     <carouselContext.Provider value={ctxValue}>
-      <section className='pb-14'>{children}</section>
+      <section className="pb-14">{children}</section>
     </carouselContext.Provider>
   );
 };
