@@ -35,7 +35,7 @@ const ImageDisplay = (props: Props) => {
             style={{
               objectFit: 'cover',
             }}
-            sizes='300px, 300pxpx'
+            sizes='300px, 300px'
           />
         </div>
         <div className="relative w-[49%] h-[100%]">
