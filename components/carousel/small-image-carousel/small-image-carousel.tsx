@@ -109,12 +109,13 @@ const SmallImageCarousel = (props: SmallImageCarouselProps) => {
     );
   });
 
-  // useEffect(() => {
-  //   carouselRef.current.scrollLeft = width!;
-  // }, [carouselRef]);
+  // Pull scroll container to middle position
+  useEffect(() => {
+    carouselRef.current.scrollLeft = width!;
+  }, [carouselRef]);
 
   return (
-    <div className="relative w-[100vw] left-[calc(-50vw+50%)] overflow-x-scroll snap-mandatory snap-x" ref={carouselRef}>
+    <div className="relative w-[100vw] left-[calc(-50vw+50%)] overflow-x-scroll no-scrollbar snap-mandatory snap-x" ref={carouselRef}>
       <ul className="flex justify-center w-[300vw] gap-[10px]">{itemList}</ul>
     </div>
   );

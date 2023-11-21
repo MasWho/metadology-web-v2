@@ -8,7 +8,7 @@ import SmallImageCarousel from '../carousel/small-image-carousel/small-image-car
 const images = [
   {
     // TODO: change to img1 after testing
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img2',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img7',
     text: 'Lorem ipsum, dolor sit amet consectetur desc1 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
     title: 'Lifestyle Estates'
   },
