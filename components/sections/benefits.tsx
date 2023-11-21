@@ -75,7 +75,7 @@ const Benefits = () => {
   
   return (
     <SectionLayout sectionName={'benefits'} bgColor="bg-c-primary" noPadding>
-      <div className="relative pt-14 px-[5vw] tablet:px-[15vw] tablet:pt-[100px] tablet:pb-[50px]">
+      <div className="relative py-14 px-[5vw] tablet:px-[15vw]">
         <div className="flex flex-col gap-3 bg-c-secondary px-[5vw] py-[30px] laptop:py-[50px] tablet:px-[50px] max-w-[800px] mx-auto">
           {/* Heading portion */}
           <SectionHeading text="Benefits" />

@@ -29,7 +29,7 @@ const IndexPage = () => {
           <ExploreSubsectionThree />
           <ExploreSubsectionFour />
         <Benefits />
-        {/* <Forefront /> */}
+        <Forefront />
         {/* <Portfolio /> */}
       </SiteMainLayout>
     </NavContextProvider>
