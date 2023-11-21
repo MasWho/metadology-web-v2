@@ -38,7 +38,7 @@ const CarouselItem = (props: {
   const { item, itemIndex, setCurrentFocusedItemIndex, currentFocusedItemIndex, carouselRef } =
     props;
   //   const prevIndexRef = useRef(currentFocusedItemIndex);
-    const itemRef = useRef<any>(null);
+  const itemRef = useRef<any>(null);
   //   const { width } = useWindowDimensions();
   //   const offset = width! * 0.5 + pictureSize(width!) / 2; // Halft of image width
   //   const negOffset = width! * 0.5 - pictureSize(width!) / 2;
@@ -71,12 +71,9 @@ const CarouselItem = (props: {
   //       prevIndexRef.current = itemIndex;
   //     }
   //   });
-  
+
   return (
-    <li
-      className="relative snap-center w-[250px] h-[250px]"
-        ref={itemRef}
-    >
+    <li className="relative snap-center w-[250px] h-[250px]" ref={itemRef}>
       <Image
         src={item.url}
         alt={`carousel image with caption: ${item.text}`}
@@ -97,7 +94,7 @@ const SmallImageCarousel = (props: SmallImageCarouselProps) => {
   const { images } = props;
   const [currentFocusedItemIndex, setCurrentFocusedItemIndex] = useState(0);
   const carouselRef = useRef<any>(null);
-  const {width} = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   const itemList = images.map((item, idx) => {
     return (
@@ -112,15 +109,13 @@ const SmallImageCarousel = (props: SmallImageCarouselProps) => {
     );
   });
 
-  useEffect(() => {
-    carouselRef.current.scrollLeft = width!;
-  }, [carouselRef])
+  // useEffect(() => {
+  //   carouselRef.current.scrollLeft = width!;
+  // }, [carouselRef]);
 
   return (
-    <div className='overflow-x-scroll no-scrollbar snap-mandatory snap-x' ref={carouselRef} >
-        <ul className="relative flex justify-center w-[300vw] gap-[10px]">
-        {itemList}
-        </ul>
+    <div className="relative w-[100vw] left-[calc(-50vw+50%)] overflow-x-scroll snap-mandatory snap-x" ref={carouselRef}>
+      <ul className="flex justify-center w-[300vw] gap-[10px]">{itemList}</ul>
     </div>
   );
 };

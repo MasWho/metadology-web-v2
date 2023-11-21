@@ -7,7 +7,8 @@ import SmallImageCarousel from '../carousel/small-image-carousel/small-image-car
 
 const images = [
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img1',
+    // TODO: change to img1 after testing
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img2',
     text: 'Lorem ipsum, dolor sit amet consectetur desc1 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
     title: 'Lifestyle Estates'
   },
@@ -47,7 +48,7 @@ const Benefits = () => {
   return (
     <SectionLayout sectionName={'benefits'} bgColor="bg-c-primary" noPadding>
       <div className="relative pt-14 px-[5vw] tablet:px-[15vw] tablet:pt-[100px] tablet:pb-[50px]">
-        {/* <div className='bg-c-secondary px-[5vw] tablet:px-[50px] max-w-[800px] mx-auto'> */}
+        <div className='bg-c-secondary px-[5vw] tablet:px-[50px] max-w-[800px] mx-auto'>
           {/* Heading portion */}
           <SectionHeading text="Benefits" />
           <div className='flex flex-col justify-center mt-[10px] gap-[10px] tablet:flex-row tablet:justify-between items-center'>
@@ -74,13 +75,10 @@ const Benefits = () => {
               />
             </motion.div>
           </div>
-        {/* </div> */}
+        {/* Carousel portion */}
+        <SmallImageCarousel images={images} />
+        </div>
       </div>
-      <SmallImageCarousel images={images} />
-      {/* Carousel portion */}
-      {/* height here needs to be aligned to maximum height of  */}
-      {/* <div className="relative left-[calc(50%-250px/2)] w-[250px] h-[250px] overflow-x-scroll no-scrollbar snap-mandatory snap-x"> */}
-      {/* </div> */}
     </SectionLayout>
   );
 };
