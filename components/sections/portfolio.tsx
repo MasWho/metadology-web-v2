@@ -6,31 +6,36 @@ import { useEffect, useRef, useState } from 'react';
 import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import UltraRealismCarousel from '@/components/carousel/ultra-realism-carousel';
 
-// TODO: Actually upload the videos
+// TODO: Actually upload the videos and thumbnails
 const videos = [
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-1',
     text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail',
     title: 'ABSA'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-2',
     text: 'Lorem ipsum dolor sit, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail',
     title: 'Galileo'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-3',
     text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail',
     title: 'Broll'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-4',
     text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail',
     title: '9 Gary'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-5',
     text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail',
     title: 'Mike Eilertsen',
   },
 ];

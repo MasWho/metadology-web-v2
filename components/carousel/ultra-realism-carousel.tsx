@@ -8,7 +8,7 @@ import ChevronArrow from '../arrows/chevron-arrow';
 import { motion } from 'framer-motion';
 
 type Props = {
-  videos: { url: string; headingText?: string; text: string }[];
+  videos: { url: string; headingText?: string; text: string, thumbnail: string }[];
   currentVideoIndex: number;
   isPlaying: boolean;
   onVideoProgress: (index: number, progress: { played: number; loaded: number }) => void;
@@ -71,6 +71,7 @@ const UltraRealismCarousel = (props: Props) => {
           muted={true}
           width={`${width! * videoRatio}px`}
           height={`${(width! * videoRatio) / VIDEO_RATIO}px`}
+          light={video.thumbnail}
         />
       </CarouselElement>
     );
