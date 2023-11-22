@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { motion, useAnimate } from 'framer-motion';
 
 type Props = {
   text: string;
@@ -8,10 +8,32 @@ type Props = {
 
 const ContentHeading = (props: Props) => {
   const { text, center } = props;
+  const [scope, animate] = useAnimate();
+  const [fade, setFade] = useState(false);
   let className = "text-c-heading text-[24px] ml-[15px] mt-[20px] tablet:text-[30px] tablet:ml-[45px] tablet:mt-[45px] laptop:text-[36px] laptop:ml-[90px] laptop:mt-[50px]";
   if(center) {
     className = "text-c-heading text-center mx-auto text-[24px] mt-[20px] w-[80%] tablet:text-[30px] tablet:mt-[45px] laptop:text-[36px] laptop:mt-[50px] laptop:w-[70%]"
   }
+
+  const fadeOutText = async () => {
+    await animate(scope.current, {opacity: 0}, {duration: 0.5});
+    setFade(true);
+  }
+
+  const fadeInText = async () => {
+    await animate(scope.current, {opacity: 1}, {duration: 0.5});
+    setFade(false);
+  }
+
+  useEffect(() => {
+    fadeOutText();
+  }, [text]);
+
+  useEffect(() => {
+    if(fade) {
+      fadeInText();
+    }
+  }, [fade])
 
   return (
     <motion.h1
@@ -21,6 +43,7 @@ const ContentHeading = (props: Props) => {
         duration: 1,
       }}
       className={className}
+      ref={scope}
     >
       {text}
     </motion.h1>

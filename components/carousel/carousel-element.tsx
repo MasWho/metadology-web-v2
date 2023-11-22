@@ -1,4 +1,4 @@
-import useWindowDimensions, { carouselVideoSizeRatio, screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
+import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import React, { PropsWithChildren } from 'react';
 import { motion } from 'framer-motion';
 

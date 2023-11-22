@@ -13,7 +13,6 @@ import React, {
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import useWindowDimensions from '@/hooks/use-window-dimensions';
 import { DESKTOP_SCREEN_SIZE, TABLET_SCREEN_SIZE } from '../constants';
-import ChevronArrow from '@/components/arrows/chevron-arrow';
 
 const pictureSize = (width: number) => {
   if (width < TABLET_SCREEN_SIZE) {
@@ -121,7 +120,6 @@ const SmallImageCarousel = (props: SmallImageCarouselProps) => {
     const pictureWidth = pictureSize(width!);
     const edgeOffset = containerWidth - images.length * pictureWidth;
     const scrollPix = edgeOffset / 2 + middleIndex * pictureWidth;
-    console.log(scrollPix);
     carouselRef.current.scrollLeft = scrollPix;
   }, [carouselRef]);
 

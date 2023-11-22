@@ -12,13 +12,12 @@ const CloserLook = () => {
   const {width} = useWindowDimensions();
   
   const {videoRatio} = screenToVideoSizeRatio(width!);
-
   return (
     <SectionLayout sectionName={'closer-look'} bgColor="bg-c-primary" noPadding>
-      <div className='py-[100px] px-[5vw] tablet:px-[20vw]'>
+      <div className='py-14 px-[5vw] tablet:px-[20vw]'>
         <SectionHeading text="Take a closer look" />
         <ContentHeading text="The Elevator Pitch" />
-        <div className='mt-[40px] border-c-secondary border-[2px] rounded-[15px]'>
+        <div className='mx-auto w-fit mt-[40px] border-c-secondary border-[2px] rounded-[15px]'>
           <DynamicReactPlayer
             controls
             url={VIDEO_URL}

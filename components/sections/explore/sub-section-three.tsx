@@ -99,9 +99,7 @@ const ExploreSubsectionThree = () => {
           <UltraRealismCarousel
             videos={videos}
             currentVideoIndex={currentVideoIndex}
-            // TODO: after testing remove
-            // isPlaying={isPlaying}
-            isPlaying={false}
+            isPlaying={isPlaying}
             onVideoProgress={videoProgressHandler}
             onChangeVideo={changeVideoHandler}
           />

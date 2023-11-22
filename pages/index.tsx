@@ -1,11 +1,11 @@
 import SiteMainLayout from "@/components/layout/site-layout";
 import MainPage from "@/components/layout/site-layout";
 const Highlights = dynamic(() => import("@/components/sections/highlights"), {ssr: false});
-import CloserLook from "@/components/sections/closer-look";
+const CloserLook = dynamic(() => import("@/components/sections/closer-look"), {ssr: false});
 import Explore from "@/components/sections/explore/explore";
 import Forefront from "@/components/sections/forefront";
 import Benefits from "@/components/sections/benefits";
-import Portfolio from "@/components/sections/portfolio";
+const Portfolio = dynamic(() => import("@/components/sections/portfolio"), {ssr: false});
 import Home from "@/components/sections/home";
 import NavContextProvider from "@/contexts/NavContext";
 import dynamic from "next/dynamic";
@@ -30,7 +30,7 @@ const IndexPage = () => {
           <ExploreSubsectionFour />
         <Benefits />
         <Forefront />
-        {/* <Portfolio /> */}
+        <Portfolio />
       </SiteMainLayout>
     </NavContextProvider>
   )

@@ -35,12 +35,6 @@ const CollapsibleMenu = (props: Props) => {
   };
 
   const changeMenuItemHandler = async (index: number) => {
-    // for (let i = 0; i < items.length; i++) {
-    //   if (index !== i) {
-    //     await showArrow(i);
-    //     await closeMenuItem(i);
-    //   }
-    // }
     showArrow(prevIndexRef.current);
     await closeMenuItem(prevIndexRef.current);
     removeArrow(index);
