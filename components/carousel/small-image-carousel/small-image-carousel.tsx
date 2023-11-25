@@ -1,14 +1,9 @@
 import Image from 'next/image';
 import React, {
-  Dispatch,
   MutableRefObject,
   PropsWithChildren,
-  SetStateAction,
-  createContext,
-  useContext,
   useEffect,
-  useRef,
-  useState,
+  useRef
 } from 'react';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import useWindowDimensions from '@/hooks/use-window-dimensions';
@@ -56,7 +51,7 @@ const CarouselItem = (props: {
       itemRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
     prevIndexRef.current = currentFocusedItemIndex;
-  }, [currentFocusedItemIndex]);
+  }, [currentFocusedItemIndex, itemIndex]);
 
   useMotionValueEvent(opacity, 'change', (latestOpacity) => {
     if (latestOpacity >= 0.9) {
@@ -121,7 +116,7 @@ const SmallImageCarousel = (props: SmallImageCarouselProps) => {
     const edgeOffset = containerWidth - images.length * pictureWidth;
     const scrollPix = edgeOffset / 2 + middleIndex * pictureWidth;
     carouselRef.current.scrollLeft = scrollPix;
-  }, [carouselRef]);
+  }, [carouselRef, images.length, width]);
 
   return (
     <motion.div

@@ -1,7 +1,7 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAnimate } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 type Props = {
   items: { heading: string; content: string }[];
@@ -14,37 +14,37 @@ const CollapsibleMenu = (props: Props) => {
   const [scope, animate] = useAnimate();
   const prevIndexRef = useRef(openItemIndex);
 
-  const openMenuItem = async (index: number) => {
+  const openMenuItem = useCallback(async (index: number) => {
     await animate(`#collapsible-menu-content-${index}`, { height: '100%' }, { duration: 0.2 });
     await animate(`#collapsible-menu-content-${index}`, { opacity: 1 }, { duration: 0.2 });
-  };
+  }, [animate]);
 
-  const closeMenuItem = async (index: number) => {
+  const closeMenuItem = useCallback(async (index: number) => {
     await animate(`#collapsible-menu-content-${index}`, { opacity: 0 }, { duration: 0.2 });
     await animate(`#collapsible-menu-content-${index}`, { height: '0px' }, { duration: 0.2 });
-  };
+  }, [animate]);
 
-  const removeArrow = async (index: number) => {
+  const removeArrow = useCallback(async (index: number) => {
     await animate(`#collapsible-menu-icon-${index}`, { rotate: '180deg' }, { duration: 0.2 });
     await animate(`#collapsible-menu-icon-${index}`, { opacity: 0 }, { duration: 0.2 });
-  };
+  }, [animate]);
 
-  const showArrow = async (index: number) => {
+  const showArrow = useCallback(async (index: number) => {
     await animate(`#collapsible-menu-icon-${index}`, { opacity: 1 }, { duration: 0.2 });
     await animate(`#collapsible-menu-icon-${index}`, { rotate: '0deg' }, { duration: 0.2 });
-  };
+  }, [animate]);
 
-  const changeMenuItemHandler = async (index: number) => {
+  const changeMenuItemHandler = useCallback(async (index: number) => {
     showArrow(prevIndexRef.current);
     await closeMenuItem(prevIndexRef.current);
     removeArrow(index);
     await openMenuItem(index);
     prevIndexRef.current = openItemIndex;
-  };
+  }, [showArrow, closeMenuItem, removeArrow, openMenuItem, prevIndexRef, openItemIndex]);
 
   useEffect(() => {
     changeMenuItemHandler(openItemIndex);
-  }, [openItemIndex]);
+  }, [openItemIndex, changeMenuItemHandler]);
 
   const menuItems = items.map((item, idx) => {
     let containerClassName = 'py-[15px] tablet:py-[20px] border-b-[1px] border-b-c-section-heading';

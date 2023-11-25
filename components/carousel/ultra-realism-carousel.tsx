@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import DynamicReactPlayer from '../video/DynamicReactPlayer';
 import CarouselElement from './carousel-element';
 import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-dimensions';
@@ -8,7 +8,7 @@ import ChevronArrow from '../arrows/chevron-arrow';
 import { motion } from 'framer-motion';
 
 type Props = {
-  videos: { url: string; headingText?: string; text: string, thumbnail: string }[];
+  videos: { url: string; headingText?: string; text: string, thumbnail?: string }[];
   currentVideoIndex: number;
   isPlaying: boolean;
   onVideoProgress: (index: number, progress: { played: number; loaded: number }) => void;
@@ -23,9 +23,9 @@ const UltraRealismCarousel = (props: Props) => {
 
   const [scope, animate] = useAnimate();
 
-  const slide = async (offset: number) => {
+  const slide = useCallback(async (offset: number) => {
     await animate(`li`, { x: `${offset}vw` }, { duration: 0.5 });
-  };
+  }, [animate]);
 
   useEffect(() => {
     if (currentVideoIndex === 0 && prevVideoIndexRef.current === 0) {
@@ -46,7 +46,7 @@ const UltraRealismCarousel = (props: Props) => {
 
     slide(offsetRef.current);
     prevVideoIndexRef.current = currentVideoIndex;
-  }, [currentVideoIndex]);
+  }, [currentVideoIndex, slide, width]);
 
   const videoPlayers = videos.map((video, idx) => {
     let playing = false;

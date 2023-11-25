@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useAnimate } from 'framer-motion';
 import { AllSections } from '@/pages';
 
@@ -25,7 +25,7 @@ const SectionButton = (props: Props) => {
   const [scope, animate] = useAnimate();
   const { sectionName, show } = props;
 
-  const enterAnimation = async () => {
+  const enterAnimation = useCallback(async () => {
     animate(scope.current, { opacity: 1 }, { duration: 0.5 });
     await animate(scope.current, {scale: 1.2}, {duration: 0.5});
     await animate(scope.current, {scale: 1}, {duration: 0.5});
@@ -33,15 +33,15 @@ const SectionButton = (props: Props) => {
     animate(`#${sectionName}-section-text`, { width: 'auto' }, { duration: 0.5 });
     animate(`#${sectionName}-section-icon`, { left: 0 }, { duration: 0.3 });
     animate(`#${sectionName}-section-text`, { opacity: 1 }, { duration: 2 });
-  };
+  }, [sectionName, scope, animate]);
 
-  const exitAnimation = async () => {
+  const exitAnimation = useCallback(async () => {
     animate(`#${sectionName}-section-icon`, { left: '-155%' }, { duration: 0.7 });
     animate(`#${sectionName}-section-text`, { opacity: 0 }, { duration: 0.1 });
     animate(`#${sectionName}-section-icon`, { width: 0 }, { duration: 0.5 });
     animate(`#${sectionName}-section-text`, { width: 0 }, { duration: 0.5 });
     await animate(scope.current, { opacity: 0 }, { duration: 1.5 });
-  }
+  }, [sectionName, animate, scope])
 
   useEffect(() => {
     if (show) {
@@ -49,7 +49,7 @@ const SectionButton = (props: Props) => {
     } else {
       exitAnimation();
     }
-  }, [show]);
+  }, [show, enterAnimation, exitAnimation]);
 
   return (
     <div ref={scope} className="z-[100] sticky w-full flex justify-center bottom-10 mt-5 opacity-0">

@@ -1,7 +1,7 @@
 import LargeImageCarousel from '@/components/carousel/large-image-carousel/large-image-carousel';
 import SectionLayout from '../../layout/section-layout';
 import { useAnimate, useInView } from 'framer-motion';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 const images = [
   {
@@ -44,19 +44,19 @@ const images = [
 const ExploreSubsectionFour = () => {
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope, {amount: 0.7});
-  const showHeading = async () => {
+  const showHeading = useCallback(async () => {
     await animate(`#from-the`, {opacity: 1}, {duration: 0.5});
     await animate(`#big-picture`, {opacity: 1}, {duration: 0.5});
     await animate(`#to-the`, {opacity: 1}, {duration: 0.5});
     await animate(`#small-details`, {opacity: 1}, {duration: 0.5});
-  };
+  }, [animate]);
 
-  const removeHeading = async () => {
+  const removeHeading = useCallback(async () => {
     animate(`#from-the`, {opacity: 0}, {duration: 0.5});
     animate(`#big-picture`, {opacity: 0}, {duration: 0.5});
     animate(`#to-the`, {opacity: 0}, {duration: 0.5});
     animate(`#small-details`, {opacity: 0}, {duration: 0.5});
-  }
+  }, [animate])
 
   useEffect(() => {
     if(isInView) {
@@ -64,7 +64,7 @@ const ExploreSubsectionFour = () => {
     } else {
       removeHeading();
     }
-  }, [isInView])
+  }, [isInView, showHeading, removeHeading])
 
   return (
     <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>

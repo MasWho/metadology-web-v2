@@ -158,7 +158,7 @@ const CarouselItem = (props: {
       itemRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
     prevIndexRef.current = currentFocusedItemIndex;
-  }, [currentFocusedItemIndex]);
+  }, [currentFocusedItemIndex, itemIndex]);
 
   useMotionValueEvent(opacity, 'change', (latestOpacity) => {
     if (latestOpacity === 1) {

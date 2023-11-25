@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import DynamicReactPlayer from '../video/DynamicReactPlayer';
 import CarouselElement from './carousel-element';
 import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-dimensions';
@@ -20,9 +20,9 @@ const HighlightCarousel = (props: Props) => {
 
   const [scope, animate] = useAnimate();
 
-  const slide = async (offset: number) => {
+  const slide = useCallback(async (offset: number) => {
     await animate(`li`, { x: `${offset}vw` }, { duration: 0.5 });
-  };
+  }, [animate]);
 
   useEffect(() => {
     if (currentVideoIndex === 0 && prevVideoIndexRef.current === 0) {
@@ -43,7 +43,7 @@ const HighlightCarousel = (props: Props) => {
 
     slide(offsetRef.current);
     prevVideoIndexRef.current = currentVideoIndex;
-  }, [currentVideoIndex]);
+  }, [currentVideoIndex, width, slide]);
 
   const videoPlayers = videos.map((video, idx) => {
     let playing = false;

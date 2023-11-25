@@ -22,7 +22,7 @@ const SectionLayout = (props: Props) => {
     if(isSectionInView) {
       setCurrentPageId(sectionName);
     }
-  }, [isSectionInView, sectionName]);
+  }, [isSectionInView, sectionName, setCurrentPageId]);
 
   return (
     <section

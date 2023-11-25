@@ -4,7 +4,7 @@ import InnerHeading from '../headings/inner-heading';
 import { motion, useAnimate } from 'framer-motion';
 import ChevronArrow from '../arrows/chevron-arrow';
 import SmallImageCarousel from '../carousel/small-image-carousel/small-image-carousel';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import ReadMoreButton from '../buttons/read-more-button';
 
 const images = [
@@ -62,16 +62,16 @@ const Benefits = () => {
     })
   };
 
-  const animateButtonForIndexChange = async () => {
+  const animateButtonForIndexChange = useCallback(async () => {
     await animate('svg', {scale: 1.1}, {duration: 0.2});
     await animate('svg', {scale: 1}, {duration: 0.2});
     await animate('svg', {scale: 1.1}, {duration: 0.2});
     await animate('svg', {scale: 1.0}, {duration: 0.2});
-  }
+  }, [animate])
 
   useEffect(() => {
     animateButtonForIndexChange();
-  }, [currentFocusedItemIndex])
+  }, [currentFocusedItemIndex, animateButtonForIndexChange])
   
   return (
     <SectionLayout sectionName={'benefits'} bgColor="bg-c-primary" noPadding>

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import { motion, useAnimate } from 'framer-motion';
 
 type Props = {
@@ -15,25 +15,25 @@ const ContentHeading = (props: Props) => {
     className = "text-c-heading text-center mx-auto text-[24px] mt-[20px] w-[80%] tablet:text-[30px] tablet:mt-[45px] laptop:text-[36px] laptop:mt-[50px] laptop:w-[70%]"
   }
 
-  const fadeOutText = async () => {
+  const fadeOutText = useCallback(async () => {
     await animate(scope.current, {opacity: 0}, {duration: 0.5});
     setFade(true);
-  }
+  }, [animate, scope])
 
-  const fadeInText = async () => {
+  const fadeInText = useCallback(async () => {
     await animate(scope.current, {opacity: 1}, {duration: 0.5});
     setFade(false);
-  }
+  }, [animate, scope])
 
   useEffect(() => {
     fadeOutText();
-  }, [text]);
+  }, [text, fadeOutText]);
 
   useEffect(() => {
     if(fade) {
       fadeInText();
     }
-  }, [fade])
+  }, [fade, fadeInText])
 
   return (
     <motion.h1
