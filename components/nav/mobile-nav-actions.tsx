@@ -92,17 +92,17 @@ const MobileNavActions = (props: Props) => {
           </Link>
           <Link
             href=""
-            onClick={changePageScrollHandler.bind(null, 'highlights')}
-            className={currentPageId === 'highlights' ? 'text-c-accent-green' : ''}
-          >
-            Highlights
-          </Link>
-          <Link
-            href=""
             onClick={changePageScrollHandler.bind(null, 'closer-look')}
             className={currentPageId === 'closer-look' ? 'text-c-accent-green' : ''}
           >
             Closer look
+          </Link>
+          <Link
+            href=""
+            onClick={changePageScrollHandler.bind(null, 'highlights')}
+            className={currentPageId === 'highlights' ? 'text-c-accent-green' : ''}
+          >
+            Highlights
           </Link>
           <Link
             href=""
