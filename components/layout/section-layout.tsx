@@ -1,5 +1,5 @@
 import { generateClasses } from '@/utils/styling';
-import React, { PropsWithChildren, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { PropsWithChildren, ReactNode, useEffect, useLayoutEffect, useRef } from 'react';
 import SectionButton from '../buttons/section-button';
 import { useInView } from 'framer-motion';
 import { useNavContext } from '@/contexts/NavContext';
@@ -10,10 +10,11 @@ type Props = PropsWithChildren & {
   hasReadMore?: boolean;
   bgColor?: string;
   noPadding?: boolean;
+  background?: ReactNode;
 };
 
 const SectionLayout = (props: Props) => {
-  const { children, sectionName, hasReadMore, bgColor = 'bg-c-primary', noPadding } = props;
+  const { children, sectionName, hasReadMore, bgColor = 'bg-c-primary', noPadding, background } = props;
   const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, {amount: 0.5});
   const {setCurrentPageId} = useNavContext();
@@ -37,6 +38,7 @@ const SectionLayout = (props: Props) => {
         padding: noPadding ? 0 : undefined
       }}
     >
+      {background}
       {children}
       {hasReadMore ? <SectionButton sectionName={sectionName} show={isSectionInView} text='See how we simplified the process'/> : null}
     </section>
