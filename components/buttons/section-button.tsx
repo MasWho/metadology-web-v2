@@ -5,6 +5,7 @@ import { AllSections } from '@/pages';
 type Props = {
   sectionName: AllSections;
   show: boolean;
+  text?: string;
 };
 
 const SectionButtonIcon = () => {
@@ -23,7 +24,7 @@ const SectionButtonIcon = () => {
 
 const SectionButton = (props: Props) => {
   const [scope, animate] = useAnimate();
-  const { sectionName, show } = props;
+  const { sectionName, show, text = "More on this section" } = props;
 
   const enterAnimation = useCallback(async () => {
     animate(scope.current, { opacity: 1 }, { duration: 0.5 });
@@ -61,7 +62,7 @@ const SectionButton = (props: Props) => {
           id={`${sectionName}-section-text`}
           className="w-0 opacity-0 font-normal z-20 text-c-heading overflow-hidden"
         >
-          More on this section
+          {text}
         </span>
         <span id={`${sectionName}-section-icon`} className="w-0 relative left-[-155%] z-20">
           <SectionButtonIcon />
