@@ -38,7 +38,7 @@ const SectionLayout = (props: Props) => {
       }}
     >
       {children}
-      {hasReadMore ? <SectionButton sectionName={sectionName} show={isSectionInView} /> : null}
+      {hasReadMore ? <SectionButton sectionName={sectionName} show={isSectionInView} text='See how we simplified the process'/> : null}
     </section>
   );
 };
