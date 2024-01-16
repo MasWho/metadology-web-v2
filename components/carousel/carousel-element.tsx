@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 type Props = PropsWithChildren & {
   index: number;
   focusedIndex: number;
-  videoHeadingText: string;
+  videoHeadingText?: string;
 };
 
 const CarouselElement = (props: Props) => {
