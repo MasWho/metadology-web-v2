@@ -21,8 +21,8 @@ const IndexPage = () => {
     <NavContextProvider>
       <SiteMainLayout initialPageId="home" >
         <Home />
-        <Highlights />
         <CloserLook />
+        <Highlights />
         <Explore />
           <ExploreSubsectionOne />
           <ExploreSubsectionTwo />
