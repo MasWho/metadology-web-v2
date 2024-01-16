@@ -11,10 +11,11 @@ import NavContextProvider from "@/contexts/NavContext";
 import dynamic from "next/dynamic";
 import ExploreSubsectionOne from "@/components/sections/explore/sub-section-one";
 import ExploreSubsectionTwo from "@/components/sections/explore/sub-section-two";
+import Intro from "@/components/sections/intro";
 const ExploreSubsectionThree = dynamic(() => import("@/components/sections/explore/sub-section-three"), {ssr: false});
 const ExploreSubsectionFour = dynamic(() => import("@/components/sections/explore/sub-section-four"), {ssr: false});
 
-export type AllSections = "home" | "highlights" | "closer-look" | "explore" | "benefits" | "forefront" | "portfolio" | "contact" | null;
+export type AllSections = "home" | "closer-look" | "intro" | "highlights" | "explore" | "benefits" | "forefront" | "portfolio" | "contact" | null;
 
 const IndexPage = () => {
   return (
@@ -22,6 +23,7 @@ const IndexPage = () => {
       <SiteMainLayout initialPageId="home" >
         <Home />
         <CloserLook />
+        <Intro />
         <Highlights />
         <Explore />
           <ExploreSubsectionOne />

@@ -4,30 +4,6 @@ import bubble from "../../public/imgs/bubble.png";
 import small_bubble from "../../public/imgs/small_bubble.png";
 import { motion } from "framer-motion";
 
-const TopBubble = () => {
-  return (
-    <Image
-      src={bubble}
-      alt="Top Bubble background"
-      width={665}
-      height={408}
-      className={generateClasses({
-        generic: [
-          "absolute",
-          "w-screen",
-          "rotate-[-25deg]",
-          "scale-[1.7]",
-          "translate-x-[27%]",
-          "translate-y-[-145%]",
-          "blur-sm",
-        ],
-        mobile: [],
-        web: [],
-      })}
-    />
-  );
-};
-
 const LeftBubble = () => {
   return (
     <motion.div
@@ -41,7 +17,7 @@ const LeftBubble = () => {
         repeatType: "reverse",
       }}
       className={generateClasses({
-        generic: ["absolute", "rotate-[14deg]"],
+        generic: ["absolute", "rotate-[14deg]", "z-0"],
         mobile: [
           "top-[15vh]",
           "left-[-60vw]",
@@ -81,7 +57,7 @@ const RightBubble = () => {
         repeatType: "reverse",
       }}
       className={generateClasses({
-        generic: ["absolute", "rotate-[30deg]"],
+        generic: ["absolute", "rotate-[30deg]", "z-0"],
         mobile: [
           "top-[45vh]",
           "right-[-55vw]",
@@ -125,6 +101,7 @@ const TopSmallBubble = () => {
       className={generateClasses({
         generic: [
           "absolute",
+          "z-0"
         ],
         mobile: ["top-[15vh]", "right-[20vw]"],
         web: [],
@@ -156,7 +133,7 @@ const BottomSmallBubble = () => {
         repeatDelay: 0,
       }}
       className={generateClasses({
-        generic: ["absolute"],
+        generic: ["absolute", "z-0"],
         mobile: ["top-[70vh]", "left-[20vw]"],
         web: [],
       })}
@@ -174,7 +151,6 @@ const BottomSmallBubble = () => {
 const BubbleBackground = () => {
   return (
     <>
-      <TopBubble />
       <LeftBubble />
       <RightBubble />
       <TopSmallBubble />

@@ -51,6 +51,13 @@ const NavActions = () => {
       </Link>
       <Link
         href=""
+        className={currentPageId === "intro" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'intro')}
+      >
+        Intro
+      </Link>
+      <Link
+        href=""
         className={currentPageId === "highlights" ? "text-c-accent-green" : ""}
         onClick={changePageScrollHandler.bind(null, 'highlights')}
       >
