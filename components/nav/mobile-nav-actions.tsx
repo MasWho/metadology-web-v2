@@ -99,6 +99,13 @@ const MobileNavActions = (props: Props) => {
           </Link>
           <Link
             href=""
+            className={currentPageId === "intro" ? "text-c-accent-green" : ""}
+            onClick={changePageScrollHandler.bind(null, 'intro')}
+          >
+            Intro
+          </Link>
+          <Link
+            href=""
             onClick={changePageScrollHandler.bind(null, 'highlights')}
             className={currentPageId === 'highlights' ? 'text-c-accent-green' : ''}
           >
