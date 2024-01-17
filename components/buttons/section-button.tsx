@@ -62,7 +62,7 @@ const SectionButton = (props: Props) => {
     <div ref={scope} className="z-[100] sticky w-full flex justify-center bottom-10 mt-5 opacity-0">
       <button
         id={`${sectionName}-section-button`}
-        className="whitespace-nowrap relative before:bg-[#e8e8ed] before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:opacity-30 before:z-10 flex items-center justify-between rounded-full gap-4 pl-3 pr-1 py-1 tablet:gap-6 tablet:pl-6 tablet:pr-2 tablet:py-2"
+        className="whitespace-nowrap relative before:opacity-90 before:bg-c-section-heading before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:z-10 flex items-center justify-between rounded-full gap-4 pl-3 pr-1 py-1 tablet:gap-6 tablet:pl-6 tablet:pr-2 tablet:py-2"
       >
         <span
           id={`${sectionName}-section-text`}

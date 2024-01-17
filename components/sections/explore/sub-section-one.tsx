@@ -2,7 +2,7 @@ import SectionLayout from '../../layout/section-layout';
 import SectionHeading from '../../headings/section-heading';
 import DynamicReactPlayer from '@/components/video/DynamicReactPlayer';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
-import { LAPTOP_SCREEN_SIZE, TABLET_SCREEN_SIZE, VIDEO_RATIO } from '@/components/carousel/constants';
+import { TABLET_SCREEN_SIZE, VIDEO_RATIO } from '@/components/carousel/constants';
 const CollapsibleMenu = dynamic(() => import('@/components/menus/collapsible-menu'), {ssr: false});
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
