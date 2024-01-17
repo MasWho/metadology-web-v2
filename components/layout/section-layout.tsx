@@ -7,14 +7,14 @@ import { AllSections } from '@/pages';
 
 type Props = PropsWithChildren & {
   sectionName: AllSections;
-  hasReadMore?: boolean;
+  readMoreTitle?: string;
   bgColor?: string;
   noPadding?: boolean;
   background?: ReactNode;
 };
 
 const SectionLayout = (props: Props) => {
-  const { children, sectionName, hasReadMore, bgColor = 'bg-c-primary', noPadding, background } = props;
+  const { children, sectionName, readMoreTitle, bgColor = 'bg-c-primary', noPadding, background } = props;
   const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, {amount: 0.5});
   const {setCurrentPageId} = useNavContext();
@@ -40,7 +40,7 @@ const SectionLayout = (props: Props) => {
     >
       {background}
       {children}
-      {hasReadMore ? <SectionButton sectionName={sectionName} show={isSectionInView} text='See how we simplified the process'/> : null}
+      {readMoreTitle ? <SectionButton sectionName={sectionName} show={isSectionInView} text={readMoreTitle} /> : null}
     </section>
   );
 };
