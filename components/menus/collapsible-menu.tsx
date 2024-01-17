@@ -63,7 +63,7 @@ const CollapsibleMenu = (props: Props) => {
     return (
       <li className={containerClassName} key={`collapsible-menu-item-${idx}`}>
         <div className="flex items-center justify-between gap-14">
-          <h2 className="text-[16px] tablet:text-[20px]">{item.heading}</h2>
+          <h2 className="text-[16px] laptop:text-[20px]">{item.heading}</h2>
           <div id={`collapsible-menu-icon-${idx}`}>
             <FontAwesomeIcon
               icon={faChevronDown}
@@ -75,7 +75,7 @@ const CollapsibleMenu = (props: Props) => {
         </div>
         <p
           id={`collapsible-menu-content-${idx}`}
-          className="relative h-0 opacity-0 text-c-section-heading pt-[5px] tablet:pt-[10px] text-[12px] tablet:text-[16px]"
+          className="relative h-0 opacity-0 text-c-section-heading pt-[5px] tablet:pt-[10px] text-[12px] laptop:text-[16px]"
         >
           {item.content}
         </p>
