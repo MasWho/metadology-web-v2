@@ -2,29 +2,27 @@ import SectionLayout from '../../layout/section-layout';
 import SectionHeading from '../../headings/section-heading';
 import DynamicReactPlayer from '@/components/video/DynamicReactPlayer';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
-import { TABLET_SCREEN_SIZE, VIDEO_RATIO } from '@/components/carousel/constants';
+import { LAPTOP_SCREEN_SIZE, TABLET_SCREEN_SIZE, VIDEO_RATIO } from '@/components/carousel/constants';
 const CollapsibleMenu = dynamic(() => import('@/components/menus/collapsible-menu'), {ssr: false});
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import ContentHeading from '@/components/headings/content-heading';
 
 const menuItems = [
   {
-    heading: 'Online Launch Events',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, molestiae similique at sed nesciunt quidem provident tempora eligendi.',
+    heading: 'Award winning online events',
+    content: "Unlock the power of virtual events! Immerse yourself in the firsthand account of the property's story, narrated by the developer, architect, and key stakeholders – all at no extra cost.",
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-video-2',
   },
   {
-    heading: 'Integrate Sales and Bookings',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, molestiae similique at sed nesciunt quidem provident tempora eligendi.',
+    heading: 'Sell or secure appointments',
+    content: "Energized buyers can pay deposits live from within the platform or be put in contact with a sale representative to answer any questions",
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-video-3',
   },
   {
-    heading: 'Made to Feel Live',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, molestiae similique at sed nesciunt quidem provident tempora eligendi.',
+    heading: 'All the excitement without your time',
+    content: "The online studio & AV team create professional recordings of the “live event” so that the event can be repeated. This allows buyers to get a personalized walkthrough while creating the urgency to secure the sale.  The result, all the excitement without any additional time from the properties key stake  holders.",
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-video-4',
   },
 ];
@@ -80,9 +78,10 @@ const ExploreSubsectionOne = () => {
     <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>
       <div
         ref={sectionRef}
-        className="pt-[30px] pb-[50px] px-[5vw] laptop:px-[15vw] desktop:px-[20vw] tablet:pb-[100px]"
+        className="pt-[30px] pb-[50px] px-[5vw] tablet:px-[10vw] desktop:px-[20vw] tablet:pb-[100px]"
       >
-        <SectionHeading text="Significant others" />
+        <SectionHeading text="2. Online launch & sales events" />
+        <ContentHeading text="Create a sense of urgency" />
         <div className="flex flex-col-reverse justify-evenly tablet:flex-row tablet:justify-evenly items-center w-[100%] mx-auto rounded-[15px] mt-[30px] tablet:mt-[50px] tablet:px-[2.5%] py-[20px] bg-c-primary min-h-[500px] tablet:min-h-[550px]">
           {/* Menu */}
           <CollapsibleMenu
