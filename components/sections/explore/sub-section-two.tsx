@@ -12,10 +12,10 @@ const images = [
 
 const ExploreSubsectionTwo = () => {
   return (
-    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding hasReadMore>
+    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding readMoreTitle='More on payments & inventory'>
       <div className="py-[50px] px-[5vw] tablet:px-[20vw]">
-        <SectionHeading text="Realtime property sales with online deposits" />
-        <ContentHeading text="Streamline Sales" center />
+        <SectionHeading text="3. Realtime property sales" />
+        <ContentHeading text="Browse, Select, Pay and Secure" center />
         <ImageDisplay images={images} />
         <motion.article
           initial={{ y: 100, opacity: 0 }}
@@ -25,20 +25,19 @@ const ExploreSubsectionTwo = () => {
         >
           <div className="w-[100%] lg-phone:w-[40%] laptop:w-[30%]">
             <p className="text-c-section-heading text-[14px] mt-[15px] laptop:text-[18px] laptop:mt-[25px]">
-              Lorem ipsum dolor, sit amet consectetur. excepturi eum, autem,{' '}
+              After exploring,{' '}
               <b className="text-c-heading">
-                Explicabo iure quasi itaque saepe quam inventore sunt voluptates,
+                buyers can browse, select, and secure their dream property
               </b>{' '}
-              ut consequuntur quod modi.
+              with ease on our streamlined platform
             </p>
           </div>
           <div className="w-[100%] lg-phone:w-[40%] laptop:w-[30%]">
             <p className="text-c-section-heading text-[14px] mt-[15px] laptop:text-[18px] laptop:mt-[25px]">
-              Lorem ipsum dolor, sit amet consectetur. excepturi eum, autem,{' '}
+              Filter through options, pick the perfect match, and{' '}
               <b className="text-c-heading">
-                Explicabo iure quasi itaque saepe quam inventore sunt voluptates,
-              </b>{' '}
-              ut consequuntur quod modi.
+                seal the deal instantly with a securing deposit.
+              </b>
             </p>
           </div>
         </motion.article>
