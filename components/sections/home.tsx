@@ -5,13 +5,9 @@ import logo from '../../public/imgs/logo.svg';
 import Image from 'next/image';
 import GreenButton from '../buttons/green-button';
 import BubbleBackground from '../backgrounds/bubble-background';
-import { browserName, browserVersion } from "react-device-detect";
+import ScrollButton from '../buttons/scroll-button';
 
 const Home = () => {
-  useEffect(() => {
-    console.log(browserName)
-    console.log(browserVersion)
-  }, [])
   return (
     <SectionLayout sectionName={'home'} background={<BubbleBackground />} >
       <div
@@ -45,6 +41,7 @@ const Home = () => {
           <GreenButton text="Contact Us" />
           <p className="mt-7">Get in touch to accelerate your sales</p>
         </div>
+        <ScrollButton />
       </div>
     </SectionLayout>
   );
