@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SectionLayout from '../layout/section-layout';
 import { generateClasses } from '@/utils/styling';
 import logo from '../../public/imgs/logo.svg';
 import Image from 'next/image';
 import GreenButton from '../buttons/green-button';
 import BubbleBackground from '../backgrounds/bubble-background';
+import { browserName, browserVersion } from "react-device-detect";
 
 const Home = () => {
+  useEffect(() => {
+    console.log(browserName)
+    console.log(browserVersion)
+  }, [])
   return (
     <SectionLayout sectionName={'home'} background={<BubbleBackground />} >
       <div

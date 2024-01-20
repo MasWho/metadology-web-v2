@@ -6,10 +6,11 @@ type Props = PropsWithChildren & {
   index: number;
   focusedIndex: number;
   videoHeadingText?: string;
+  onClick?: () => void;
 };
 
 const CarouselElement = (props: Props) => {
-  const { children, index, focusedIndex, videoHeadingText } = props;
+  const { children, index, focusedIndex, videoHeadingText, onClick } = props;
   const { width } = useWindowDimensions();
 
   const castOverlay = index !== focusedIndex;
@@ -20,6 +21,7 @@ const CarouselElement = (props: Props) => {
         id={`highlight-video-${index}`}
         className={`relative`}
         style={{ width: `${videoRatio * 100}vw`, margin: `0 ${carouselElementMargin}` }}
+        onClick={onClick}
       >
         {children}
         {/* Overlay */}

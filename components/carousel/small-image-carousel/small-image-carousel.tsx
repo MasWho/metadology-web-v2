@@ -61,7 +61,7 @@ const CarouselItem = (props: {
   });
 
   return (
-    <li className="snap-center" ref={itemRef}>
+    <li className="snap-center" ref={itemRef} onClick={setCurrentFocusedItemIndex.bind(null, itemIndex)}>
       <motion.div
         style={{ opacity, scale }}
         className="relative flex flex-col gap-3 max-w-[200px] tablet:max-w-[250px] desktop:max-w-[300px]"

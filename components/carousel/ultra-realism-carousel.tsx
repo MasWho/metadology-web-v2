@@ -61,6 +61,7 @@ const UltraRealismCarousel = (props: Props) => {
         focusedIndex={currentVideoIndex}
         videoHeadingText={video.headingText!}
         key={`highlight-video-${idx}-${video.url}`}
+        onClick={onChangeVideo.bind(null, idx)}
       >
         <DynamicReactPlayer
           controls
