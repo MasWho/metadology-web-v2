@@ -130,13 +130,12 @@ const CarouselItem = (props: {
   getCarouselRef?: () => MutableRefObject<any>;
 }) => {
   const { item, itemIndex } = props;
-  const { setCurrentFocusedItemIndex, currentFocusedItemIndex } = useCarouselContext();
+  const { setCurrentFocusedItemIndex, currentFocusedItemIndex, carouselRef } = useCarouselContext();
   const prevIndexRef = useRef(currentFocusedItemIndex);
   const itemRef = useRef<any>(null);
   const { width } = useWindowDimensions();
   const offset = width! * 0.5 + pictureSize(width!) / 2; // Halft of image width
   const negOffset = width! * 0.5 - pictureSize(width!) / 2;
-  const { carouselRef } = useCarouselContext();
   const { scrollXProgress } = useScroll({
     container: carouselRef,
     target: itemRef,
@@ -174,6 +173,7 @@ const CarouselItem = (props: {
       style={{
         zIndex: 100 - itemIndex,
       }}
+      onClick={setCurrentFocusedItemIndex.bind(null, itemIndex)}
     >
       <motion.div
         initial={{

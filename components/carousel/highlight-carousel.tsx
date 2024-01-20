@@ -10,10 +10,11 @@ type Props = {
   currentVideoIndex: number;
   isPlaying: boolean;
   onVideoProgress: (index: number, progress: { played: number; loaded: number }) => void;
+  onChangeVideo: (index: number) => void;
 };
 
 const HighlightCarousel = (props: Props) => {
-  const { videos, currentVideoIndex, isPlaying, onVideoProgress } = props;
+  const { videos, currentVideoIndex, isPlaying, onVideoProgress, onChangeVideo } = props;
   const prevVideoIndexRef = useRef(currentVideoIndex);
   const offsetRef = useRef(0);
   const { width } = useWindowDimensions();
@@ -53,7 +54,7 @@ const HighlightCarousel = (props: Props) => {
 
     const {videoRatio} = carouselVideoSizeRatio(width!);
     return (
-      <CarouselElement index={idx} focusedIndex={currentVideoIndex} key={`highlight-video-${idx}-${video.url}`}>
+      <CarouselElement index={idx} focusedIndex={currentVideoIndex} key={`highlight-video-${idx}-${video.url}`} onClick={onChangeVideo.bind(null, idx)}>
         <DynamicReactPlayer
           controls
           url={video.url}

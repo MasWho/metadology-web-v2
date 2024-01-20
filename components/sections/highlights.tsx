@@ -87,6 +87,7 @@ const Highlights = () => {
             currentVideoIndex={currentVideoIndex}
             isPlaying={isPlaying}
             onVideoProgress={videoProgressHandler}
+            onChangeVideo={changeVideoHandler}
           />
         </div>
         <VideoSlider
