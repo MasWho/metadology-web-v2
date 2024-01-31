@@ -67,7 +67,7 @@ const ExploreSubsectionFour = () => {
   }, [isInView, showHeading, removeHeading])
 
   return (
-    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>
+    <SectionLayout sectionName={'explore'} noPadding>
       <div ref={scope} className="relative pt-14 pb-10 tablet:pb-14 flex flex-col left-[2.5vw] mx-[2.5vw] tablet:left-[20vw] tablet:mx-[5vw]">
         {/* Very custom Heading */}
         <h1 className="text-[20px] tablet:text-[24px] text-c-section-heading">

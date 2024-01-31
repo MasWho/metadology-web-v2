@@ -19,7 +19,7 @@ const CloserLook = () => {
 
   return (
     <SectionLayout sectionName={'closer-look'} bgColor="bg-c-secondary" noPadding>
-      <div className="py-14 tablet:py-[100px] px-[5vw] tablet:px-[20vw]">
+      <div className="py-14 tablet:py-[100px] px-[2.5vw] tablet:px-[15vw]">
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
