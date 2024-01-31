@@ -12,6 +12,7 @@ import dynamic from "next/dynamic";
 import ExploreSubsectionOne from "@/components/sections/explore/sub-section-one";
 import ExploreSubsectionTwo from "@/components/sections/explore/sub-section-two";
 import Intro from "@/components/sections/intro";
+import ExploreSubsectionFive from "@/components/sections/explore/sub-section-five";
 const ExploreSubsectionThree = dynamic(() => import("@/components/sections/explore/sub-section-three"), {ssr: false});
 const ExploreSubsectionFour = dynamic(() => import("@/components/sections/explore/sub-section-four"), {ssr: false});
 
@@ -30,6 +31,7 @@ const IndexPage = () => {
           <ExploreSubsectionTwo />
           <ExploreSubsectionThree />
           <ExploreSubsectionFour />
+          <ExploreSubsectionFive />
         <Benefits />
         <Forefront />
         <Portfolio />

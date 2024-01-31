@@ -53,7 +53,7 @@ export const carouselVideoSizeRatio = (screenWidth: number) => {
   if(screenWidth < TABLET_SCREEN_SIZE) {
     return {
       videoRatio: 0.9,
-      carouselOffset: '2.5vw',
+      carouselOffset: '1.25vw',
       carouselElementMargin: '2.5vw',
       sliderOffset: 95
     };
