@@ -1,31 +1,44 @@
 import { generateClasses } from '@/utils/styling';
 import React, { PropsWithChildren, ReactNode, useEffect, useLayoutEffect, useRef } from 'react';
 import SectionButton from '../buttons/section-button';
-import { useInView } from 'framer-motion';
+import { AnimatePresence, useInView } from 'framer-motion';
 import { useNavContext } from '@/contexts/NavContext';
 import { AllSections } from '@/pages';
 
 type Props = PropsWithChildren & {
   sectionName: AllSections;
-  readMoreTitle?: string;
   bgColor?: string;
   noPadding?: boolean;
   background?: ReactNode;
+  readmore?: {
+    title: string;
+    popup: ReactNode;
+    onOpen: () => void;
+    isOpen: boolean;
+  };
 };
 
 const SectionLayout = (props: Props) => {
-  const { children, sectionName, readMoreTitle, bgColor = 'bg-c-primary', noPadding, background } = props;
+  const {
+    children,
+    sectionName,
+    bgColor = 'bg-c-primary',
+    noPadding,
+    background,
+    readmore,
+  } = props;
   const sectionRef = useRef<HTMLElement>(null);
-  const isSectionInView = useInView(sectionRef, {amount: 0.5});
-  const {setCurrentPageId} = useNavContext();
+  const isSectionInView = useInView(sectionRef, { amount: 0.5 });
+  const { setCurrentPageId } = useNavContext();
 
   useEffect(() => {
-    if(isSectionInView) {
+    if (isSectionInView) {
       setCurrentPageId(sectionName);
     }
   }, [isSectionInView, sectionName, setCurrentPageId]);
 
   return (
+    <>
     <section
       id={sectionName!}
       ref={sectionRef}
@@ -35,13 +48,19 @@ const SectionLayout = (props: Props) => {
         web: ['tablet:px-30', 'laptop:px-40', 'desktop:px-60'],
       })}
       style={{
-        padding: noPadding ? 0 : undefined
+        padding: noPadding ? 0 : undefined,
       }}
     >
       {background}
       {children}
-      {readMoreTitle ? <SectionButton sectionName={sectionName} show={isSectionInView} text={readMoreTitle} /> : null}
+      {readmore ? (
+        <SectionButton sectionName={sectionName} show={isSectionInView} text={readmore.title} onClick={readmore.onOpen} />
+      ) : null}
     </section>
+    <AnimatePresence>
+      {readmore?.isOpen && readmore?.popup}
+    </AnimatePresence>
+    </>
   );
 };
 

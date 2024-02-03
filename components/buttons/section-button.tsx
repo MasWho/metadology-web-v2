@@ -6,6 +6,7 @@ type Props = {
   sectionName: AllSections;
   show: boolean;
   text?: string;
+  onClick?: () => void;
 };
 
 const SectionButtonIcon = () => {
@@ -30,7 +31,7 @@ const SectionButtonIcon = () => {
 
 const SectionButton = (props: Props) => {
   const [scope, animate] = useAnimate();
-  const { sectionName, show, text = 'More on this section' } = props;
+  const { sectionName, show, text = 'More on this section', onClick } = props;
 
   const enterAnimation = useCallback(async () => {
     animate(scope.current, { opacity: 1 }, { duration: 0.5 });
@@ -63,6 +64,7 @@ const SectionButton = (props: Props) => {
       <button
         id={`${sectionName}-section-button`}
         className="whitespace-nowrap relative before:opacity-90 before:bg-c-section-heading before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:w-full before:h-full before:rounded-full before:z-10 flex items-center justify-between rounded-full gap-4 pl-3 pr-1 py-1 tablet:gap-6 tablet:pl-6 tablet:pr-2 tablet:py-2"
+        onClick={onClick}
       >
         <span
           id={`${sectionName}-section-text`}
