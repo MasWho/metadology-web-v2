@@ -8,7 +8,7 @@ const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-video-1'
 
 const Explore = () => {
   return (
-    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding readMoreTitle='See how we simplified the process'>
+    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>
       <div className="py-[50px] px-[5vw] tablet:px-[20vw] tablet:py-[100px]">
         <motion.aside
           initial={{ y: 50, opacity: 0 }}

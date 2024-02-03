@@ -3,6 +3,8 @@ import SectionHeading from '../../headings/section-heading';
 import ContentHeading from '@/components/headings/content-heading';
 import ImageDisplay from '@/components/images/image-display';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import SubsectionTwoPopup from '@/components/popups/sub-section-two-popup';
 
 const images = [
   { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-two-gif' },
@@ -11,8 +13,17 @@ const images = [
 ];
 
 const ExploreSubsectionTwo = () => {
+  const [popupOpen, setPopupOpen] = useState(false);
+
+  const readmore = {
+    title: "More on payments & inventory",
+    onOpen: () => setPopupOpen(true),
+    popup: <SubsectionTwoPopup onClose={() => setPopupOpen(false)} />,
+    isOpen: popupOpen
+  };
+
   return (
-    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding readMoreTitle='More on payments & inventory'>
+    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding readmore={readmore}>
       <div className="py-[50px] px-[5vw] tablet:px-[20vw]">
         <SectionHeading text="3. Realtime property sales" />
         <ContentHeading text="Browse, Select, Pay and Secure" center />

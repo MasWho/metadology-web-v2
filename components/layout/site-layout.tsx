@@ -20,6 +20,7 @@ const SiteMainLayout = (props: Props) => {
         <title>Metadology</title>
       </Head>
       <main
+        id="app-main"
         className={generateClasses({
           generic: [
             "bg-c-primary",
