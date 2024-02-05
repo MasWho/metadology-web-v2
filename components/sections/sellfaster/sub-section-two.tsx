@@ -7,23 +7,24 @@ import { useState } from 'react';
 import SubsectionTwoPopup from '@/components/popups/sub-section-two-popup';
 
 const images = [
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-two-gif' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-two-img1' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/explore-sub-section-two-img2' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-gif-1' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-gif-2' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-gif-3' },
 ];
 
-const ExploreSubsectionTwo = () => {
+const SellfasterSubsectionTwo = () => {
   const [popupOpen, setPopupOpen] = useState(false);
 
-  const readmore = {
-    title: "More on payments & inventory",
-    onOpen: () => setPopupOpen(true),
-    popup: <SubsectionTwoPopup onClose={() => setPopupOpen(false)} />,
-    isOpen: popupOpen
-  };
+  // TODO: Add popup later
+  // const readmore = {
+  //   title: "More on payments & inventory",
+  //   onOpen: () => setPopupOpen(true),
+  //   popup: <SubsectionTwoPopup onClose={() => setPopupOpen(false)} />,
+  //   isOpen: popupOpen
+  // };
 
   return (
-    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding readmore={readmore}>
+    <SectionLayout sectionName={'sell-faster'} bgColor="bg-c-secondary" noPadding>
       <div className="py-[50px] px-[5vw] tablet:px-[20vw]">
         <SectionHeading text="3. Realtime property sales" />
         <ContentHeading text="Browse, Select, Pay and Secure" center />
@@ -57,4 +58,4 @@ const ExploreSubsectionTwo = () => {
   );
 };
 
-export default ExploreSubsectionTwo;
+export default SellfasterSubsectionTwo;

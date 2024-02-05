@@ -5,10 +5,10 @@ import { VIDEO_RATIO } from '../../carousel/constants';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
-const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-subsection-five-video';
-const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail';
+const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/ultra-realism-section-three-video';
+const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/ultra-realism-section-three-video-thumbnail';
 
-const ExploreSubsectionFive = () => {
+const UltraRealismThree = () => {
   const { width } = useWindowDimensions();
 
   const { videoRatio } = screenToVideoSizeRatio(width!);
@@ -28,7 +28,7 @@ const ExploreSubsectionFive = () => {
   }, [videoWidth]);
 
   return (
-    <SectionLayout sectionName={'closer-look'} bgColor="bg-c-primary" noPadding>
+    <SectionLayout sectionName={'ultra-realism'} bgColor="bg-c-primary" noPadding>
       <div className="py-14 tablet:py-[100px] px-[2.5vw] tablet:px-[15vw]">
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
@@ -68,4 +68,4 @@ const ExploreSubsectionFive = () => {
   );
 };
 
-export default ExploreSubsectionFive;
+export default UltraRealismThree;

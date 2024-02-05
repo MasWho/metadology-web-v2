@@ -23,6 +23,11 @@ const CarouselElement = (props: Props) => {
         style={{ width: `${videoRatio * 100}vw`, margin: `0 ${carouselElementMargin}` }}
         onClick={onClick}
       >
+        {!!videoHeadingText ? (
+          <h1 className="text-c-heading text-[14px] tablet:text-[16px] laptop:text-[20px] pl-[2rem] pb-[1rem]">{`${
+            index + 1
+          }. ${videoHeadingText}`}</h1>
+        ) : null}
         {children}
         {/* Overlay */}
         {castOverlay ? (
@@ -32,11 +37,6 @@ const CarouselElement = (props: Props) => {
             transition={{ duration: 1 }}
             className="absolute w-[100%] h-[100%] top-0 bg-c-secondary"
           />
-        ) : null}
-        {!!videoHeadingText ? (
-          <h1 className="text-c-heading absolute top-[3%] left-[3%] text-[14px] tablet:text-[16px] laptop:text-[20px]">{`${
-            index + 1
-          }. ${videoHeadingText}`}</h1>
         ) : null}
       </li>
     </>

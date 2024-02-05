@@ -8,28 +8,28 @@ import UltraRealismCarousel from '@/components/carousel/ultra-realism-carousel';
 
 const videos = [
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-subsection-three-video-1',
-    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/ultra-realism-section-one-video-1',
+    text: 'We bring unparalleled realism down to the last stitch of luxurious fabrics and the subtle grains of sumptuous leathers.',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-subsection-three-video-2',
-    text: 'Lorem ipsum dolor sit, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/ultra-realism-section-one-video-2',
+    text: 'Experience accurate physics as doors open and reflections bounce light in real-time.',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-subsection-three-video-3',
-    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/ultra-realism-section-one-video-3',
+    text: 'Witness the enchanting sight of curtain fabrics billowing in the wind.'
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-subsection-three-video-4',
-    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/ultra-realism-section-one-video-4',
+    text: 'Be enthralled by every blade of grass swaying gracefully in the wind.'
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-subsection-three-video-5',
-    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/ultra-realism-section-one-video-5',
+    text: 'Every surface is crafted to the specifications of its scientific properties, breaking the boundary between the digital world and real life.',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/explore-subsection-three-video-6',
-    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/ultra-realism-section-one-video-6',
+    text: 'Geospatial data ensures accurate illumination from the sun at all hours and during any season, replicating true-to-life lighting conditions.',
   },
 ];
 
@@ -41,7 +41,7 @@ const initialiseVideoProgressLookup = () => {
   return progressLookup;
 };
 
-const ExploreSubsectionThree = () => {
+const UltraRealismOne = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [_, setVideoProgress] = useState(initialiseVideoProgressLookup);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -89,7 +89,7 @@ const ExploreSubsectionThree = () => {
   };
 
   return (
-    <SectionLayout sectionName={'explore'} bgColor="bg-c-secondary" noPadding>
+    <SectionLayout sectionName={'ultra-realism'} bgColor="bg-c-secondary" noPadding>
       <div className="py-14" ref={carouselRef}>
         <div className="flex flex-col gap-6 relative" style={carouselStyle}>
           <div style={{ margin: `0 ${carouselElementMargin}` }}>
@@ -109,4 +109,4 @@ const ExploreSubsectionThree = () => {
   );
 };
 
-export default ExploreSubsectionThree;
+export default UltraRealismOne;

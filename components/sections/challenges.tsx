@@ -22,9 +22,9 @@ const letter = {
   },
 };
 
-const Intro = () => {
+const Challenges = () => {
   return (
-    <SectionLayout sectionName={'intro'} background={<BubbleBackground />}>
+    <SectionLayout sectionName={'challenges'} background={<BubbleBackground />}>
       <div className="py-14 z-[10] relative desktop:py-20">
         {/* Heading */}
         <motion.h1
@@ -112,4 +112,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default Challenges;

@@ -54,7 +54,13 @@ const HighlightCarousel = (props: Props) => {
 
     const {videoRatio} = carouselVideoSizeRatio(width!);
     return (
-      <CarouselElement index={idx} focusedIndex={currentVideoIndex} key={`highlight-video-${idx}-${video.url}`} onClick={onChangeVideo.bind(null, idx)}>
+      <CarouselElement
+        index={idx}
+        focusedIndex={currentVideoIndex}
+        key={`highlight-video-${idx}-${video.url}`}
+        onClick={onChangeVideo.bind(null, idx)}
+        videoHeadingText={video.headingText}
+      >
         <DynamicReactPlayer
           controls
           url={video.url}

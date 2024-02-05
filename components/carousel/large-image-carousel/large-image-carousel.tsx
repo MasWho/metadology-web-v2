@@ -28,25 +28,13 @@ const pictureSize = (width: number) => {
 };
 
 const CarouselItemText = (props: { items: { text: string }[] }) => {
-  const { items } = props;
-  const { currentFocusedItemIndex } = useCarouselContext();
-  const itemTexts = items.map((item, idx) => {
-    const itemOpacity = idx === currentFocusedItemIndex ? 1 : 0;
-    return (
-      <motion.p
-        key={`carousel-item-text-${idx}`}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: itemOpacity }}
-        transition={{ duration: 0.5 }}
-        className="absolute text-[14px] tablet:text-[16px]"
-      >
-        {item.text}
-      </motion.p>
-    );
-  });
   return (
-    <article className="relative text-c-section-heading mb-[10px] w-[90vw] mx-auto lg-phone:mx-0 lg-phone:w-[300px] lg-phone:left-[calc(50vw-125px)] h-[100px] tablet:mb-[20px] tablet:w-[300px] tablet:h-[100px] tablet:left-[calc(50vw-200px)] desktop:left-[calc(50vw-305px)]">
-      {itemTexts}
+    <article className="relative text-c-section-heading mx-auto mb-[10px] lg-phone:mx-0 lg-phone:w-[300px] lg-phone:left-[calc(50vw-125px)] h-[100px] tablet:mb-[20px] tablet:w-[300px] tablet:h-[120px] tablet:left-[calc(50vw-200px)] desktop:left-[calc(50vw-305px)]">
+      <p className="text-[14px] tablet:text-[16px]">
+        <span className='text-c-heading'>Transform Your Vision into Reality.</span> From the sweeping landscapes surrounding your
+        development to the finest details in finishes and fabrics, we breathe life into every
+        element.
+      </p>
     </article>
   );
 };
@@ -221,7 +209,9 @@ const CarouselItems = (props: CarouselItemsProps) => {
   const { carouselRef } = useCarouselContext();
 
   const itemList = images.map((item, idx) => {
-    return <CarouselItem key={`explore-four-carousel-item-${idx}`} item={item} itemIndex={idx} />;
+    return (
+      <CarouselItem key={`sellfaster-four-carousel-item-${idx}`} item={item} itemIndex={idx} />
+    );
   });
 
   return (
