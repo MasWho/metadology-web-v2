@@ -7,10 +7,10 @@ import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-
 import { useInView } from 'framer-motion';
 
 const videos = [
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-1' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-2' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-3' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-4' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-1', headingText: "Explore the development online" },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-2', headingText: "Highlight key areas and amenities" },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-3', headingText: "Sell the surrounding area's attractions" },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-4', headingText: "Sales made easy" },
 ];
 
 const initialiseVideoProgressLookup = () => {

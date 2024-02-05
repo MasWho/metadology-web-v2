@@ -44,17 +44,17 @@ const NavActions = () => {
       </Link>
       <Link
         href=""
-        className={currentPageId === "closer-look" ? "text-c-accent-green" : ""}
-        onClick={changePageScrollHandler.bind(null, 'closer-look')}
+        className={currentPageId === "elevator-pitch" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'elevator-pitch')}
       >
-        Closer look
+        Elevator pitch
       </Link>
       <Link
         href=""
-        className={currentPageId === "intro" ? "text-c-accent-green" : ""}
-        onClick={changePageScrollHandler.bind(null, 'intro')}
+        className={currentPageId === "challenges" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'challenges')}
       >
-        Intro
+        Challenges
       </Link>
       <Link
         href=""
@@ -65,10 +65,17 @@ const NavActions = () => {
       </Link>
       <Link
         href=""
-        className={currentPageId === "explore" ? "text-c-accent-green" : ""}
-        onClick={changePageScrollHandler.bind(null, 'explore')}
+        className={currentPageId === "sell-faster" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'sell-faster')}
       >
-        Explore
+        Sell Faster
+      </Link>
+      <Link
+        href=""
+        className={currentPageId === "ultra-realism" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'ultra-realism')}
+      >
+        Ultra Realism
       </Link>
       <Link
         href=""
@@ -77,13 +84,13 @@ const NavActions = () => {
       >
         Benefits
       </Link>
-      <Link
+      {/* <Link
         href=""
         className={currentPageId === "forefront" ? "text-c-accent-green" : ""}
         onClick={changePageScrollHandler.bind(null, 'forefront')}
       >
         Forefront
-      </Link>
+      </Link> */}
       <Link
         href=""
         className={currentPageId === "portfolio" ? "text-c-accent-green" : ""}

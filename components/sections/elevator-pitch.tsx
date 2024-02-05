@@ -4,10 +4,10 @@ import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-
 import { VIDEO_RATIO } from '../carousel/constants';
 import { motion } from 'framer-motion';
 
-const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/closer-look-video';
-const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail';
+const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/elevator-pitch-video';
+const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/elevator-pitch-video-thumbnail';
 
-const CloserLook = () => {
+const ElevatorPitch = () => {
   const { width } = useWindowDimensions();
 
   const { videoRatio } = screenToVideoSizeRatio(width!);
@@ -18,7 +18,7 @@ const CloserLook = () => {
   };
 
   return (
-    <SectionLayout sectionName={'closer-look'} bgColor="bg-c-secondary" noPadding>
+    <SectionLayout sectionName={'elevator-pitch'} bgColor="bg-c-secondary" noPadding>
       <div className="py-14 tablet:py-[100px] px-[2.5vw] tablet:px-[15vw]">
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
@@ -57,4 +57,4 @@ const CloserLook = () => {
   );
 };
 
-export default CloserLook;
+export default ElevatorPitch;

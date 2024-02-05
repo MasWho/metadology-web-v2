@@ -9,46 +9,40 @@ import ReadMoreButton from '../buttons/read-more-button';
 
 const images = [
   {
-    // TODO: change to img1 after testing
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img7',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img1',
     text: 'Lorem ipsum, dolor sit amet consectetur desc1 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
     title: 'Lifestyle Estates',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img2',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img2',
     text: 'Lorem ipsum, dolor sit amet consectetur desc2 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
     title: 'Developers',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img3',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img3',
     text: 'Lorem ipsum, dolor sit amet consectetur desc3 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
     title: 'Real Estate Agents',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img4',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img4',
     text: 'Lorem ipsum, dolor sit amet consectetur desc4 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
     title: 'Buyers',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img5',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img5',
     text: 'Lorem ipsum, dolor sit amet consectetur desc5 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
     title: 'Commercial Property Rentals',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img6',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img6',
     text: 'Lorem ipsum, dolor sit amet consectetur desc6 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
     title: 'Towers',
-  },
-  {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefits-img7',
-    text: 'Lorem ipsum, dolor sit amet consectetur desc7 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
-    title: 'Something else',
   },
 ];
 
 const Benefits = () => {
   const [currentFocusedItemIndex, setCurrentFocusedItemIndex] = useState(Math.floor(images.length / 2));
-  const [scope, animate] = useAnimate();
+  // const [scope, animate] = useAnimate();
 
   const handleChangeCarouselItem = (type: 'inc' | 'dec') => {
     setCurrentFocusedItemIndex(prev => {
@@ -62,16 +56,16 @@ const Benefits = () => {
     })
   };
 
-  const animateButtonForIndexChange = useCallback(async () => {
-    await animate('svg', {scale: 1.1}, {duration: 0.2});
-    await animate('svg', {scale: 1}, {duration: 0.2});
-    await animate('svg', {scale: 1.1}, {duration: 0.2});
-    await animate('svg', {scale: 1.0}, {duration: 0.2});
-  }, [animate])
+  // const animateButtonForIndexChange = useCallback(async () => {
+  //   await animate('svg', {scale: 1.1}, {duration: 0.2});
+  //   await animate('svg', {scale: 1}, {duration: 0.2});
+  //   await animate('svg', {scale: 1.1}, {duration: 0.2});
+  //   await animate('svg', {scale: 1.0}, {duration: 0.2});
+  // }, [animate])
 
-  useEffect(() => {
-    animateButtonForIndexChange();
-  }, [currentFocusedItemIndex, animateButtonForIndexChange])
+  // useEffect(() => {
+  //   animateButtonForIndexChange();
+  // }, [currentFocusedItemIndex, animateButtonForIndexChange])
   
   return (
     <SectionLayout sectionName={'benefits'} bgColor="bg-c-primary" noPadding>
@@ -99,9 +93,9 @@ const Benefits = () => {
             currentFocusedItemIndex={currentFocusedItemIndex}
             setCurrentFocusedItemIndex={setCurrentFocusedItemIndex}
           />
-          <div className='w-[100%] flex justify-center laptop:mt-5' ref={scope}>
+          {/* <div className='w-[100%] flex justify-center laptop:mt-5' ref={scope}>
             <ReadMoreButton />
-          </div>
+          </div> */}
         </div>
       </div>
     </SectionLayout>

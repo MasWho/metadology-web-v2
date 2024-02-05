@@ -92,17 +92,17 @@ const MobileNavActions = (props: Props) => {
           </Link>
           <Link
             href=""
-            onClick={changePageScrollHandler.bind(null, 'closer-look')}
-            className={currentPageId === 'closer-look' ? 'text-c-accent-green' : ''}
+            onClick={changePageScrollHandler.bind(null, 'elevator-pitch')}
+            className={currentPageId === 'elevator-pitch' ? 'text-c-accent-green' : ''}
           >
-            Closer look
+            Elevator Pitch
           </Link>
           <Link
             href=""
-            className={currentPageId === "intro" ? "text-c-accent-green" : ""}
-            onClick={changePageScrollHandler.bind(null, 'intro')}
+            className={currentPageId === 'challenges' ? 'text-c-accent-green' : ''}
+            onClick={changePageScrollHandler.bind(null, 'challenges')}
           >
-            Intro
+            Challenges
           </Link>
           <Link
             href=""
@@ -113,10 +113,17 @@ const MobileNavActions = (props: Props) => {
           </Link>
           <Link
             href=""
-            onClick={changePageScrollHandler.bind(null, 'explore')}
-            className={currentPageId === 'explore' ? 'text-c-accent-green' : ''}
+            onClick={changePageScrollHandler.bind(null, 'sell-faster')}
+            className={currentPageId === 'sell-faster' ? 'text-c-accent-green' : ''}
           >
-            Explore
+            Sell Faster
+          </Link>
+          <Link
+            href=""
+            className={currentPageId === 'ultra-realism' ? 'text-c-accent-green' : ''}
+            onClick={changePageScrollHandler.bind(null, 'ultra-realism')}
+          >
+            Ultra Realism
           </Link>
           <Link
             href=""
@@ -125,13 +132,13 @@ const MobileNavActions = (props: Props) => {
           >
             Benefits
           </Link>
-          <Link
+          {/* <Link
             href=""
             onClick={changePageScrollHandler.bind(null, 'forefront')}
             className={currentPageId === 'forefront' ? 'text-c-accent-green' : ''}
           >
             Forefront
-          </Link>
+          </Link> */}
           <Link
             href=""
             onClick={changePageScrollHandler.bind(null, 'portfolio')}
