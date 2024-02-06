@@ -5,38 +5,39 @@ import { useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import useWindowDimensions, { carouselVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import UltraRealismCarousel from '@/components/carousel/ultra-realism-carousel';
+import PartnersTicker from '../ticker/partners-ticker';
 
 // TODO: Actually upload the videos and thumbnails
 const videos = [
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-1',
-    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    text: 'We were tasked with demonstrating the potential of this three-building complex: adaptable as an office park or transformed into residential units. See how we Simplified the investors decision by showcasing both opportunities.',
     thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/portfolio-video-1-thumbnail',
-    title: 'ABSA'
+    title: 'Revolutionizing Office Park Sales'
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-2',
-    text: 'Lorem ipsum dolor sit, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+    text: 'Challenged  by a skeptical developer, we shattered doubts on 3D models versus renders. Witness how 21 days revolutionized perceptions.',
     thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/portfolio-video-2-thumbnail',
-    title: 'Galileo'
+    title: 'Renders vs Models: Galileo'
   },
   // {
   //   url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-3',
-  //   text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+  //   text: 'As the CPB floor lease ended, we exhibited the space with our 3D technology, enabling exploration of various layouts seamlessly, ensuring uninterrupted tenant operations. Witness our innovative solution.',
   //   thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail',
-  //   title: 'Broll'
+  //   title: 'Commercial Property: Strategizing around Existing Tenants'
   // },
   // {
   //   url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-4',
-  //   text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+  //   text: 'Pioneering urban transformation, our technology enabled pre-sales despite existing buildings. Buyers could experience the final development in complete clarity allowing sales to commence before  ground had even been broken.',
   //   thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail',
-  //   title: '9 Gary'
+  //   title: 'Selling before ground was even broken'
   // },
   // {
   //   url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-5',
-  //   text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veniam suscipit dolore aliquid eaque iure sit maxime ut hic rem voluptate, possimus temporibus.',
+  //   text: 'Transforming property sales: Say goodbye to guesswork and visualize seamless transformations. Witness the evolution of property sales firsthand.',
   //   thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/closer-look-video-thumbnail',
-  //   title: 'Mike Eilertsen',
+  //   title: 'The Next Evolution In Selling Homes',
   // },
 ];
 
@@ -111,6 +112,9 @@ const Portfolio = () => {
             onChangeVideo={changeVideoHandler}
           />
         </div>
+      </div>
+      <div className='py-20'>
+        <PartnersTicker />
       </div>
     </SectionLayout>
   );

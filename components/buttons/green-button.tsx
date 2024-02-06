@@ -1,7 +1,8 @@
 import {motion} from 'framer-motion';
+import { ReactNode } from 'react';
 
 type Props = {
-  text: string;
+  text: ReactNode;
   onClick?: () => void;
 };
 

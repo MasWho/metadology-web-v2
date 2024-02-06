@@ -1,23 +1,10 @@
-import { useNavContext } from "@/contexts/NavContext";
-import { AllSections } from "@/pages";
+import useChangePage from "@/hooks/use-change-page";
 import { generateClasses } from "@/utils/styling";
 import Link from "next/link";
 import React from "react";
 
 const NavActions = () => {
-  const {currentPageId, setIsNavigating} = useNavContext();
-
-  const changePageScrollHandler = (pageId: AllSections) => {
-    const element = document.getElementById(pageId!);
-    setIsNavigating(true);
-    setTimeout(() => {
-      element?.scrollIntoView({
-        behavior: 'instant',
-        block: 'center',
-      });
-      setIsNavigating(false);
-    }, 800);
-  };
+  const { currentPageId, changePageScrollHandler } = useChangePage();
 
   return (
     <div

@@ -3,8 +3,7 @@ import Link from 'next/link';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './mobile-nav-actions.module.css';
-import { AllSections } from '@/pages';
-import { useNavContext } from '@/contexts/NavContext';
+import useChangePage from '@/hooks/use-change-page';
 
 type Props = {
   isOpen: boolean;
@@ -35,7 +34,7 @@ const MobileNavActions = (props: Props) => {
   const { isOpen, onClose } = props;
   const portalRootRef = useRef<any>(null);
   const [mounted, setMounted] = useState(false);
-  const {currentPageId, setIsNavigating} = useNavContext();
+  const { currentPageId, changePageScrollHandler } = useChangePage({ onPageChange: onClose });
 
   const updatePageScroll = useCallback(() => {
     if (isOpen) {
@@ -45,19 +44,6 @@ const MobileNavActions = (props: Props) => {
 
     portalRootRef.current!.style.overflow = '';
   }, [isOpen]);
-
-  const changePageScrollHandler = (pageId: AllSections) => {
-    const element = document.getElementById(pageId!);
-    setIsNavigating(true);
-    setTimeout(() => {
-      element?.scrollIntoView({
-        behavior: 'instant',
-        block: 'center',
-      });
-      setIsNavigating(false);
-    }, 800);
-    onClose();
-  };
 
   useEffect(() => {
     portalRootRef.current = document.getElementById('portal');

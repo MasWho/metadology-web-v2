@@ -55,3 +55,17 @@ video {
 .react-player__preview {
   border-radius: 15px;
 }
+
+@keyframes ticker-kf {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-97.5rem, 0, 0);
+  }
+}
+
+.img-ticker {
+  animation: ticker-kf 100s linear infinite;
+}

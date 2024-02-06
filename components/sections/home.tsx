@@ -6,10 +6,16 @@ import Image from 'next/image';
 import GreenButton from '../buttons/green-button';
 import BubbleBackground from '../backgrounds/bubble-background';
 import ScrollButton from '../buttons/scroll-button';
+import { AllSections } from '@/pages';
+import { useNavContext } from '@/contexts/NavContext';
+import Link from 'next/link';
+import useChangePage from '@/hooks/use-change-page';
 
 const Home = () => {
+  const { currentPageId, changePageScrollHandler } = useChangePage();
+
   return (
-    <SectionLayout sectionName={'home'} background={<BubbleBackground />} >
+    <SectionLayout sectionName={'home'} background={<BubbleBackground />}>
       <div
         className={generateClasses({
           generic: [
@@ -38,7 +44,17 @@ const Home = () => {
           Elevating Real Estate Experiences with 3D Immersion
         </h1>
         <div className="text-c-heading text-[16px] text-center tablet:w-[80%] tablet:text-[20px] desktop:text-[24px]">
-          <GreenButton text="Contact Us" />
+          <GreenButton
+            text={
+              <Link
+                href=""
+                className={currentPageId === 'contact' ? 'text-c-accent-green' : ''}
+                onClick={changePageScrollHandler.bind(null, 'contact')}
+              >
+                Contact Us
+              </Link>
+            }
+          />
           <p className="mt-7">Get in touch to accelerate your sales</p>
         </div>
         <ScrollButton />

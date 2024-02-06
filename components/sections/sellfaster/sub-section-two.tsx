@@ -7,9 +7,9 @@ import { useState } from 'react';
 import SubsectionTwoPopup from '@/components/popups/sub-section-two-popup';
 
 const images = [
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-gif-1' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-gif-2' },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-gif-3' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-img-1' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-img-2' },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/sellfaster-sub-section-two-img-3' },
 ];
 
 const SellfasterSubsectionTwo = () => {

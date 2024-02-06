@@ -15,9 +15,9 @@ const SiteMainLayout = (props: Props) => {
   return (
     <>
       <Head>
-        <meta name="description" content="Informational site for Metadology" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Metadology</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Elevating real estate experiences with 3D immersion" />
+        <title>Meta-dology</title>
       </Head>
       <main
         id="app-main"

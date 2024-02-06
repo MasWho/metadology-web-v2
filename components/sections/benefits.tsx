@@ -10,32 +10,32 @@ import ReadMoreButton from '../buttons/read-more-button';
 const images = [
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img1',
-    text: 'Lorem ipsum, dolor sit amet consectetur desc1 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    text: 'Buyers can step into their dream lifestyle estate. Explore every corner & envision their new life.',
     title: 'Lifestyle Estates',
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img2',
-    text: 'Lorem ipsum, dolor sit amet consectetur desc2 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    text: 'Sell faster. Expand buyer base. Streamline selling. Simplify the process. Optimize your property development sales journey.',
     title: 'Developers',
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img3',
-    text: 'Lorem ipsum, dolor sit amet consectetur desc3 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    text: 'Maximize sales potential. Generate leads effortlessly. Streamline buying. Revolutionize real estate transactions.',
     title: 'Real Estate Agents',
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img4',
-    text: 'Lorem ipsum, dolor sit amet consectetur desc4 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    text: 'Let buyers experience their dream property. Click to discover how we simplify your purchasing decision.',
     title: 'Buyers',
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img5',
-    text: 'Lorem ipsum, dolor sit amet consectetur desc5 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    text: 'Explore diverse layouts & space possibilities. Unveil how the property maximizes business potential.',
     title: 'Commercial Property Rentals',
   },
   {
     url: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/benefit-img6',
-    text: 'Lorem ipsum, dolor sit amet consectetur desc6 elit. Necessitatibus qui repudiandae consectetur beatae totam esse mollitia rem libero sit.',
+    text: 'Selling property in a tower is more than a flat image. Let buyers experience panoramic views, lavish finishes & doorstep amenities',
     title: 'Towers',
   },
 ];
@@ -72,9 +72,27 @@ const Benefits = () => {
       <div className="relative py-14 px-[5vw] tablet:px-[15vw]">
         <div className="flex flex-col gap-3 bg-c-secondary px-[5vw] py-[30px] laptop:py-[50px] tablet:px-[50px] max-w-[800px] mx-auto">
           {/* Heading portion */}
-          <SectionHeading text="Benefits" />
-          <div className="flex flex-col justify-center gap-[10px] mb-[10px] tablet:mb-[20px] tablet:flex-row tablet:justify-between items-center">
-            <InnerHeading text="How can we help you" />
+          <motion.h1
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+            }}
+            className="text-c-heading text-[24px] tablet:text-[30px] laptop:text-[36px] text-center"
+          >
+            With so many advantages...
+          </motion.h1>
+          <div className="flex flex-col justify-center mx-auto gap-[10px] tablet:gap-[60px] mb-[10px] tablet:mb-[20px] tablet:flex-row tablet:justify-between items-center max-w-[650px]">
+            <motion.p
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 1
+              }}
+              className="text-c-section-heading text-[14px] tablet:text-[16px] laptop:text-[18px]"
+            >
+              Choose Your Role and Dive into Tailored benefits That Await!
+            </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{

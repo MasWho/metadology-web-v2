@@ -14,6 +14,7 @@ import Challenges from "@/components/sections/challenges";
 const UltraRealismOne = dynamic(() => import("@/components/sections/ultra-realism/ultra-realism-one"), {ssr: false});
 const UltraRealismTwo = dynamic(() => import("@/components/sections/ultra-realism/ultra-realism-two"), {ssr: false});
 import UltraRealismThree from "@/components/sections/ultra-realism/ultra-realism-three";
+import Contact from "@/components/sections/contact/contact";
 
 export type AllSections = "home" | "elevator-pitch" | "challenges" | "highlights" | "sell-faster" | "ultra-realism" | "benefits" | "forefront" | "portfolio" | "contact" | null;
 
@@ -34,6 +35,7 @@ const IndexPage = () => {
         <Benefits />
         {/* <Forefront /> */}
         <Portfolio />
+        <Contact />
       </SiteMainLayout>
     </NavContextProvider>
   )
