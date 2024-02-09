@@ -15,8 +15,9 @@ const UltraRealismOne = dynamic(() => import("@/components/sections/ultra-realis
 const UltraRealismTwo = dynamic(() => import("@/components/sections/ultra-realism/ultra-realism-two"), {ssr: false});
 import UltraRealismThree from "@/components/sections/ultra-realism/ultra-realism-three";
 import Contact from "@/components/sections/contact/contact";
+import Features from "@/components/sections/features";
 
-export type AllSections = "home" | "elevator-pitch" | "challenges" | "highlights" | "sell-faster" | "ultra-realism" | "benefits" | "forefront" | "portfolio" | "contact" | null;
+export type AllSections = "home" | "elevator-pitch" | "challenges" | "highlights" | "sell-faster" | "features" | "ultra-realism" | "benefits" | "forefront" | "portfolio" | "contact" | null;
 
 const IndexPage = () => {
   return (
@@ -29,6 +30,7 @@ const IndexPage = () => {
         <Sellfaster />
           <SellfasterSubsectionOne />
           <SellfasterSubsectionTwo />
+        <Features />
         <UltraRealismOne />
           <UltraRealismTwo />
           <UltraRealismThree />

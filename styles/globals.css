@@ -52,6 +52,10 @@ video {
   border-radius: 40px;
 }
 
+#laptop video {
+  border-radius: 0;
+}
+
 .react-player__preview {
   border-radius: 15px;
 }
