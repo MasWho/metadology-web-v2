@@ -33,10 +33,10 @@ const SellfasterSubsectionTwo = () => {
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-c-heading flex flex-col w-[100%] lg-phone:flex-row lg-phone:justify-evenly mt-[40px] lg-phone:mt-[50px] max-w-[800px] mx-auto"
+          className="text-c-heading flex flex-col w-[100%] lg-phone:flex-row lg-phone:justify-evenly mt-[20px] lg-phone:mt-[25px] max-w-[800px] mx-auto"
         >
           <div className="w-[100%] lg-phone:w-[40%] laptop:w-[30%]">
-            <p className="text-c-section-heading text-[14px] mt-[15px] laptop:text-[18px] laptop:mt-[25px]">
+            <p className="text-c-section-heading text-[14px] mt-[10px] laptop:text-[18px] laptop:mt-[15px]">
               After exploring,{' '}
               <b className="text-c-heading">
                 buyers can browse, select, and secure their dream property
@@ -45,7 +45,7 @@ const SellfasterSubsectionTwo = () => {
             </p>
           </div>
           <div className="w-[100%] lg-phone:w-[40%] laptop:w-[30%]">
-            <p className="text-c-section-heading text-[14px] mt-[15px] laptop:text-[18px] laptop:mt-[25px]">
+            <p className="text-c-section-heading text-[14px] mt-[10px] laptop:text-[18px] laptop:mt-[15px]">
               Filter through options, pick the perfect match, and{' '}
               <b className="text-c-heading">
                 seal the deal instantly with a securing deposit.

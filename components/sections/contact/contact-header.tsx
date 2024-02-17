@@ -34,7 +34,7 @@ const ContactHeader = () => {
           web: ["laptop:text-[2.5rem]"],
         })}
       >
-        Need to speak to a metadologist?
+        Need to speak to a meta-dologist?
       </h1>
       <p
         className={generateClasses({

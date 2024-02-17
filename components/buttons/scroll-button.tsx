@@ -8,7 +8,6 @@ const ScrollButton = () => {
       className={generateClasses({
         generic: [
           'bg-c-primary',
-          'border-[1px]',
           'text-c-heading',
           'font-medium',
           'rounded-full',

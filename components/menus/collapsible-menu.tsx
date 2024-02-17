@@ -1,7 +1,6 @@
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAnimate } from 'framer-motion';
 import React, { useCallback, useEffect, useRef } from 'react';
+import { FaChevronDown } from "react-icons/fa6";
 
 type Props = {
   items: { heading: string; content: string }[];
@@ -65,12 +64,13 @@ const CollapsibleMenu = (props: Props) => {
         <div className="flex items-center justify-between gap-14">
           <h2 className="text-[16px] laptop:text-[20px]">{item.heading}</h2>
           <div id={`collapsible-menu-icon-${idx}`}>
-            <FontAwesomeIcon
-              icon={faChevronDown}
-              color="grey"
-              onClick={onOpenOrCollapse.bind(null, idx)}
-              className="hover:cursor-pointer"
-            />
+            {!showContent && (
+              <FaChevronDown
+                onClick={onOpenOrCollapse.bind(null, idx)}
+                color="grey"
+                className="hover:cursor-pointer"
+              />
+            )}
           </div>
         </div>
         <p
