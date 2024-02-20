@@ -15,16 +15,15 @@ const images = [
 const SellfasterSubsectionTwo = () => {
   const [popupOpen, setPopupOpen] = useState(false);
 
-  // TODO: Add popup later
-  // const readmore = {
-  //   title: "More on payments & inventory",
-  //   onOpen: () => setPopupOpen(true),
-  //   popup: <SubsectionTwoPopup onClose={() => setPopupOpen(false)} />,
-  //   isOpen: popupOpen
-  // };
+  const readmore = {
+    title: "More on payments & inventory",
+    onOpen: () => setPopupOpen(true),
+    popup: <SubsectionTwoPopup onClose={() => setPopupOpen(false)} />,
+    isOpen: popupOpen
+  };
 
   return (
-    <SectionLayout sectionName={'sell-faster'} bgColor="bg-c-secondary" noPadding>
+    <SectionLayout sectionName={'sell-faster'} bgColor="bg-c-secondary" noPadding readmore={readmore}>
       <div className="py-[50px] px-[5vw] tablet:px-[20vw]">
         <SectionHeading text="3. Realtime property sales" />
         <ContentHeading text="Browse, Select, Pay and Secure" center />

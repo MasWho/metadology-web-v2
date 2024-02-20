@@ -10,43 +10,34 @@ const ImageDisplay = (props: Props) => {
   const { images, reverse } = props;
   return (
     <div
-      className="h-[300px] max-w-[400px] mx-auto flex flex-col justify-between items-center mt-[20px] tablet:max-w-[700px] tablet:h-[400px] tablet:mt-[30px] laptop:h-[550px]"
+      className="max-w-[400px] mx-auto flex flex-col justify-between items-center mt-[20px] tablet:max-w-[700px] tablet:mt-[30px]"
       style={{
         flexDirection: reverse ? 'column-reverse' : 'column'
       }}
     >
-      <div className="relative w-[100%] h-[49%]">
+      <div className="relative w-[100%] max-h-[270px]">
         <Image
           src={images[0].url}
           alt="explore image"
-          fill
-          style={{
-            objectFit: 'cover',
-          }}
-          sizes='700px, 270px'
+          width={720}
+          height={270}
         />
       </div>
-      <div className="flex w-[100%] h-[49%] justify-between mt-[5px]">
-        <div className="relative w-[49%] h-[100%]">
+      <div className="flex w-[100%] justify-between mt-[5px]">
+        <div className="relative w-[49%] max-h-[500px]">
           <Image
             src={images[1].url}
             alt="explore image"
-            fill
-            style={{
-              objectFit: 'cover',
-            }}
-            sizes='300px, 300px'
+            width={500}
+            height={500}
           />
         </div>
-        <div className="relative w-[49%] h-[100%]">
+        <div className="relative w-[49%] max-h-[500px]">
           <Image
             src={images[2].url}
             alt="explore image"
-            fill
-            style={{
-              objectFit: 'cover',
-            }}
-            sizes='300px, 300px'
+            width={500}
+            height={500}
           />
         </div>
       </div>

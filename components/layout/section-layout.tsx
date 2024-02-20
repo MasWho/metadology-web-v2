@@ -49,6 +49,7 @@ const SectionLayout = (props: Props) => {
       })}
       style={{
         padding: noPadding ? 0 : undefined,
+        paddingBottom: readmore ? "1.25rem" : 0,
       }}
     >
       {background}

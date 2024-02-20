@@ -38,7 +38,7 @@ const ElevatorPitch = () => {
           }}
           className="text-c-section-heading text-center mt-8 text-[16px] tablet:text-[24px] desktop:text-[32px]"
         >
-          Here is everything you need to know in 2 Minutes
+          Here is everything you need to know in 2 minutes
         </motion.p>
         <div className="w-fit mx-auto mt-5 border-c-secondary border-[2px] rounded-[15px]">
           <DynamicReactPlayer

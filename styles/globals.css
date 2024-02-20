@@ -56,6 +56,10 @@ video {
   border-radius: 0;
 }
 
+#popup video {
+  border-radius: 0;
+}
+
 .react-player__preview {
   border-radius: 15px;
 }

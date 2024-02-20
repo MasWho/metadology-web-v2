@@ -58,6 +58,7 @@ const PopupLayout = (props: PropsWithChildren<BasePopupProps>) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       exit={{ opacity: 0 }}
+      id="popup"
     >
       <motion.div 
         className="w-[90vw] tablet:w-[80vw] max-w-[1000px] bg-c-primary rounded-2xl mx-auto"
