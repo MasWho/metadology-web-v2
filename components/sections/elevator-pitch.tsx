@@ -4,7 +4,7 @@ import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-
 import { VIDEO_RATIO } from '../carousel/constants';
 import { motion } from 'framer-motion';
 
-const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/elevator-pitch-video';
+const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/elevator-pitch-video.mp4';
 const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/elevator-pitch-video-thumbnail';
 
 const ElevatorPitch = () => {
