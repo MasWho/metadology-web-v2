@@ -19,7 +19,7 @@ type ActiveFeature = {
 
 const features: ActiveFeature[] = [
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-1',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-1.mp4',
     name: 'time-of-day',
     title: 'Sunlight',
     subTitle: 'Time of day',
@@ -27,7 +27,7 @@ const features: ActiveFeature[] = [
       'Potential buyers can experience how the sun & other light sources will effect each room. The Suns trajectory & arc is precisely mapped in relation to the coordinates of the Property, visual showcasing varying times of day and night, or changes in seasons.',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-2',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-2.mp4',
     name: 'finishes',
     title: 'Finishes',
     subTitle: 'Experience your finishes',
@@ -35,7 +35,7 @@ const features: ActiveFeature[] = [
       'Eliminate the guesswork for buyers when envisioning finishes or samples. Buyers can interact with the environment and see exactly how difficult finishes will look, and how they interact with light, furnishings, or different layouts.',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-3',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-3.mp4',
     name: 'furnishes',
     title: 'Furnishes',
     subTitle: 'Furnished or Unfurnished',
@@ -43,7 +43,7 @@ const features: ActiveFeature[] = [
       'Elevate your Property Offering with exquisite furnishings that unlock its full potential. Unbound by budget constraints. Explore the choice between furnished & unfurnished options, empowering buyers to envision the limitless possibilities.',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-4',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-4.mp4',
     name: 'measurements',
     title: 'Measurements',
     subTitle: 'Quickly Guage Room Measurements',
@@ -51,7 +51,7 @@ const features: ActiveFeature[] = [
       'Explore our Interactive Plans feature that seamlessly overlays the measurements as you navigate the 3D property, providing a holistic perspective on how the plans align with the actual space.',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-5',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-5.mp4',
     name: 'utilities',
     title: 'Utilities',
     subTitle: 'Electrical pipes and Water',
@@ -59,7 +59,7 @@ const features: ActiveFeature[] = [
       'Empower decorators, office layout planners, and service providers with precise information on the locations of water sources and electrical pipes. to accurate plan every wall and floor.',
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-6',
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/features-video-6.mp4',
     name: 'walls',
     title: 'Walls',
     subTitle: 'Walls Be Gone',

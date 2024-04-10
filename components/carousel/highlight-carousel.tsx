@@ -65,6 +65,7 @@ const HighlightCarousel = (props: Props) => {
           controls
           url={video.url}
           playing={playing}
+          playsinline
           onProgress={onVideoProgress.bind(null, idx)}
           volume={1}
           muted={true}
