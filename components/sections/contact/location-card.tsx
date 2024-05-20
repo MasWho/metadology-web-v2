@@ -8,15 +8,16 @@ type Props = {
   suburb: string;
   city: string;
   timezone: string;
+  hide?: boolean;
 };
 
 const LocationCard = (props: Props) => {
-  const { location, street, suburb, city, timezone } = props;
+  const { location, street, suburb, city, timezone, hide } = props;
 
   return (
     <motion.div
       className={generateClasses({
-        generic: ['flex', 'flex-col', 'justify-center'],
+        generic: ['flex', 'flex-col', 'justify-center', hide ? "opacity-0" : ""],
         mobile: [
           'w-full',
           'min-h-[130px]',
