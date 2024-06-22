@@ -8,9 +8,10 @@ import { useInView } from 'framer-motion';
 
 const videos = [
   { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-1.mp4', headingText: "Explore the development online" },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-2.mp4', headingText: "Highlight key areas and amenities" },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-3.mp4', headingText: "Sell the surrounding area's attractions" },
-  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-4.mp4', headingText: "Sales made easy" },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-2.mp4', headingText: "Have buyers get an instant guided tour any time of the day" },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-3.mp4', headingText: "Create urgency for buyers with bi weekly online events" },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-4.mp4', headingText: "All in one property portal solution with marketing videos" },
+  { url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/highlights-video-5.mp4', headingText: "Sales made easy" },
 ];
 
 const initialiseVideoProgressLookup = () => {
