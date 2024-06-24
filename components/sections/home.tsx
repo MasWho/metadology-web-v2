@@ -41,7 +41,7 @@ const Home = () => {
             web: ['tablet:text-[28px] desktop:text-[36px]'],
           })}
         >
-          Elevating Real Estate Experiences with 3D Immersion
+          Global leaders in selling property with 3D experiences
         </h1>
         <div className="text-c-heading text-[16px] text-center tablet:w-[80%] tablet:text-[20px] desktop:text-[24px]">
           <GreenButton
