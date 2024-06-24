@@ -4,6 +4,7 @@ import ContentHeading from '@/components/headings/content-heading';
 import VideoWithPhone from '@/components/video/VideoWithPhone';
 import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import ReactPlayer from 'react-player';
 
 const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/sellfaster-video-1';
 
@@ -43,20 +44,11 @@ const RepeatIcon = () => {
 };
 
 const Sellfaster = () => {
-  const [videoFinished, setVideoFinished] = useState(false);
   const [playVideo, setPlayVideo] = useState(true);
   const carouselRef = useRef(null);
   const isInView = useInView(carouselRef);
-
-  const videoFinishHandler = () => {
-    setVideoFinished(true);
-    setPlayVideo(false);
-  };
-
-  const restartVideoHandler = () => {
-    setVideoFinished(false);
-    setPlayVideo(true);
-  };
+  const [isHover, setIsHover] = useState(false);
+  const playerRef = useRef<ReactPlayer>(null);
 
   useEffect(() => {
     if (isInView) {
@@ -65,6 +57,12 @@ const Sellfaster = () => {
       setPlayVideo(false);
     }
   }, [isInView]);
+
+  const restartVideoHandler = () => {
+    if (playerRef.current === null) return;
+    playerRef.current.seekTo(0);
+    setPlayVideo(true);
+  }
 
   return (
     <SectionLayout sectionName={'sell-faster'} bgColor="bg-c-secondary" noPadding>
@@ -84,15 +82,18 @@ const Sellfaster = () => {
         </motion.aside>
         <SectionHeading text="1. Increase foot traffic" />
         <ContentHeading text="Turn social media clicks into live viewings" center />
-        <div className="relative flex flex-col items-center">
-          <VideoWithPhone videoUrl={VIDEO_URL} onFinish={videoFinishHandler} play={playVideo} />
-          {videoFinished && <motion.button
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            transition={{duration: 0.5}}
-            disabled={!videoFinished}
+        <div
+          className="relative flex flex-col items-center"
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+        >
+          <VideoWithPhone videoUrl={VIDEO_URL} play={playVideo} ref={playerRef} />
+          {isHover && <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, background: 'rgba(0, 0, 0, 0.8)' }}
+            transition={{ duration: 0.2 }}
             onClick={restartVideoHandler}
-            className="absolute top-[50%] z-[1000] cursor-pointer text-c-section-heading flex items-center gap-1"
+            className="absolute top-[50%] z-[1000] cursor-pointer text-c-section-heading flex items-center gap-1 rounded-md p-1"
           >
             Replay
             <RepeatIcon />

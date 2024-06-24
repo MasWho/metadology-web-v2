@@ -1,32 +1,24 @@
 import Image from 'next/image';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import iphone_border from '../../public/imgs/iphone_border.svg';
 import DynamicReactPlayer from './DynamicReactPlayer';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import { VIDEO_RATIO } from '../carousel/constants';
+import ReactPlayer from 'react-player';
 
 type Props = {
   videoUrl: string;
-  onFinish: () => void;
   play: boolean;
 };
 
-const VideoWithPhone = (props: Props) => {
-  const {videoUrl, onFinish, play} = props;
+const VideoWithPhone = forwardRef(function VideoWithPhone(props: Props, ref) {
+  const {videoUrl, play} = props;
   const {width} = useWindowDimensions();
   const {videoRatio} = screenToVideoSizeRatio(width!);
-
 
   let videoWith = width! * videoRatio;
   if(videoWith > 800) {
     videoWith = 800;
-  }
-
-  const videoFinishHandler = (progress: { played: number }) => {
-    const {played} = progress;
-    if (played >= 1) {
-      onFinish();
-    }
   }
 
   return (
@@ -38,17 +30,17 @@ const VideoWithPhone = (props: Props) => {
         desktop:rounded-[60px] max-w-[800px]
       '>
         <DynamicReactPlayer
+          playerRef={ref}
           url={videoUrl}
           playing={play}
           volume={1}
           muted={true}
           width={`${videoWith}px`}
           height={`${videoWith / VIDEO_RATIO}px`}
-          onProgress={videoFinishHandler}
         />
       </div>
     </div>
   );
-};
+});
 
 export default VideoWithPhone;
