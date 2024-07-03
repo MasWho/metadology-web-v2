@@ -16,6 +16,7 @@ const UltraRealismTwo = dynamic(() => import("@/components/sections/ultra-realis
 import UltraRealismThree from "@/components/sections/ultra-realism/ultra-realism-three";
 import Contact from "@/components/sections/contact/contact";
 import Features from "@/components/sections/features";
+import Footer from "@/components/footer/footer";
 
 export type AllSections = "home" | "elevator-pitch" | "challenges" | "highlights" | "sell-faster" | "features" | "ultra-realism" | "benefits" | "forefront" | "portfolio" | "contact" | null;
 
@@ -38,6 +39,7 @@ const IndexPage = () => {
         {/* <Forefront /> */}
         <Portfolio />
         <Contact />
+        <Footer />
       </SiteMainLayout>
     </NavContextProvider>
   )
