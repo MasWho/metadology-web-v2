@@ -21,6 +21,12 @@ const videos = [
     thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/portfolio-video-2-thumbnail',
     title: 'Renders vs Models: Galileo'
   },
+  {
+    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-3',
+    text: 'The Discovery building, at 1 Discovery place, Sandton, held 2 stories of open space that was ready to be rented but the space was desolate. Meta-dology made it easy for renters by creating a beautifully laid out site that housed all information on the property.',
+    thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/portfolio-video-3-thumbnail',
+    title: 'Rentable Places: Discovery'
+  },
   // {
   //   url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-3',
   //   text: 'As the CPB floor lease ended, we exhibited the space with our 3D technology, enabling exploration of various layouts seamlessly, ensuring uninterrupted tenant operations. Witness our innovative solution.',
