@@ -10,19 +10,19 @@ import PartnersTicker from '../ticker/partners-ticker';
 // TODO: Actually upload the videos and thumbnails
 const videos = [
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-1',
+    url: 'https://fast.wistia.net/embed/iframe/vueib9cak9',
     text: 'We were tasked with demonstrating the potential of this three-building complex: adaptable as an office park or transformed into residential units. See how we Simplified the investors decision by showcasing both opportunities.',
     thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/portfolio-video-1-thumbnail',
     title: 'Revolutionizing Office Park Sales'
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-2',
+    url: 'https://fast.wistia.net/embed/iframe/4yed6swdml',
     text: 'Challenged  by a skeptical developer, we shattered doubts on 3D models versus renders. Witness how 21 days revolutionized perceptions.',
     thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/portfolio-video-2-thumbnail',
     title: 'Renders vs Models: Galileo'
   },
   {
-    url: 'https://d1r0ovlr0podg3.cloudfront.net/videos/portfolio-video-3',
+    url: 'https://fast.wistia.net/embed/iframe/me7nx0kwub',
     text: 'The Discovery building, at 1 Discovery place, Sandton, held 2 stories of open space that was ready to be rented but the space was desolate. Meta-dology made it easy for renters by creating a beautifully laid out site that housed all information on the property.',
     thumbnail: 'https://d1r0ovlr0podg3.cloudfront.net/imgs/portfolio-video-3-thumbnail',
     title: 'Rentable Places: Discovery'
