@@ -4,7 +4,7 @@ import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-
 import { VIDEO_RATIO } from '../carousel/constants';
 import { motion } from 'framer-motion';
 
-const VIDEO_URL = 'https://d1r0ovlr0podg3.cloudfront.net/videos/elevator-pitch-video.mp4';
+const VIDEO_URL = 'https://fast.wistia.net/embed/iframe/enc0ntm52e';
 const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/elevator-pitch-video-thumbnail';
 
 const ElevatorPitch = () => {
