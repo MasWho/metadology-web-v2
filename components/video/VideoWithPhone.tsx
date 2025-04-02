@@ -11,7 +11,7 @@ type Props = {
   play: boolean;
 };
 
-const VideoWithPhone = forwardRef(function VideoWithPhone(props: Props, ref) {
+const VideoWithPhone = forwardRef<ReactPlayer, Props>(function VideoWithPhone(props: Props, ref) {
   const {videoUrl, play} = props;
   const {width} = useWindowDimensions();
   const {videoRatio} = screenToVideoSizeRatio(width!);

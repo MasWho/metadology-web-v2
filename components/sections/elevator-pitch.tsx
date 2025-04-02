@@ -3,22 +3,36 @@ import DynamicReactPlayer from '../video/DynamicReactPlayer';
 import useWindowDimensions, { screenToVideoSizeRatio } from '@/hooks/use-window-dimensions';
 import { VIDEO_RATIO } from '../carousel/constants';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const VIDEO_URL = 'https://fast.wistia.net/embed/iframe/vdhtid2v50';
 const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/elevator-pitch-video-thumbnail';
+const SECTION_ID = 'elevator-pitch';
 
 const ElevatorPitch = () => {
   const { width } = useWindowDimensions();
-
+  const { asPath } = useRouter();
   const { videoRatio } = screenToVideoSizeRatio(width!);
   const maxVideoWidth = 900;
+
+  useEffect(() => {
+    if (asPath.includes(`#${SECTION_ID}`)) {
+      const videoSection = document.getElementById(SECTION_ID);
+      if (videoSection) {
+        setTimeout(() => {
+          videoSection.scrollIntoView({ block: 'center' });
+        }, 300);
+      }
+    }
+  }, [width]);
 
   const getVideoWidth = () => {
     return Math.min(width! * videoRatio, maxVideoWidth);
   };
 
   return (
-    <SectionLayout sectionName={'elevator-pitch'} bgColor="bg-c-secondary" noPadding>
+    <SectionLayout sectionName={SECTION_ID} bgColor="bg-c-secondary" noPadding>
       <div className="py-14 tablet:py-[100px] px-[2.5vw] tablet:px-[15vw]">
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
@@ -38,7 +52,7 @@ const ElevatorPitch = () => {
           }}
           className="text-c-section-heading text-center mt-8 text-[16px] tablet:text-[24px] desktop:text-[32px]"
         >
-          Here is everything you need to know in 2 minutes
+          Here is everything you need to know in 4 minutes
         </motion.p>
         <div className="w-fit mx-auto mt-5 border-c-secondary border-[2px] rounded-[15px]">
           <DynamicReactPlayer
