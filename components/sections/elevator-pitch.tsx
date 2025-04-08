@@ -17,7 +17,7 @@ const ElevatorPitch = () => {
   const maxVideoWidth = 900;
 
   useEffect(() => {
-    if (asPath.includes(`#${SECTION_ID}`)) {
+    if (asPath.includes(`#company-overview`)) {
       const videoSection = document.getElementById(SECTION_ID);
       if (videoSection) {
         setTimeout(() => {
@@ -25,7 +25,7 @@ const ElevatorPitch = () => {
         }, 300);
       }
     }
-  }, [width]);
+  }, [width, asPath]);
 
   const getVideoWidth = () => {
     return Math.min(width! * videoRatio, maxVideoWidth);
