@@ -31,10 +31,10 @@ const NavActions = () => {
       </Link>
       <Link
         href=""
-        className={currentPageId === "elevator-pitch" ? "text-c-accent-green" : ""}
-        onClick={changePageScrollHandler.bind(null, 'elevator-pitch')}
+        className={currentPageId === "overview" ? "text-c-accent-green" : ""}
+        onClick={changePageScrollHandler.bind(null, 'overview')}
       >
-        Elevator pitch
+        Overview
       </Link>
       <Link
         href=""

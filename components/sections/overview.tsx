@@ -8,9 +8,9 @@ import { useRouter } from 'next/router';
 
 const VIDEO_URL = 'https://fast.wistia.net/embed/iframe/vdhtid2v50';
 const THUMBNAIL_URL = 'https://d1r0ovlr0podg3.cloudfront.net/imgs/elevator-pitch-video-thumbnail';
-const SECTION_ID = 'elevator-pitch';
+const SECTION_ID = 'overview';
 
-const ElevatorPitch = () => {
+const Overview = () => {
   const { width } = useWindowDimensions();
   const { asPath } = useRouter();
   const { videoRatio } = screenToVideoSizeRatio(width!);
@@ -71,4 +71,4 @@ const ElevatorPitch = () => {
   );
 };
 
-export default ElevatorPitch;
+export default Overview;
