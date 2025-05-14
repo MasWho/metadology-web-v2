@@ -46,8 +46,8 @@ const ContactLocation = () => {
           location="Chicago USA"
           street="58 North Chicago Road,"
           suburb="Joliet,"
-          city="Chicago 60432"
-          timezone="US/Pacific"
+          city="Illinois"
+          timezone="US/Central"
         />
         <div
           className={generateClasses({
@@ -75,7 +75,7 @@ const ContactLocation = () => {
           street="426 Seawind,"
           suburb="Lakeway TX 78734,"
           city="Texas"
-          timezone="US/Pacific"
+          timezone="US/Central"
         />
       </div>
       <div
